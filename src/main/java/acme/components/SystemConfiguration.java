@@ -26,6 +26,22 @@ public class SystemConfiguration extends AbstractEntity {
 //	 A weak spam threshold, which must be 25% by default.
 	
 	@NotBlank
-	protected final SystemCurrency defaultCurrency = SystemCurrency.EUR;
+	protected static final SystemCurrency defaultCurrency = SystemCurrency.EUR;
+	
+	@NotBlank
+	protected static final String acceptedCurrencies = SystemCurrency.EUR.toString() + SystemCurrency.GBP.toString() + SystemCurrency.USD.toString();
+		
+	@NotBlank
+	protected static final String strongSpamTerms = "sex, hard core, viagra, cialis";
+	
+	@NotBlank
+	protected static final Double strongThreshold = .1;
+	
+	@NotBlank
+	protected static final String weakSpamTerms = "sexy, nigeria, you’ve won, one mil-lion";
+	
+	@NotBlank
+	protected static final Double weakThreshold = .25;
+	
 
 }
