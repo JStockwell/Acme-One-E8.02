@@ -26,10 +26,6 @@ public class Announcement extends AbstractEntity{
 	
 //	Atributes
 	
-//	An announcement is a formal piece of news. The system must store the following data about them: a creation moment (in the past), a title (not blank, shorter 
-//	than 101 characters), a body (not blank, shorter than 256 characters), a flag to indicate whether they are critical or not, and an optional link with 
-//	further information.
-	
 	@NotBlank
 	@Temporal(TemporalType.DATE)
 	@Past
