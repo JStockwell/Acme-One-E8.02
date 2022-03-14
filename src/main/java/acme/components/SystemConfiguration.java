@@ -28,10 +28,16 @@ public class SystemConfiguration {
 	protected static final String strongSpamTerms = "sex, hard core, viagra, cialis";
 	
 	@NotBlank
+	protected static final String strongSpamTermsEsp = "sexo, hard core, viagra, cialis";
+	
+	@NotBlank
 	protected static final Double strongThreshold = .1;
 	
 	@NotBlank
 	protected static final String weakSpamTerms = "sexy, nigeria, you’ve won, one mil-lion";
+	
+	@NotBlank
+	protected static final String weakSpamTermsEsp = "sexy, nigeria, has ganado, un millón";
 	
 	@NotBlank
 	protected static final Double weakThreshold = .25;
