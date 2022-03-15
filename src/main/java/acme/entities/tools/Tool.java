@@ -7,6 +7,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -35,5 +36,6 @@ public class Tool {
 	@Min(value = 0L)
 	private Double price;
 	
+	@URL
 	private String link;
 }
