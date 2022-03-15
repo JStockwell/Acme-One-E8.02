@@ -1,9 +1,9 @@
 package acme.entities;
 
-import javax.annotation.MatchesPattern;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -30,7 +30,7 @@ public class Toolkit extends AbstractEntity{
 	
 	@NotBlank
 	@Column(unique = true)
-	@MatchesPattern(value = "^[A-Z]{3}-[0-9]{3}(-[A-Z])?$")
+	@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(-[A-Z])?$")
 	protected String code;
 	
 	@NotBlank
