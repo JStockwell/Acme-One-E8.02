@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
@@ -39,8 +40,8 @@ public class Announcement extends AbstractEntity{
 	@Length(max = 256)
 	protected String body;
 	
-	@NotBlank
-	protected Boolean critical;
+	@NotNull
+	protected boolean critical;
 	
 	@URL
 	protected String link;
