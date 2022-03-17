@@ -10,7 +10,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class SystemConfiguration extends AbstractEntity{
+public class SystemConfiguration extends AbstractEntity {
 	
 //	Serialization identifier
 	
@@ -26,28 +26,27 @@ public class SystemConfiguration extends AbstractEntity{
 //	 A weak spam threshold, which must be 25% by default.
 	
 	@NotBlank
-	protected static final SystemCurrency defaultCurrency = SystemCurrency.EUR;
+	protected SystemCurrency defaultCurrency;
 	
 	@NotBlank
-	protected static final String acceptedCurrencies = SystemCurrency.EUR.toString() + SystemCurrency.GBP.toString() + SystemCurrency.USD.toString();
+	protected String acceptedCurrencies;
 		
 	@NotBlank
-	protected static final String strongSpamTerms = "sex, hard core, viagra, cialis";
+	protected String strongSpamTerms;
 	
 	@NotBlank
-	protected static final String strongSpamTermsEsp = "sexo, hard core, viagra, cialis";
+	protected String strongSpamTermsEsp;
 	
 	@NotBlank
-	protected static final Double strongThreshold = .1;
+	protected Double strongThreshold;
 	
 	@NotBlank
-	protected static final String weakSpamTerms = "sexy, nigeria, you’ve won, one mil-lion";
+	protected String weakSpamTerms;
 	
 	@NotBlank
-	protected static final String weakSpamTermsEsp = "sexy, nigeria, has ganado, un millón";
+	protected String weakSpamTermsEsp;
 	
 	@NotBlank
-	protected static final Double weakThreshold = .25;
+	protected Double weakThreshold;
 	
-
 }
