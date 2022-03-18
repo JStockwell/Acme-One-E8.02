@@ -8,8 +8,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
 
-import org.apache.jasper.tagplugins.jstl.core.Url;
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.framework.datatypes.Money;
 import acme.framework.entities.AbstractEntity;
@@ -21,7 +21,12 @@ import lombok.Setter;
 @Setter
 public class Patronage extends AbstractEntity{
 
-	//create an enumerate
+	// Serialisation identif
+	protected static final long serialVersionUID = 1L;
+	
+	
+	// Attributes
+	
 	protected Status status;
 	
 	@Column(unique = true)
@@ -38,6 +43,7 @@ public class Patronage extends AbstractEntity{
 	//TODO at least one month after its creation
 	private Date patronageDate;
 	
-	private Url link;
+	@URL
+	private String link;
 	
 }
