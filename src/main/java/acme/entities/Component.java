@@ -23,11 +23,11 @@ import lombok.Setter;
 @Setter
 public class Component extends AbstractEntity{
 
-	// Serialisation identifier -----------------------------------------------
+	//Serialisation identifier 
 
 	protected static final long	serialVersionUID= 1L;
 
-	// Attributes -------------------------------------------------------------
+	//Attributes 
 
 	@NotBlank
 	@Length(min=1,max=101)
@@ -51,9 +51,6 @@ public class Component extends AbstractEntity{
 
 	@URL
 	protected String link;
-
-	// Derived attributes -----------------------------------------------------
-
-	// Relationships ----------------------------------------------------------
+	
 
 }
