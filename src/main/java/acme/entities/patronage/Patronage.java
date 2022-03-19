@@ -43,21 +43,18 @@ public class Patronage extends AbstractEntity{
 	private String legislation;
 	
 	@NotNull
-	//positive is not enough for this and since a complex constraint is needed we will wait until unit 4 for its implementation
+	//TODO positive is not enough for this and since a complex constraint is needed we will wait until unit 4 for its implementation
 	private Money budget;
 	
-	@NotNull
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date creationDate;
 	
 	//TODO at least one month after its creation
-	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date startDate;
 	
 	//TODO at least one month after its start
-	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date finishDate;
 	
