@@ -8,7 +8,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Dashboard implements Serializable {
+public class AdminDashboard implements Serializable {
 	
 	// Serialisation identifier -----------------------------------------------
 
