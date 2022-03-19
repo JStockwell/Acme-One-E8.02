@@ -45,9 +45,8 @@ public class Component extends AbstractEntity{
 	@Length(min=1,max=256)
 	protected String description;
 
-	@Positive
-	@NotNull	
-	protected Double retailPrice;
+	@Positive	
+	protected double retailPrice;
 
 	@URL
 	protected String link;
