@@ -1,9 +1,10 @@
-package acme.entities.tools;
+package acme.entities.item;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -17,7 +18,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @EqualsAndHashCode(of = "code")
-public class Tool {
+public class Item {
 
 	@NotBlank
 	@Length(max=100)
@@ -37,6 +38,9 @@ public class Tool {
 	
 	@Min(value = 0L)
 	private Double price;
+	
+	@NotNull
+	private ItemType itemType;
 	
 	@URL
 	private String link;
