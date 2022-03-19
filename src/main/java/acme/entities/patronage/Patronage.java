@@ -9,8 +9,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -43,10 +43,11 @@ public class Patronage extends AbstractEntity{
 	private String legislation;
 	
 	@NotNull
-	@Positive //not sure if this is enough
+	//positive is not enough for this and since a complex constraint is needed we will wait until unit 4 for its implementation
 	private Money budget;
 	
 	@NotNull
+	@Past
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date creationDate;
 	
