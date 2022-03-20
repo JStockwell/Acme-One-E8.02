@@ -1,13 +1,23 @@
-package acme.components;
+package acme.entities;
 
+import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
+import org.hibernate.validator.constraints.Range;
+
+import acme.framework.entities.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity
 @Getter
 @Setter
-public class SystemConfiguration {
+public class SystemConfiguration extends AbstractEntity {
+	
+//	Serialization identifier
+	
+	protected static final long serialVersionUID = 1l;
 	
 //	Atributes
 	
@@ -19,28 +29,23 @@ public class SystemConfiguration {
 //	 A weak spam threshold, which must be 25% by default.
 	
 	@NotBlank
-	protected static final SystemCurrency defaultCurrency = SystemCurrency.EUR;
+	@Pattern(regexp = "[A-Z]{3}")
+	protected String defaultCurrency;
 	
 	@NotBlank
-	protected static final String acceptedCurrencies = SystemCurrency.EUR.toString() + SystemCurrency.GBP.toString() + SystemCurrency.USD.toString();
+	@Pattern(regexp = "[A-Z]{3}, [A-Z]{3}, [A-Z]{3}")
+	protected String acceptedCurrencies;
 		
 	@NotBlank
-	protected static final String strongSpamTerms = "sex, hard core, viagra, cialis";
+	protected String strongSpamTerms;
+	
+	@Range(min = 0, max = 100)
+	protected double strongThreshold;
 	
 	@NotBlank
-	protected static final String strongSpamTermsEsp = "sexo, hard core, viagra, cialis";
+	protected String weakSpamTerms;
 	
-	@NotBlank
-	protected static final Double strongThreshold = .1;
+	@Range(min = 0, max = 100)
+	protected double weakThreshold;
 	
-	@NotBlank
-	protected static final String weakSpamTerms = "sexy, nigeria, you’ve won, one mil-lion";
-	
-	@NotBlank
-	protected static final String weakSpamTermsEsp = "sexy, nigeria, has ganado, un millón";
-	
-	@NotBlank
-	protected static final Double weakThreshold = .25;
-	
-
 }
