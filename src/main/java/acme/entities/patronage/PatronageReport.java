@@ -1,8 +1,10 @@
 package acme.entities.patronage;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -24,11 +26,12 @@ public class PatronageReport extends AbstractEntity{
 	private static final long serialVersionUID = 1L;
 	
 	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
 	@Past
-	protected LocalDate creation;
+	protected Date creation;
 	
 	@NotBlank
-	@Length(max = 256)
+	@Length(max = 255)
 	protected String memorandum;
 	
 	@URL
