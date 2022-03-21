@@ -171,25 +171,6 @@ link: String {URL}</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>819</x>
-      <y>531</y>
-      <w>540</w>
-      <h>135</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;Entity&gt;&gt;
-Configuration
---
-currency: String {NotBlank, Pattern("[A-Z]{3}"), Default('EUR')}
-currencies: String {NotBlank, Pattern("[A-Z]{3}, [A-Z]{3}, [A-Z]{3}"), Default('EUR,USD,GBP')}
-strong_spam_terms: String {NotBlank, Default("sex,hard core,viagra,cialis")}
-strong_spam_threshold: Double {Range(min = 0, max = 100), Default(10)}
-weak_spam_terms: String {NotBlank, Default("sexy,nigeria,you've won,one million")}
-weak_spam_threshold: Double {Range(min = 0, max = 100), Default(25)}</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
       <x>1539</x>
       <y>459</y>
       <w>342</w>
@@ -436,5 +417,24 @@ m1=1
 m2=0..n
 has</panel_attributes>
     <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>837</x>
+      <y>549</y>
+      <w>576</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+SystemConfiguration
+--
+defaultCurrency: String {NotBlank, Pattern("[A-Z]{3}")}
+acceptedCurrencies: String {NotBlank}
+strong_spam_terms: String {NotBlank}
+strong_spam_threshold: Double {Range(min = 0, max = 100), Default(10)}
+weak_spam_terms: String {NotBlank}
+weak_spam_threshold: Double {Range(min = 0, max = 100), Default(25)}</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
