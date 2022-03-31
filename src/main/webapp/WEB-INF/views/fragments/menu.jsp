@@ -48,6 +48,11 @@
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="https://www.realbetisbalompie.es/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.gendesign.co.jp/E_index.html"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.lists" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.lists.chirp" action="inventor/chirp/list" access="hasRole('Inventor')"/>
+			<acme:menu-suboption code="master.menu.lists.chirp" action="patron/chirp/list" access="hasRole('Patron')"/>
+		</acme:menu-option>
 	</acme:menu-left>
 
 	<acme:menu-right>
