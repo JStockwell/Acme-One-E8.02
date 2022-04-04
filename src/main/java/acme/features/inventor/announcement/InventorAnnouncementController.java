@@ -14,9 +14,13 @@ public class InventorAnnouncementController extends AbstractController<Inventor,
 
 	@Autowired
 	protected InventorAnnouncementListRecentService listRecent;
+
+	@Autowired
+	protected InventorAnnouncementShowService show;
 	
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("list", this.listRecent);
+		super.addCommand("show", this.show);
 	}
 }

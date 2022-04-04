@@ -15,4 +15,6 @@ public interface InventorAnnouncementRepository extends AbstractRepository{
 	@Query("select a from Announcement where a.creationMoment > :deadline")
 	Collection<Announcement> findRecentAnnouncements(Date deadline);
 
+	@Query("select a from Announcement where a.id = :id")
+	Announcement findOneAnnouncementById(int id);
 }
