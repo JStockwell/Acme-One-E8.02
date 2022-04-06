@@ -1,0 +1,4 @@
+key,status,code,legislation,budget,creation-date,start-date,finish-date,link,key:inventor
+patronage-02,Accepted,PTG-001-A,Legislation 2,EUR 52034,2021/10/31 06:40,2022/01/01 00:00,2032/01/01 00:00,https://www.acme.com,inventor-02
+patronage-03,Denied,PTG-003,L3g1sl4t10n,SCK 10.10,2020/11/27 14:37,2022/10/31 16:10,2023/01/01 00:00,https://www.acme.com,inventor-03
+patronage-01,Proposed,PTG-001,Legislation 1,CAD 150000,2022/02/02 12:30,2022/03/02 12:30,2022/04/02 12:30,https://www.acme.com,inventor-01
