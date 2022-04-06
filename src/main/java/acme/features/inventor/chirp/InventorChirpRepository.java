@@ -12,7 +12,7 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface InventorChirpRepository extends AbstractRepository{
 	
-	@Query("select c from Chirp where a.moment > :deadline")
+	@Query("select c from Chirp c where c.moment > :deadline")
 	Collection<Chirp> findRecentChirps(Date deadline);
 
 }
