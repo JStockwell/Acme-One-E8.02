@@ -1,0 +1,4 @@
+key,creationMoment,title,body,critical,link
+announcement-03,2022/04/01 16:04,Announcement 3,Happy new years!,false,https://www.acme.com
+announcement-02,2021/12/31 23:59,Announcement 2,This is a critical announcement!,true,https://www.acme.com
+announcement-01,2022/04/01 16:04,Announcement 1,This is an announcement!,false,https://www.acme.com
