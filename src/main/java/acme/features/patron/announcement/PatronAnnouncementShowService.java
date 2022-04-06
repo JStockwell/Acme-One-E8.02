@@ -1,4 +1,4 @@
-package acme.features.inventor.announcement;
+package acme.features.patron.announcement;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,10 +10,10 @@ import acme.framework.services.AbstractShowService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorAnnouncementShowService implements AbstractShowService<Inventor,Announcement>{
+public class PatronAnnouncementShowService implements AbstractShowService<Inventor,Announcement>{
 	
 	@Autowired
-	protected InventorAnnouncementRepository repository;
+	protected PatronAnnouncementRepository repository;
 	
 	@Override
 	public boolean authorise(final Request<Announcement> request) {

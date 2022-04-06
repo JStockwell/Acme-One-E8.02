@@ -12,9 +12,9 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface InventorAnnouncementRepository extends AbstractRepository{
 	
-	@Query("select a from Announcement where a.creationMoment > :deadline")
+	@Query("select a from Announcement a where a.creationMoment > :deadline")
 	Collection<Announcement> findRecentAnnouncements(Date deadline);
 
-	@Query("select a from Announcement where a.id = :id")
+	@Query("select a from Announcement a where a.id = :id")
 	Announcement findOneAnnouncementById(int id);
 }

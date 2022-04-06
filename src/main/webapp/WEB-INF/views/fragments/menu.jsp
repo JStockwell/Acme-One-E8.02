@@ -50,8 +50,8 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.lists" access="isAuthenticated()">
-			<acme:menu-suboption code="master.menu.lists.announcement" action="inventor/announcement/list" access="hasRole('Inventor')"/>
-			<acme:menu-suboption code="master.menu.lists.announcement" action="patron/announcement/list" access="hasRole('Patron')"/>
+			<acme:menu-suboption code="master.menu.lists.announcement" action="/inventor/announcement/list" access="hasRole('Inventor')"/>
+			<acme:menu-suboption code="master.menu.lists.announcement" action="/patron/announcement/list" access="hasRole('Patron')"/>
 		</acme:menu-option>
 	</acme:menu-left>
 
