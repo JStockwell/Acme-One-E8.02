@@ -1,0 +1,4 @@
+key,name,code,technology,description,retail-price,link
+component-01,Component 1,COM-001,Technology 1,Test Component 1,100.00,https://www.acme.com
+component-02,Component 2,COM-001-B,Technology 2,Another Test Component,2133,https://www.acme.com
+component-03,C0mp0n3nt,COM-003,Technology 3,$$$$$$$!!!!,23.3,https://www.acme.com
