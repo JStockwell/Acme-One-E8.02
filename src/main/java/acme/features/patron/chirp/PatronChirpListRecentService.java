@@ -49,7 +49,7 @@ public class PatronChirpListRecentService implements AbstractListService<Patron,
 		assert entity!= null;
 		assert model!= null;
 		
-		request.unbind(entity, model, "title", "moment","autor","body","mail");
+		request.unbind(entity, model, "title", "moment","author","body","mail");
 	}
 
 }
