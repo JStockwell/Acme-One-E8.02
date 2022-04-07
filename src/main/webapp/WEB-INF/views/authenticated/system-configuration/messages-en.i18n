@@ -1,0 +1,3 @@
+authenticated.system-configuration.list.label.acceptedCurrencies = Accepted Currencies
+authenticated.system-configuration.list.label.defaultCurrency = System Default Currency
+authenticated.system-configuration.list.label.currencies = Currencies
