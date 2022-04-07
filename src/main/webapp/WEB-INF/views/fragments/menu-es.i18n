@@ -52,4 +52,6 @@ master.menu.user-account.become-consumer = Hazte consumidor
 # master.menu.lists ####################################################
 
 master.menu.lists=Listas
+master.menu.lists.announcement = anuncio
 master.menu.lists.chirp = chirp
+
