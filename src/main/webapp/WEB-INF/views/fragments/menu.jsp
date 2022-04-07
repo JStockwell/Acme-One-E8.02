@@ -52,6 +52,11 @@
 		<acme:menu-option code="master.menu.system-configuration" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.system-configuration.currencies" action="/authenticated/user-account/list"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.lists" access="hasRole('Inventor') || hasRole('Patron')">
+			<acme:menu-suboption code="master.menu.lists.chirp" action="/inventor/chirp/list" access="hasRole('Inventor')"/>
+			<acme:menu-suboption code="master.menu.lists.chirp" action="/patron/chirp/list" access="hasRole('Patron')"/>
+		</acme:menu-option>
 	</acme:menu-left>
 
 	<acme:menu-right>
