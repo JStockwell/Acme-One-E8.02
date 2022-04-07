@@ -50,5 +50,7 @@ master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
 
 # master.menu.lists ####################################################
+
 master.menu.lists=Lists
 master.menu.lists.announcement = announcement
+master.menu.lists.chirp = chirp
