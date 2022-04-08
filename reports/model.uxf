@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1991</x>
-      <y>0</y>
+      <x>2024</x>
+      <y>99</y>
       <w>220</w>
       <h>110</h>
     </coordinates>
@@ -20,8 +20,8 @@ email: String {NotBlank}</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>330</x>
-      <y>88</y>
+      <x>363</x>
+      <y>187</y>
       <w>550</w>
       <h>143</h>
     </coordinates>
@@ -38,8 +38,8 @@ link: String {URL}</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>924</x>
-      <y>88</y>
+      <x>957</x>
+      <y>187</y>
       <w>550</w>
       <h>143</h>
     </coordinates>
@@ -56,8 +56,8 @@ email: String {email}</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1595</x>
-      <y>0</y>
+      <x>1628</x>
+      <y>99</y>
       <w>121</w>
       <h>99</h>
     </coordinates>
@@ -71,8 +71,8 @@ version:int</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1595</x>
-      <y>198</y>
+      <x>1628</x>
+      <y>297</y>
       <w>121</w>
       <h>99</h>
     </coordinates>
@@ -85,8 +85,8 @@ UserRole
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1914</x>
-      <y>198</y>
+      <x>1947</x>
+      <y>297</y>
       <w>374</w>
       <h>110</h>
     </coordinates>
@@ -101,8 +101,8 @@ enabled: boolean</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>308</x>
-      <y>693</y>
+      <x>341</x>
+      <y>792</y>
       <w>627</w>
       <h>121</h>
     </coordinates>
@@ -111,15 +111,15 @@ PatronageReport
 --
 sequence_number: String {NotBlank, Pattern(“^[A-Z]{3}-[0-9]{3}(-[A-Z])?$[:]^SW[0-9]{4}$”)}
 creation_moment: Date {NotNull,Temporal.DateTime}
-memorandum: String {NotBlank, Length(min=250)}
+memorandum: String {NotBlank, Length(max=250)}
 link: String {URL}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1100</x>
-      <y>308</y>
+      <x>1133</x>
+      <y>407</y>
       <w>396</w>
       <h>99</h>
     </coordinates>
@@ -134,8 +134,8 @@ link: String {URL}</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1100</x>
-      <y>451</y>
+      <x>1133</x>
+      <y>550</y>
       <w>396</w>
       <h>99</h>
     </coordinates>
@@ -150,8 +150,8 @@ link: String {URL}</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>330</x>
-      <y>341</y>
+      <x>363</x>
+      <y>440</y>
       <w>495</w>
       <h>187</h>
     </coordinates>
@@ -171,8 +171,8 @@ link: String {URL}</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>968</x>
-      <y>638</y>
+      <x>1001</x>
+      <y>737</y>
       <w>418</w>
       <h>176</h>
     </coordinates>
@@ -180,7 +180,7 @@ link: String {URL}</panel_attributes>
 Item
 --
 name: string {NotBlank, Length(max=100)}
-code: String {Pattern(“^[A-Z]{3}-[0-9]{3}(-[A-Z])?$”), unique)}
+code: String {NotBlank, Pattern(“^[A-Z]{3}-[0-9]{3}(-[A-Z])?$”), unique)}
 technology: String {NotBlank, Length(max=100)}
 description: String {NotBlank, Length(max=255)}
 retail_price: Money
@@ -191,29 +191,29 @@ type: ITEM_TYPE {NotNull}</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1540</x>
-      <y>715</y>
+      <x>1573</x>
+      <y>814</y>
       <w>209</w>
       <h>99</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Quantity
 --
-number: int {NotNull, min=1}</panel_attributes>
+number: int {min=1}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1683</x>
-      <y>528</y>
+      <x>1716</x>
+      <y>627</y>
       <w>418</w>
       <h>143</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Toolkit
 --
-code: String {Pattern(“^[A-Z]{3}-[0-9]{3}(-[A-Z])?$”), unique)}
+code: String {NotBlank, Pattern(“^[A-Z]{3}-[0-9]{3}(-[A-Z])?$”), unique)}
 title: String {NotBlank, Length(max=100)}
 description: String {NotBlank, Length(max=255)}
 assembly_notes: String {NotBlank, Length(max=255)}
@@ -223,8 +223,8 @@ link: String {URL}</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1507</x>
-      <y>605</y>
+      <x>1540</x>
+      <y>704</y>
       <w>121</w>
       <h>99</h>
     </coordinates>
@@ -238,8 +238,8 @@ COMPONENT</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>352</x>
-      <y>561</y>
+      <x>385</x>
+      <y>660</y>
       <w>187</w>
       <h>99</h>
     </coordinates>
@@ -254,8 +254,8 @@ DENIED</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1639</x>
-      <y>88</y>
+      <x>1672</x>
+      <y>187</y>
       <w>33</w>
       <h>132</h>
     </coordinates>
@@ -265,8 +265,8 @@ DENIED</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1639</x>
-      <y>88</y>
+      <x>1672</x>
+      <y>187</y>
       <w>484</w>
       <h>132</h>
     </coordinates>
@@ -276,8 +276,8 @@ DENIED</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2134</x>
-      <y>99</y>
+      <x>2167</x>
+      <y>198</y>
       <w>88</w>
       <h>121</h>
     </coordinates>
@@ -290,8 +290,8 @@ has info</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1705</x>
-      <y>231</y>
+      <x>1738</x>
+      <y>330</y>
       <w>231</w>
       <h>55</h>
     </coordinates>
@@ -304,8 +304,8 @@ has</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1485</x>
-      <y>242</y>
+      <x>1518</x>
+      <y>341</y>
       <w>132</w>
       <h>286</h>
     </coordinates>
@@ -315,8 +315,8 @@ has</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1485</x>
-      <y>242</y>
+      <x>1518</x>
+      <y>341</y>
       <w>132</w>
       <h>143</h>
     </coordinates>
@@ -326,8 +326,8 @@ has</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>814</x>
-      <y>484</y>
+      <x>847</x>
+      <y>583</y>
       <w>308</w>
       <h>55</h>
     </coordinates>
@@ -340,8 +340,8 @@ corresponds to</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>814</x>
-      <y>341</y>
+      <x>847</x>
+      <y>440</y>
       <w>308</w>
       <h>55</h>
     </coordinates>
@@ -354,8 +354,8 @@ gives</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>594</x>
-      <y>517</y>
+      <x>627</x>
+      <y>616</y>
       <w>88</w>
       <h>198</h>
     </coordinates>
@@ -368,8 +368,8 @@ is about</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>0</x>
-      <y>440</y>
+      <x>33</x>
+      <y>539</y>
       <w>308</w>
       <h>77</h>
     </coordinates>
@@ -382,8 +382,8 @@ one month after the actual date.
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>143</x>
-      <y>363</y>
+      <x>176</x>
+      <y>462</y>
       <w>209</w>
       <h>99</h>
     </coordinates>
@@ -393,8 +393,8 @@ one month after the actual date.
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1738</x>
-      <y>660</y>
+      <x>1771</x>
+      <y>759</y>
       <w>253</w>
       <h>132</h>
     </coordinates>
@@ -407,8 +407,8 @@ is about</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1375</x>
-      <y>726</y>
+      <x>1408</x>
+      <y>825</y>
       <w>187</w>
       <h>55</h>
     </coordinates>
@@ -421,8 +421,8 @@ has</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1595</x>
-      <y>341</y>
+      <x>1628</x>
+      <y>440</y>
       <w>704</w>
       <h>165</h>
     </coordinates>
@@ -430,18 +430,18 @@ has</panel_attributes>
 SystemConfiguration
 --
 defaultCurrency: String {NotBlank, Pattern("[A-Z]{3}")}
-acceptedCurrencies: String {NotBlank}
-strong_spam_terms: String {NotBlank}
-strong_spam_threshold: Double {Range(min = 0, max = 100), Default(10)}
-weak_spam_terms: String {NotBlank}
-weak_spam_threshold: Double {Range(min = 0, max = 100), Default(25)}</panel_attributes>
+acceptedCurrencies: String {NotBlank, Pattern("^\w+(?:(?:,\w+)+|(?:\s\w+)+)$")}
+strong_spam_terms: String {NotBlank, Pattern("^\w+(?:(?:,\w+)+|(?:\s\w+)+)$")}
+strong_spam_threshold: Double {Range(min = 0, max = 100)}
+weak_spam_terms: String {NotBlank, Pattern("^\w+(?:(?:,\w+)+|(?:\s\w+)+)$")}
+weak_spam_threshold: Double {Range(min = 0, max = 100)}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1188</x>
-      <y>539</y>
+      <x>1221</x>
+      <y>638</y>
       <w>55</w>
       <h>121</h>
     </coordinates>
@@ -454,8 +454,8 @@ has</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1485</x>
-      <y>517</y>
+      <x>1518</x>
+      <y>616</y>
       <w>220</w>
       <h>55</h>
     </coordinates>
