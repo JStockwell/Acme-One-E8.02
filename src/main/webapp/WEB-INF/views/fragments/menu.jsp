@@ -42,6 +42,7 @@
 			<acme:menu-suboption code="master.menu.lists.chirp" action="/patron/chirp/list" access="hasRole('Patron')"/>
 			<acme:menu-suboption code="master.menu.lists.component" action="/inventor/component/list" access="hasRole('Inventor')"/>
 			<acme:menu-suboption code="master.menu.lists.component" action="/patron/component/list" access="hasRole('Patron')"/>
+			<acme:menu-suboption code="master.menu.lists.patronage" action="/inventor/patronage/list" access="hasRole('Inventor')"/>
 		</acme:menu-option>
 	</acme:menu-left>
 
