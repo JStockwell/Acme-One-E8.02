@@ -1,4 +1,4 @@
-package acme.features.inventor.tool;
+package acme.features.tool;
 
 import java.util.Collection;
 
@@ -8,12 +8,12 @@ import org.springframework.stereotype.Service;
 import acme.entities.item.Item;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.roles.Any;
 import acme.framework.services.AbstractListService;
-import acme.roles.Inventor;
 
 
 @Service
-public class InventorToolListAllService implements AbstractListService<Inventor, Item>{
+public class InventorToolListAllService implements AbstractListService<Any, Item>{
 
 	// Internal state -------------------------------------
 	

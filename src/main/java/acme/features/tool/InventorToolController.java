@@ -1,5 +1,4 @@
-package acme.features.patron.tool;
-
+package acme.features.tool;
 
 import javax.annotation.PostConstruct;
 
@@ -8,19 +7,19 @@ import org.springframework.stereotype.Controller;
 
 import acme.entities.item.Item;
 import acme.framework.controllers.AbstractController;
-import acme.roles.Patron;
+import acme.framework.roles.Any;
 
 @Controller
-public class PatronToolController extends AbstractController<Patron, Item>{
+public class InventorToolController extends AbstractController<Any, Item>{
 	
 	
 	// Internal state --------------------------------------------
 	
 	@Autowired
-	protected PatronToolListAllService	listAllService;
+	protected InventorToolListAllService	listAllService;
 	
 	@Autowired
-	protected PatronToolShowService		showService;
+	protected InventorToolShowService		showService;
 	
 	// Constructors ----------------------------------------------
 	

@@ -1,4 +1,4 @@
-package acme.features.patron.tool;
+package acme.features.tool;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import acme.entities.item.Item;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface PatronToolRepository extends AbstractRepository{
+public interface InventorToolRepository extends AbstractRepository{
 	
 	@Query("select i from Item i where i.id = :id")
 	Item findOneItemById(int id);

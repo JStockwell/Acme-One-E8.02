@@ -1,4 +1,4 @@
-package acme.features.inventor.tool;
+package acme.features.tool;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -6,11 +6,11 @@ import org.springframework.stereotype.Service;
 import acme.entities.item.Item;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.roles.Any;
 import acme.framework.services.AbstractShowService;
-import acme.roles.Inventor;
 
 @Service
-public class InventorToolShowService implements AbstractShowService<Inventor, Item> {
+public class InventorToolShowService implements AbstractShowService<Any, Item> {
 
 
 	// Internal state -------------------------------------------
