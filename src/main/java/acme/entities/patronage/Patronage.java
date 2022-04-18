@@ -64,11 +64,6 @@ public class Patronage extends AbstractEntity{
 	
 	// Relationships --------------------------------------------------------------------
 	
-	/*
-	@OneToMany (dont use this)
-	private Report report;
-	 */
-	
 	@ManyToOne
 	@NotNull
 	private Inventor inventor;
