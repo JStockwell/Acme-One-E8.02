@@ -1,0 +1,6 @@
+tool.name = name
+tool.description = description
+tool.code = code
+tool.technology = technology
+tool.retailPrice = retailPrice
+tool.link = link
