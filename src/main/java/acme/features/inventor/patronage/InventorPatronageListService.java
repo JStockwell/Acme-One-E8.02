@@ -21,16 +21,20 @@ public class InventorPatronageListService implements AbstractListService<Invento
 	@Override
 	public boolean authorise(final Request<Patronage> request) {
 		assert request != null;
+		
 		return true;
 	}
 
 	@Override
 	public Collection<Patronage> findMany(final Request<Patronage> request) {
 		assert request != null;
+		
 		Collection<Patronage> res;
-		int id;
-		id =  request.getModel().getInteger("id");
-		res = this.repository.findAllByInventorId(id);
+		int masterId;
+		
+		masterId =  request.getPrincipal().getActiveRoleId();
+		res = this.repository.findAllByInventorId(masterId);
+		
 		return res;
 	}
 

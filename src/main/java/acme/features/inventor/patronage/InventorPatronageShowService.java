@@ -20,16 +20,20 @@ public class InventorPatronageShowService implements AbstractShowService<Invento
 	@Override
 	public boolean authorise(final Request<Patronage> request) {
 		assert request != null;
+		
 		return true;
 	}
 
 	@Override
 	public Patronage findOne(final Request<Patronage> request) {
 		assert request != null;
+		
 		Patronage res;
 		int id;
+		
 		id = request.getModel().getInteger("id");
 		res = this.repository.findPatronageById(id);
+		
 		return res;
 	}
 
@@ -40,8 +44,7 @@ public class InventorPatronageShowService implements AbstractShowService<Invento
 		assert model != null;
 		
 		request.unbind(entity, model, "code", "legislation", "budget", "creationDate", "startDate", "finishDate", "link");
-		model.setAttribute("confirmation", false);
-		model.setAttribute("readonly", true);
+		model.setAttribute("Patron", entity); //Put here the attribute like in workerApplicationShowService
 	}
 	
 
