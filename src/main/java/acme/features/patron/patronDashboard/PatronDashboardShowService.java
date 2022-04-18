@@ -1,4 +1,4 @@
-package acme.entities.patronage.dashboard;
+package acme.features.patron.patronDashboard;
 
 import java.util.Map;
 
@@ -29,18 +29,20 @@ public class PatronDashboardShowService implements AbstractShowService<Patron, P
 		PatronDashboard result;
 		Map<String, Integer> totalPatronages;
 		Map<String, Double> averagePatronageBudgetPerState;
-		//Map<String, Double> deviationPatronageBudgetPerState;
+		Map<String, Double> deviationPatronageBudgetPerState;
 		Map<String, Double> minimumPatronageBudgetPerState;
 		Map<String, Double> maximumPatronageBudgetPerState;
 		
 		totalPatronages = this.repository.totalPatronage(request.getPrincipal().getActiveRoleId());
 		averagePatronageBudgetPerState = this.repository.averagePatronageBudgetPerStatus(request.getPrincipal().getActiveRoleId());
+		deviationPatronageBudgetPerState = this.repository.deviationPatronageBudgetPerState(request.getPrincipal().getActiveRoleId());
 		minimumPatronageBudgetPerState = this.repository.minimumPatronageBudgetPerState(request.getPrincipal().getActiveRoleId());
 		maximumPatronageBudgetPerState = this.repository.maximumPatronageBudgetPerState(request.getPrincipal().getActiveRoleId());
 		
 		result = new PatronDashboard();
 		result.setTotalPatronages(totalPatronages);
 		result.setAveragePatronageBudgetPerState(averagePatronageBudgetPerState);
+		result.setDeviationPatronageBudgetPerState(deviationPatronageBudgetPerState);
 		result.setMinimumPatronageBudgetPerState(minimumPatronageBudgetPerState);
 		result.setMaximumPatronageBudgetPerState(maximumPatronageBudgetPerState);
 		
@@ -49,7 +51,13 @@ public class PatronDashboardShowService implements AbstractShowService<Patron, P
 
 	@Override
 	public void unbind(final Request<PatronDashboard> request, final PatronDashboard entity, final Model model) {
-		// TODO Auto-generated method stub
+		assert request != null;
+		assert entity != null;
+		assert model != null;
+
+		request.unbind(entity, model, 
+			"totalPatronages", "averagePatronageBudgetPerState", "deviationPatronageBudgetPerState",
+			"minimumPatronageBudgetPerState", "maximumPatronageBudgetPerState");
 		
 	}
 

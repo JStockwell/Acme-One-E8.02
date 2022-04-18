@@ -1,4 +1,4 @@
-package acme.entities.patronage.dashboard;
+package acme.features.patron.patronDashboard;
 
 import javax.annotation.PostConstruct;
 

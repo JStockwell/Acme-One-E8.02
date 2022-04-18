@@ -1,4 +1,4 @@
-package acme.entities.patronage.dashboard;
+package acme.features.patron.patronDashboard;
 
 import java.util.Map;
 
@@ -19,4 +19,7 @@ public interface PatronDashboardRepository extends AbstractRepository{
 	
 	@Query("select p.status, max(p.budget.amount) from Patronage p where p.patron.id =:patronId group by p.status")
 	Map<String, Double> maximumPatronageBudgetPerState(int patronId);
+	
+	@Query("select p.status, stddev(p.budget.amount) from Patronage p where p.patron.id =:patronId group by p.status")
+	Map<String, Double> deviationPatronageBudgetPerState(int patronId);
 }
