@@ -1,4 +1,4 @@
 key,name,code,technology,description,price,item-type,link
-item-01,Item 1,ITM-001,Technology 1,This is an item!,4,TOOL,https://www.acme.com
-item-02,Item 2,ITM-001-A,Technology 2,This is another item!,102.99,COMPONENT,https://www.acme.com
-item-03,It3m,ITM-003,T3chn0l0gy,^&!*@#$,30.01,TOOL,https://www.acme.com
+item-01,Item 1,ITM-001,Technology 1,This is an item!,EUR 4.00,TOOL,https://www.acme.com
+item-02,Item 2,ITM-001-A,Technology 2,This is another item!,USD 102.99,COMPONENT,https://www.acme.com
+item-03,It3m,ITM-003,T3chn0l0gy,^&!*@#$,CAD 30.01,TOOL,https://www.acme.com
