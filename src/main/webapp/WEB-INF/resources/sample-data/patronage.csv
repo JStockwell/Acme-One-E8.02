@@ -1,0 +1,7 @@
+key,status,code,legislation,budget,creation-date,start-date,finish-date,link,key:inventor,key:patron
+patronage-02,Accepted,PTG-001-A,Legislation 2,EUR 52034,2021/10/31 06:40,2022/01/01 00:00,2032/01/01 00:00,https://www.acme.com,inventor-02,patron-01
+patronage-03,Denied,PTG-003,L3g1sl4t10n,USD 10.10,2020/11/27 14:37,2022/10/31 16:10,2023/01/01 00:00,https://www.acme.com,inventor-03,patron-03
+patronage-01,Proposed,PTG-001,Legislation 1,CAD 150000,2022/02/02 12:30,2022/03/02 12:30,2022/04/02 12:30,https://www.acme.com,inventor-01,patron-02
+patronage-04,Accepted,PTG-002,時由工獲生光,EUR 1000.00,1342/07/13 01:00,1342/07/13 01:01,2342/07/13 01:01,https://ming.dinasty,inventor-01,patron-03
+patronage-05,Proposed,PTG-004,áééááéáéóíúóíúóíú,USD 420.00,0001/01/01 00:00,2000/01/01 00:00,2010/12/31 23:59,https://sheraz.com,inventor-03,patron-02
+patronage-06,Denied,PTG-999-Z,Legislación Número,CAD 1643.92,2014/08/30 19:41,2016/09/02 14:19,2016/09/26 06:57,https://entertainment.us.es,inventor-02,patron-01

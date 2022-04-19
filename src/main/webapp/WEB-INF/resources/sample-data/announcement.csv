@@ -1,0 +1,7 @@
+key,creationMoment,title,body,critical,link
+announcement-03,2022/04/01 16:04,Announcement 3,Happy new years!,false,https://www.acme.com
+announcement-02,2021/12/31 23:59,Announcement 2,This is a critical announcement!,true,https://www.acme.com
+announcement-01,2022/04/01 16:04,Announcement 1,This is an announcement!,false,https://www.acme.com
+announcement-04,1900/01/01 00:00,$^&#*!()@#@!传/傳,会意字 / 會意字,true,https://www.notworking.co.uk/hello?t=42s
+announcement-05,0001/12/31 23:59,áßðé®,"óí,./;l'[]\\{}",false,https://a.ru
+announcement-06,2001/03/08 23:15,¡Nació el bebé!,En el día de la mujer,true,https://bebe.es/muy-guapo

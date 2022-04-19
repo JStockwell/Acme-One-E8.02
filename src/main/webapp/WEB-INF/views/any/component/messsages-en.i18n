@@ -1,0 +1,6 @@
+component.name = name
+component.description = description
+component.code = code
+component.technology = technology
+component.retailPrice = retailPrice
+component.link = link
