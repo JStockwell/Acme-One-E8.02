@@ -44,6 +44,11 @@
 			<acme:menu-suboption code="master.menu.lists.chirp" action="/any/chirp/list"/>
 			<acme:menu-suboption code="master.menu.lists.component" action="/any/component/list"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.lists" access="hasRole('Inventor')">
+      		<acme:menu-suboption code="master.menu.lists.patronage" action="/inventor/patronage/list"/>
+		</acme:menu-option>
+		
 	</acme:menu-left>
 
 	<acme:menu-right>
