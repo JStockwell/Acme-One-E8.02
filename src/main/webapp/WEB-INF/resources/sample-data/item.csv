@@ -2,3 +2,6 @@ key,name,code,technology,description,price,item-type,link
 item-01,Item 1,ITM-001,Technology 1,This is an item!,EUR 4.00,TOOL,https://www.acme.com
 item-02,Item 2,ITM-001-A,Technology 2,This is another item!,USD 102.99,COMPONENT,https://www.acme.com
 item-03,It3m,ITM-003,T3chn0l0gy,^&!*@#$,CAD 30.01,TOOL,https://www.acme.com
+item-04,南：了司,ITM-004,（文章？）,的判斷。文字、標點符號出現機率大致符合台灣文章習慣。聽說很多學排版的都會用這個工具。,CAD 493.09,COMPONENT,https://dang.it
+item-05,áéáéáéáóíú,ITM-004-G,@&*(#)!^&(#,ððßßß©æ®æ©,EUR 0.01,TOOL,https://oh.no
+item-06,Componentes 12,ITM-999-Z,Tecnologías 543,Hay descripciones?,USD 4112.07,TOOL,https://what.is/goingon

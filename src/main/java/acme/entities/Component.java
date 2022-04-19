@@ -5,11 +5,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.framework.datatypes.Money;
 import acme.framework.entities.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -44,8 +44,7 @@ public class Component extends AbstractEntity{
 	@Length(max=255)
 	protected String description;
 
-	@Positive	
-	protected double retailPrice;
+	protected Money retailPrice;
 
 	@URL
 	protected String link;

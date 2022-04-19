@@ -1,4 +1,7 @@
 key,name,code,technology,description,retail-price,link
-component-01,Component 1,COM-001,Technology 1,Test Component 1,100.00,https://www.acme.com
-component-02,Component 2,COM-001-B,Technology 2,Another Test Component,2133,https://www.acme.com
-component-03,C0mp0n3nt,COM-003,Technology 3,$$$$$$$!!!!,23.3,https://www.acme.com
+component-01,Component 1,COM-001,Technology 1,Test Component 1,EUR 100.00,https://www.acme.com
+component-02,Component 2,COM-001-B,Technology 2,Another Test Component,USD 2133,https://www.acme.com
+component-03,C0mp0n3nt,COM-003,Technology 3,$$$$$$$!!!!,CAD 23.3,https://www.acme.com
+component-04,這要幹嘛的？,COM-004,亂數假文,Chinese Lorem Ipsum,USD 10000.99,https://china.ch
+component-05,!^@&*($@#&*(,COM-004-Z,Tecnología 6,ááááééééúíóúúíóú,EUR 0.99,https://www.test.es
+component-06,Componente 40,COM-999-Z,Tecnología 99999,Componente prueba,USD 3214.12,https://pruebas.co.uk
