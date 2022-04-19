@@ -30,3 +30,6 @@ mvnw
 
 mvnw\.cmd
 /bin/
+
+./logs
+*.log
