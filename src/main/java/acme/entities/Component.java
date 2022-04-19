@@ -4,12 +4,13 @@ package acme.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.framework.datatypes.Money;
 import acme.framework.entities.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,7 +30,7 @@ public class Component extends AbstractEntity{
 	//Attributes 
 
 	@NotBlank
-	@Length(max=100)
+	@Length(min=1,max=100)
 	protected String name;
 
 	@Column(unique=true)
@@ -37,14 +38,15 @@ public class Component extends AbstractEntity{
 	protected String code;
 
 	@NotBlank
-	@Length(max=100)
+	@Length(min=1,max=100)
 	protected String technology;
 
 	@NotBlank
-	@Length(max=255)
+	@Length(min=1,max=256)
 	protected String description;
 
-	protected Money retailPrice;
+	@Positive	
+	protected double retailPrice;
 
 	@URL
 	protected String link;

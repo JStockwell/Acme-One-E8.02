@@ -34,11 +34,19 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
 		</acme:menu-option>
-		
-		<acme:menu-option code="master.menu.lists" access="hasRole('Inventor') || hasRole('Patron')">
-      		<acme:menu-suboption code="master.menu.lists.announcement" action="/any/announcement/list"/>
-			<acme:menu-suboption code="master.menu.lists.chirp" action="/any/chirp/list"/>
-			<acme:menu-suboption code="master.menu.lists.component" action="/any/component/list"/>
+
+		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
+			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
+			<acme:menu-suboption code="master.menu.provider.favourite-link" action="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
+			<acme:menu-suboption code="master.menu.provider.favourite-link" action="https://www.realbetisbalompie.es/"/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.gendesign.co.jp/E_index.html"/>
+		</acme:menu-option>
+
+		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
+			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
+			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
+			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="https://www.realbetisbalompie.es/"/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.gendesign.co.jp/E_index.html"/>
 		</acme:menu-option>
 	</acme:menu-left>
 

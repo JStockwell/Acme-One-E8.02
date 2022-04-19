@@ -18,7 +18,6 @@ import org.hibernate.validator.constraints.URL;
 import acme.framework.datatypes.Money;
 import acme.framework.entities.AbstractEntity;
 import acme.roles.Inventor;
-import acme.roles.Patron;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -65,9 +64,10 @@ public class Patronage extends AbstractEntity{
 	
 	// Relationships --------------------------------------------------------------------
 	
-	@ManyToOne
-	@NotNull
-	private Patron patron;
+	/*
+	@OneToMany (dont use this)
+	private Report report;
+	 */
 	
 	@ManyToOne
 	@NotNull
