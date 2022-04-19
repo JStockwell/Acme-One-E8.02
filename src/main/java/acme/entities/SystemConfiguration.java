@@ -2,6 +2,7 @@ package acme.entities;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Range;
@@ -29,22 +30,26 @@ public class SystemConfiguration extends AbstractEntity {
 //	 A weak spam threshold, which must be 25% by default.
 	
 	@NotBlank
-	@Pattern(regexp = "[A-Z]{3}")
+	@Pattern(regexp = "\"[A-Z]{3}\"")
 	protected String defaultCurrency;
 	
 	@NotBlank
-	@Pattern(regexp = "[A-Z]{3}, [A-Z]{3}, [A-Z]{3}")
+	@Pattern(regexp = "[\"[A-Z]{3}\"?,]*")
 	protected String acceptedCurrencies;
 		
 	@NotBlank
+	@Pattern(regexp = "[\"[a-zA-Z\\p{Zs}ñÑáÁéÉíÍóÓúÚ’-]\"?,]*")
 	protected String strongSpamTerms;
 	
+	@NotNull
 	@Range(min = 0, max = 100)
 	protected double strongThreshold;
 	
 	@NotBlank
+	@Pattern(regexp = "[\"[a-zA-Z\\p{Zs}ñÑáÁéÉíÍóÓúÚ’-]\"?,]*")
 	protected String weakSpamTerms;
 	
+	@NotNull
 	@Range(min = 0, max = 100)
 	protected double weakThreshold;
 	
