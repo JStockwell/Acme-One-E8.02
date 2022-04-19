@@ -11,17 +11,15 @@ import acme.framework.roles.Authenticated;
 
 @Controller
 public class AuthenticatedSystemConfigurationController extends AbstractController<Authenticated, SystemConfiguration> {
-
-	// Internal State ---------------------------------------------------------------------------------
 	
+	// Internal State
 	@Autowired
-	protected AuthenticatedSystemConfigurationGetSystemConfiguration getSystemConfiguration;
+	protected AuthenticatedSystemConfigurationShowService show;
 	
+	// Constructors
 	
-	// Constructors -----------------------------------------------------------------------------------
 	@PostConstruct
-	protected void initialise() {
-		super.addCommand("get-system-configuration", this.getSystemConfiguration);
+	protected void initailize() {
+		super.addCommand("show", this.show);
 	}
-	
 }

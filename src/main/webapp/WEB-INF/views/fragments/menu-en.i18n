@@ -57,7 +57,11 @@ master.menu.user-account.become-consumer = Become a consumer
 # master.menu.lists ####################################################
 
 master.menu.lists=Lists
-master.menu.lists.announcement = announcement
-master.menu.lists.chirp = chirp
-master.menu.lists.component = component
-master.menu.lists.patronage = patronage
+master.menu.lists.any=Any Lists
+master.menu.lists.inventor=Inventor Lists
+master.menu.lists.authenticated=Authenticated Lists
+master.menu.lists.announcement = Announcement
+master.menu.lists.chirp = Chirp
+master.menu.lists.component = Component
+master.menu.lists.patronage = Patronage
+master.menu.lists.system-configuration = System Configuration

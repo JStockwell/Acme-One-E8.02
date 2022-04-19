@@ -1,3 +1,6 @@
-authenticated.system-configuration.list.label.acceptedCurrencies = Accepted Currencies
-authenticated.system-configuration.list.label.defaultCurrency = System Default Currency
-authenticated.system-configuration.list.label.currencies = Currencies
+authenticated.system-configuration.form.label.accepted-currencies=Accepted Currencies
+authenticated.system-configuration.form.label.default-currency=Default Currency
+authenticated.system-configuration.form.label.strong-spam-terms=Strong Spam Terms
+authenticated.system-configuration.form.label.strong-threshold=Strong Threshold
+authenticated.system-configuration.form.label.weak-spam-terms=Weak Spam Terms
+authenticated.system-configuration.form.label.weak-threshold=Weak Threshold
