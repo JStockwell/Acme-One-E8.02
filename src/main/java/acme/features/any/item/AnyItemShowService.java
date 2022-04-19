@@ -1,32 +1,32 @@
-package acme.features.any.component;
+package acme.features.any.item;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Component;
+import acme.entities.item.Item;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.roles.Any;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class AnyComponentShowService implements AbstractShowService<Any,Component>{
+public class AnyItemShowService implements AbstractShowService<Any,Item>{
 	
 	@Autowired
-	protected AnyComponentRepository repository;
+	protected AnyItemRepository repository;
 	
 	@Override
-	public boolean authorise(final Request<Component> request) {
+	public boolean authorise(final Request<Item> request) {
 		assert request != null;
 		
 		return true;
 	}
 	
 	@Override 
-	public Component findOne(final Request<Component> request){
+	public Item findOne(final Request<Item> request){
 		assert request !=null;
 		
-		Component res;
+		Item res;
 		int id;
 		
 		id=request.getModel().getInteger("id");
@@ -36,12 +36,12 @@ public class AnyComponentShowService implements AbstractShowService<Any,Componen
 	}
 	
 	@Override
-	public void unbind(final Request<Component> request,final Component entity,final Model model) {
+	public void unbind(final Request<Item> request,final Item entity,final Model model) {
 		assert request!= null;
 		assert entity!= null;
 		assert model!= null;
 		
-		request.unbind(entity, model, "name", "code","technology","description","retailPrice","link");
+		request.unbind(entity, model, "name", "code","technology","description","retailPrice","link","itemType");
 	}
 
 }

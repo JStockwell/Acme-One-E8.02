@@ -5,6 +5,7 @@
 
 <acme:list>
 	<acme:list-column code="component.name" path="name" width="40%"/>
-	<acme:list-column code="component.technology" path="technology" width="40%"/>
+	<acme:list-column code="component.technology" path="technology" width="20%"/>
 	<acme:list-column code="component.retailPrice" path="retailPrice" width="20%"/>
+	<acme:list-column code="component.itemtype" path="itemType" width="20%"/>
 </acme:list>

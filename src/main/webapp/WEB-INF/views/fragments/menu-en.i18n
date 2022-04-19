@@ -33,7 +33,7 @@ master.menu.administrator.shut-down = Shut down
 # master.menu.inventor ########################################################
 
 master.menu.inventor = Inventor
-master.menu.inventor.mycomponents = My components
+master.menu.inventor.myitems = My items
 
 # master.menu.patron ##########################################################
 
@@ -53,5 +53,5 @@ master.menu.user-account.become-consumer = Become a consumer
 master.menu.lists=Lists
 master.menu.lists.announcement = announcement
 master.menu.lists.chirp = chirp
-master.menu.lists.component = component
+master.menu.lists.item = item
 master.menu.lists.patronage = patronage

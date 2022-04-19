@@ -33,7 +33,7 @@ master.menu.administrator.shut-down = Parar el sistema
 # master.menu.inventor ########################################################
 
 master.menu.inventor = Inventor
-master.menu.inventor.mycomponents = Mis componentes
+master.menu.inventor.myitems = Mis items
 
 # master.menu.patron ##########################################################
 
@@ -53,5 +53,5 @@ master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.lists=Listas
 master.menu.lists.announcement = anuncio
 master.menu.lists.chirp = chirp
-master.menu.lists.component = componente
+master.menu.lists.item = item
 master.menu.lists.patronage = patronazgo

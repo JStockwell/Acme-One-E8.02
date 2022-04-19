@@ -1,22 +1,22 @@
-package acme.features.inventor.component;
+package acme.features.inventor.item;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import acme.entities.Component;
+import acme.entities.item.Item;
 import acme.framework.controllers.AbstractController;
 import acme.roles.Inventor;
 
 @Controller
-public class InventorComponentController extends AbstractController<Inventor,Component>{
+public class InventorItemController extends AbstractController<Inventor,Item>{
 
 	@Autowired
-	protected InventorComponentListService listRecent;
+	protected InventorItemListService listRecent;
 
 	@Autowired
-	protected InventorComponentShowService show;
+	protected InventorItemShowService show;
 	
 	@PostConstruct
 	protected void initialise() {

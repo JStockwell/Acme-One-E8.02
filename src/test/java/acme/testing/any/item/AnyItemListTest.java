@@ -1,4 +1,4 @@
-package acme.testing.any.component;
+package acme.testing.any.item;
 
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -6,10 +6,10 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.TestHarness;
 
-public class AnyComponentListTest extends TestHarness{
+public class AnyItemListTest extends TestHarness{
 	
 	@ParameterizedTest
-	@CsvFileSource(resources="/any/component/list.csv",encoding="utf-8",numLinesToSkip=1)
+	@CsvFileSource(resources="/any/item/list.csv",encoding="utf-8",numLinesToSkip=1)
 	@Order(10)
 	public void positiveTest(final int recordIndex, final String name, final String technology, final String retailPrice) {
 		super.signIn("inventor1", "inventor1");
