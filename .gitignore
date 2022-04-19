@@ -33,3 +33,5 @@ mvnw\.cmd
 
 ./logs
 *.log
+logs/populator.log
+logs/application.log

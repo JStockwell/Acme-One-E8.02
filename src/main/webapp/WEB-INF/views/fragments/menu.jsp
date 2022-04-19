@@ -35,14 +35,18 @@
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.lists" access="hasRole('Inventor') || hasRole('Patron')">
+		<acme:menu-option code="master.menu.lists.any" access="hasRole('Inventor') || hasRole('Patron')">
       		<acme:menu-suboption code="master.menu.lists.announcement" action="/any/announcement/list"/>
 			<acme:menu-suboption code="master.menu.lists.chirp" action="/any/chirp/list"/>
 			<acme:menu-suboption code="master.menu.lists.component" action="/any/component/list"/>
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.lists" access="hasRole('Inventor')">
+		<acme:menu-option code="master.menu.lists.inventor" access="hasRole('Inventor')">
       		<acme:menu-suboption code="master.menu.lists.patronage" action="/inventor/patronage/list"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.lists.authenticated" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.lists.system-configuration" action="/authenticated/system-configuration/list"/>
 		</acme:menu-option>
 		
 	</acme:menu-left>
