@@ -5,3 +5,4 @@ patronage.creationDate=fechaCreacion
 patronage.startDate=fechaInicio
 patronage.finishDate=fechaFin
 patronage.link=link
+patronage.patron=patronId
