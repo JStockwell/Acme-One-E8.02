@@ -5,5 +5,5 @@ item.technology = technology
 item.retailPrice = retailPrice
 item.link = link
 item.itemtype = item type
-item.itemtype.tool = tool
-item.itemtype.component = component
+item.itemtype.tool = TOOL
+item.itemtype.component = COMPONENT
