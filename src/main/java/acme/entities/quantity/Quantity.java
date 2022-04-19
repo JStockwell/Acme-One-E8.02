@@ -25,6 +25,7 @@ public class Quantity extends AbstractEntity{
 	@ManyToOne(optional = false)
 	protected Item item;
 	
-	protected int itemQuantity;
+	@NotNull
+	protected Integer itemQuantity;
 
 }
