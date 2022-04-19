@@ -14,7 +14,7 @@ public class AnyItemListTest extends TestHarness{
 	public void positiveTest(final int recordIndex, final String name, final String technology, final String retailPrice) {
 		super.signIn("inventor1", "inventor1");
 
-		super.clickOnMenu("List", "Component");
+		super.clickOnMenu("List", "Item");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		
