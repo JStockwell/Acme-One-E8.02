@@ -1,8 +1,8 @@
 package acme.features.any.userAccount;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,9 +33,15 @@ public class AnyUserAccountListService implements AbstractListService<Any, UserA
 	@Override
 	public Collection<UserAccount> findMany(final Request<UserAccount> request) {
 		assert request != null;
+		final List<UserAccount> filtered = new ArrayList<UserAccount>();
 		final Collection<UserAccount> accounts = this.repository.findEnabledUserAccounts();
-		final Stream<UserAccount> filtered = accounts.stream().filter(e -> !e.isAnonymous() && !e.hasRole(Administrator.class));
-		return filtered.collect(Collectors.toList());
+		for(final UserAccount ua: accounts) {
+			if(!ua.isAnonymous() && !ua.hasRole(Administrator.class)){
+				filtered.add(ua);
+				
+			}
+		}
+		return filtered;
 	}
 
 	@Override
