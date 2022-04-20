@@ -24,7 +24,7 @@ public class AnyUserAccountShowService implements AbstractShowService<Any, UserA
 		boolean result;
 		int id;
 		id = request.getModel().getInteger("id");
-		final UserAccount ua = this.repository.findOneUserAccountById(id);
+		final UserAccount ua = this.repository.findUserAccountById(id);
 		result = !ua.isAnonymous() && !ua.hasRole(Administrator.class);
 		return result;
 	}
@@ -35,7 +35,7 @@ public class AnyUserAccountShowService implements AbstractShowService<Any, UserA
 		UserAccount result;
 		int id;
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneUserAccountById(id);
+		result = this.repository.findUserAccountById(id);
 		return result;
 	}
 

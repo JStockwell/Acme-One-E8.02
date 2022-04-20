@@ -12,15 +12,12 @@ import acme.framework.roles.Any;
 @Controller
 public class AnyUserAccountController extends AbstractController<Any, UserAccount> {
 
-	// Internal state ----------------------------- ----------------------------
 
 	@Autowired
 	protected AnyUserAccountListService	listService;
 
 	@Autowired
 	protected AnyUserAccountShowService	showService;
-
-	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
