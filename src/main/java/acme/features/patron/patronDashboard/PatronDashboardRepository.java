@@ -1,25 +1,26 @@
 package acme.features.patron.patronDashboard;
 
-import java.util.Map;
-
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
+import acme.entities.patronage.Status;
 import acme.framework.repositories.AbstractRepository;
 
+@Repository
 public interface PatronDashboardRepository extends AbstractRepository{
 	
-	@Query("select p.status, count(p) from Patronage p where p.patron.id =:patronId group by p.status")
-	Map<String, Integer> totalPatronage(int patronId);
+	@Query("select count(p) from Patronage p where p.patron.id =:patronId and p.status =:status")
+	Integer totalPatronage(int patronId, Status status);
 	
-	@Query("select p.status, sum(p.budget.amount)/(select count(q) from Patronage q where q.patron.id =:patronId) from Patronage p where p.patron.id =:patronId group by p.status")
-	Map<String, Double> averagePatronageBudgetPerStatus(int patronId);
+	@Query("select avg(p.budget.amount) from Patronage p where p.patron.id =:patronId and p.status =:status")
+	Double averagePatronageBudgetPerStatus(int patronId, Status status);
 	
-	@Query("select p.status, min(p.budget.amount) from Patronage p where p.patron.id =:patronId group by p.status")
-	Map<String, Double> minimumPatronageBudgetPerState(int patronId);
+	@Query("select min(p.budget.amount) from Patronage p where p.patron.id =:patronId and p.status =:status")
+	Double minimumPatronageBudgetPerState(int patronId, Status status);
 	
-	@Query("select p.status, max(p.budget.amount) from Patronage p where p.patron.id =:patronId group by p.status")
-	Map<String, Double> maximumPatronageBudgetPerState(int patronId);
+	@Query("select max(p.budget.amount) from Patronage p where p.patron.id =:patronId and p.status =:status")
+	Double maximumPatronageBudgetPerState(int patronId, Status status);
 	
-	@Query("select p.status, stddev(p.budget.amount) from Patronage p where p.patron.id =:patronId group by p.status")
-	Map<String, Double> deviationPatronageBudgetPerState(int patronId);
+	@Query("select stddev(p.budget.amount) from Patronage p where p.patron.id =:patronId and p.status =:status")
+	Double deviationPatronageBudgetPerState(int patronId, Status status);
 }
