@@ -14,7 +14,7 @@ import acme.framework.repositories.AbstractRepository;
 public interface AnyUserAccountRepository extends AbstractRepository {
 
 	@Query("select user from UserAccount user where user.id = :id")
-	UserAccount findOneUserAccountById(int id);
+	UserAccount findUserAccountById(int id);
 
 	@Query("select user from UserAccount user where user.enabled = true")
 	Collection<UserAccount> findEnabledUserAccounts();

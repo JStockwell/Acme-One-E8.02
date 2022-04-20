@@ -20,7 +20,6 @@ import acme.framework.services.AbstractListService;
 @Service
 public class AnyUserAccountListService implements AbstractListService<Any, UserAccount> {
 
-	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected AnyUserAccountRepository repository;
