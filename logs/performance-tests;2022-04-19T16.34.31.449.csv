@@ -1,0 +1,9 @@
+timestamp,test-class,test-method,time,description,result
+"2022-04-19 16:33:33.808","acme.testing.any.item.AnyItemListTest","positiveTest",11361,""[1] recordIndex=0, name=Componentes 12, code=ITM-999-Z, technology=Tecnologías 543, description=Hay descripciones?, retailPrice=USD 112.07, itemtype=TOOL, link=https://what.is/goingon"","Cannot find 'By.name: name'"
+"2022-04-19 16:33:41.769","acme.testing.any.item.AnyItemListTest","positiveTest",7525,""[2] recordIndex=1, name=It3m, code=ITM-004, technology=T3chn0l0gy, description=^&!*@#$, retailPrice=CAD 30.01, itemtype=TOOL, link=https://www.acme.com"","Cannot find 'By.name: name'"
+"2022-04-19 16:33:45.355","acme.testing.any.item.AnyItemListTest","positiveTest",3240,""[3] recordIndex=2, name=It4m, code=ITM-003, technology=T3chn0l0gy, description=^&!*@#$, retailPrice=CAD 30.01, itemtype=TOOL, link=https://www.acme.com"","Browsing context has been discarded
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'MSI', ip: '10.100.199.54', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 99.0.1, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20220411174855, moz:geckodriverVersion: 0.30.0, moz:headless: false, moz:processID: 4272, moz:profile: C:\Users\grego\AppData\Loca..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 127dc13b-e2bf-4053-bb13-9c6bd9137ae7"
