@@ -62,6 +62,9 @@ master.menu.lists.component = Componente
 master.menu.lists.patronage = Patronazgo
 master.menu.lists.system-configuration = Configuración de Sistema
 
+master.menu.any=Any
+master.menu.lists.item=Item
+
 #master.menu.dashboards ################################################
 
 master.menu.dashboards = Tablero
