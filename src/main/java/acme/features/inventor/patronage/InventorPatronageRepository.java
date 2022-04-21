@@ -20,8 +20,5 @@ public interface InventorPatronageRepository extends AbstractRepository {
 	
 	@Query("select i from Inventor i where i.id = :masterId")
 	Inventor findInventorById(int masterId);
-	
-//	@Query("select i from Inventor i where i.user.id = :masterId")
-//	Inventor findInventorByUserId(int masterId);
 
 }

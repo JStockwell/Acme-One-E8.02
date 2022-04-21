@@ -34,6 +34,11 @@ master.menu.administrator.shut-down = Shut down
 
 master.menu.inventor = Inventor
 
+# master.menu.system-configuration ############################################
+
+master.menu.system-configuration = System Configuration
+master.menu.system-configuration.currencies = Currencies
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
@@ -48,12 +53,17 @@ master.menu.user-account.list = List user accounts
 # master.menu.lists ####################################################
 
 master.menu.lists=Lists
-master.menu.lists.announcement = announcement
-master.menu.lists.chirp = chirp
-master.menu.lists.component = component
-master.menu.lists.patronage = patronage
+master.menu.lists.any=Any Lists
+master.menu.lists.inventor=Inventor Lists
+master.menu.lists.authenticated=Authenticated Lists
+master.menu.lists.announcement = Announcement
+master.menu.lists.chirp = Chirp
+master.menu.lists.component = Component
+master.menu.lists.patronage = Patronage
+master.menu.lists.system-configuration = System Configuration
 
 #master.menu.dashboards ################################################
 
 master.menu.dashboards = Dashboards
 master.menu.dashboards.patron = Patronages Dashboard
+

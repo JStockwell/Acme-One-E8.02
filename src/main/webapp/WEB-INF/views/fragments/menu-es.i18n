@@ -53,13 +53,18 @@ master.menu.user-account.list = Ver cuentas de usuario
 
 # master.menu.lists ####################################################
 
-master.menu.lists=Listas
-master.menu.lists.announcement = anuncio
-master.menu.lists.chirp = chirp
-master.menu.lists.component = componente
-master.menu.lists.patronage = patronazgo
+master.menu.lists = Listas
+master.menu.lists.any = Cualquier Listas
+master.menu.lists.inventor = Inventor Listas
+master.menu.lists.authenticated = Autenticado Listas
+master.menu.lists.announcement = Anuncio
+master.menu.lists.chirp = Chirp
+master.menu.lists.component = Componente
+master.menu.lists.patronage = Patronazgo
+master.menu.lists.system-configuration = Configuración de Sistema
 
 #master.menu.dashboards ################################################
 
 master.menu.dashboards = Tablero
 master.menu.dashboards.patron = Tablero patrocinios
+
