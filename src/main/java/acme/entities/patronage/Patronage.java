@@ -72,4 +72,8 @@ public class Patronage extends AbstractEntity{
 	@ManyToOne
 	@NotNull
 	private Inventor inventor;
+	
+	@ManyToOne
+	@NotNull
+	private Patron patron;
 }
