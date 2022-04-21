@@ -58,3 +58,8 @@ master.menu.lists.announcement = anuncio
 master.menu.lists.chirp = chirp
 master.menu.lists.component = componente
 master.menu.lists.patronage = patronazgo
+
+#master.menu.dashboards ################################################
+
+master.menu.dashboards = Tablero
+master.menu.dashboards.patron = Tablero patrocinios

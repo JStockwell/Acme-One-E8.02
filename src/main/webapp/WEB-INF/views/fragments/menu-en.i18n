@@ -52,3 +52,8 @@ master.menu.lists.announcement = announcement
 master.menu.lists.chirp = chirp
 master.menu.lists.component = component
 master.menu.lists.patronage = patronage
+
+#master.menu.dashboards ################################################
+
+master.menu.dashboards = Dashboards
+master.menu.dashboards.patron = Patronages Dashboard
