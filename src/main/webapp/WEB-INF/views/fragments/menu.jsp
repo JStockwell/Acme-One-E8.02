@@ -38,6 +38,7 @@
 		<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">
 			<acme:menu-suboption code="master.menu.inventor.myitems" action="/inventor/item/list"/>
 			<acme:menu-suboption code="master.menu.lists.patronage" action="/inventor/patronage/list"/>
+			<acme:menu-suboption code="master.menu.lists.patronageReport" action="/inventor/patronageReport/list"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.lists.any" access="hasRole('Inventor') || hasRole('Patron')">
@@ -49,11 +50,6 @@
 		<acme:menu-option code="master.menu.dashboards" access="hasRole('Patron')">
       <acme:menu-suboption code="master.menu.dashboards.patron" action="/patron/patron-dashboard/show" access="hasRole('Patron')"/>
 		</acme:menu-option>
-
-		<acme:menu-option code="master.menu.lists" access="hasRole('Inventor')">
-      		<acme:menu-suboption code="master.menu.lists.patronage" action="/inventor/patronage/list"/>
-		</acme:menu-option>
-	
 		
 		<acme:menu-option code="master.menu.lists.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.lists.system-configuration" action="/authenticated/system-configuration/show"/>

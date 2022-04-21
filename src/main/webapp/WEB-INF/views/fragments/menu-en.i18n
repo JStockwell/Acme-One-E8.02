@@ -65,6 +65,7 @@ master.menu.lists.announcement = Announcement
 master.menu.lists.chirp = Chirp
 master.menu.lists.component = Component
 master.menu.lists.patronage = Patronage
+master.menu.lists.patronageReport = Patronage reports
 master.menu.lists.system-configuration = System Configuration
 
 #master.menu.dashboards ################################################

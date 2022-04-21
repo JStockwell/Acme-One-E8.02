@@ -60,6 +60,7 @@ master.menu.lists.announcement = Anuncio
 master.menu.lists.chirp = Chirp
 master.menu.lists.component = Componente
 master.menu.lists.patronage = Patronazgo
+master.menu.lists.patronageReport = Informes de patronazgo
 master.menu.lists.system-configuration = Configuración de Sistema
 
 #master.menu.dashboards ################################################
