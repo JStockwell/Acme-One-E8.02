@@ -20,6 +20,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Entity
 public class PatronageReport extends AbstractEntity{
 
 	/**
