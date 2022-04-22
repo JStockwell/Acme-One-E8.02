@@ -1,4 +1,5 @@
-announcement.title=título
-announcement.critical=crítico
-announcement.body=cuerpo
-announcement.link=enlace
+announcement.title=Título
+announcement.critical=Crítico
+announcement.body=Cuerpo
+announcement.link=Enlace
+announcement.moment=Momento de creación

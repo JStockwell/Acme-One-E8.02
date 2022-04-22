@@ -1,9 +1,9 @@
-item.name = name
-item.description = description
-item.code = code
-item.technology = technology
-item.retailPrice = retailPrice
-item.link = link
-item.itemtype = item type
+item.name = Name
+item.description = Description
+item.code = Code
+item.technology = Technology
+item.retailPrice = Retail price
+item.link = Link
+item.itemtype = Item type
 item.itemtype.tool = TOOL
 item.itemtype.component = COMPONENT
