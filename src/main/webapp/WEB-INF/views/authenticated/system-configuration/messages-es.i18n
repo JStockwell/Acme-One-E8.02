@@ -1,0 +1,6 @@
+authenticated.system-configuration.form.label.accepted-currencies=Monedas Aceptadas
+authenticated.system-configuration.form.label.default-currency=Moneda por Defecto
+authenticated.system-configuration.form.label.strong-spam-terms=Términos de Spam Fuertes
+authenticated.system-configuration.form.label.strong-threshold=Umbral Fuerte
+authenticated.system-configuration.form.label.weak-spam-terms=Términos de Spam Débiles
+authenticated.system-configuration.form.label.weak-threshold=Umbral Flojo

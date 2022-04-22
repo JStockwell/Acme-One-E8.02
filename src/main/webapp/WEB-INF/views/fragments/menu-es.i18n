@@ -19,7 +19,27 @@ master.menu.sign-out = Salir
 
 master.menu.anonymous = Anónimo
 master.menu.anonymous.favourite-link = Enlace favorito
+master.menu.anonymous.ferclavar-favourite-link = 47561328L: Cabra Morón, Fernando
+
+master.menu.anonymous = Anónimo
+master.menu.anonymous.favourite-link = Enlace favorito
 master.menu.anonymous.mancabmor1-favourite-link = 47561328L: Cabra Morón, Manuel
+
+master.menu.anonymous = Anónimo
+master.menu.anonymous.favourite-link = Enlace favorito
+master.menu.anonymous.alegestor-favourite-link = 30260633Q: Gestoso Torres, Alejandro
+
+master.menu.anonymous = Anónimo
+master.menu.anonymous.favourite-link = Enlace favorito
+master.menu.anonymous.jaistomen-favourite-link = 30696480J: Stockwell Mendoza, Jaime
+
+master.menu.anonymous = Anónimo
+master.menu.anonymous.favourite-link = Enlace favorito
+master.menu.anonymous.pabsanval1-favourite-link = 30246142S: Sánchez Valenzuela, Pablo
+
+master.menu.anonymous = Anónimo
+master.menu.anonymous.favourite-link = Enlace favorito
+master.menu.anonymous.greortsol-favourite-link = 30271286C: Ortega Soldado, Gregorio
 
 # master.menu.administrator ###################################################
 
@@ -52,9 +72,20 @@ master.menu.user-account.list = Ver cuentas de usuario
 
 # master.menu.lists ####################################################
 
-master.menu.lists=Listas
+master.menu.lists = Listas
+master.menu.lists.any = Cualquier Listas
+master.menu.lists.inventor = Inventor Listas
+master.menu.lists.authenticated = Autenticado Listas
+master.menu.lists.announcement = Anuncio
+master.menu.lists.chirp = Chirp
+master.menu.lists.component = Componente
+master.menu.lists.patronage = Patronazgo
+master.menu.lists.system-configuration = Configuración de Sistema
+
 master.menu.any=Any
-master.menu.lists.announcement = anuncio
-master.menu.lists.chirp = chirp
-master.menu.lists.item = item
-master.menu.lists.patronage = patronazgo
+master.menu.lists.item=Item
+
+#master.menu.dashboards ################################################
+
+master.menu.dashboards = Tablero
+master.menu.dashboards.patron = Tablero patrocinios
