@@ -15,6 +15,32 @@ master.menu.sign-up = Registrarse
 master.menu.sign-in = Entrar
 master.menu.sign-out = Salir
 
+# master.menu.administrator ###################################################
+
+master.menu.administrator = Administrador
+master.menu.administrator.dashboard = Panel de indicadores
+master.menu.administrator.user-accounts = Cuentas de usuario
+master.menu.administrator.populate-initial = Poblar BD (inicial)
+master.menu.administrator.populate-sample = Poblar BD (ejemplos)
+master.menu.administrator.shut-down = Parar el sistema
+
+# master.menu.any ####################################################
+
+master.menu.any=Todos
+
+# master.menu.authenticated ###################################################
+
+master.menu.authenticated=Autenticado
+
+# master.menu.inventor ########################################################
+
+master.menu.inventor = Inventor
+master.menu.inventor.myitems = Mis ítems
+
+# master.menu.patron ##########################################################
+
+master.menu.patron = Patrón
+
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
@@ -41,50 +67,24 @@ master.menu.anonymous = Anónimo
 master.menu.anonymous.favourite-link = Enlace favorito
 master.menu.anonymous.greortsol-favourite-link = 30271286C: Ortega Soldado, Gregorio
 
-# master.menu.administrator ###################################################
-
-master.menu.administrator = Administrador
-master.menu.administrator.dashboard = Panel de indicadores
-master.menu.administrator.user-accounts = Cuentas de usuario
-master.menu.administrator.populate-initial = Poblar BD (inicial)
-master.menu.administrator.populate-sample = Poblar BD (ejemplos)
-master.menu.administrator.shut-down = Parar el sistema
-
-# master.menu.inventor ########################################################
-
-master.menu.inventor = Inventor
-master.menu.inventor.myitems = Mis items
-
-# master.menu.patron ##########################################################
-
-master.menu.partron = Patron
-
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
-master.menu.user-account.provider = Datos de proveedor
-master.menu.user-account.become-provider = Hazte proveedor
-master.menu.user-account.consumer = Datos de consumidor
-master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.user-account.list = Ver cuentas de usuario
-
 
 # master.menu.lists ####################################################
 
 master.menu.lists = Listas
 master.menu.lists.any = Cualquier Listas
 master.menu.lists.inventor = Inventor Listas
-master.menu.lists.authenticated = Autenticado Listas
 master.menu.lists.announcement = Anuncio
 master.menu.lists.chirp = Chirp
 master.menu.lists.component = Componente
 master.menu.lists.patronage = Patronazgo
 master.menu.lists.patronageReport = Informes de patronazgo
 master.menu.lists.system-configuration = Configuración de Sistema
-
-master.menu.any=Any
-master.menu.lists.item=Item
+master.menu.lists.item=Ítem
 
 #master.menu.dashboards ################################################
 
