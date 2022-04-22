@@ -8,4 +8,5 @@
 	<acme:input-textarea code="announcement.body" path="body"/>
 	<acme:input-checkbox code="announcement.critical" path="critical"/>
 	<acme:input-url code="announcement.link" path="link"/>
+	<acme:input-moment code="announcement.moment" path="creationMoment"/>
 </acme:form>
