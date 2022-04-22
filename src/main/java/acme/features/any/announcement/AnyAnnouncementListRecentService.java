@@ -49,7 +49,7 @@ public class AnyAnnouncementListRecentService implements AbstractListService<Any
 		assert entity!= null;
 		assert model!= null;
 		
-		request.unbind(entity, model, "title", "creationMoment","body","critical","link");
+		request.unbind(entity, model, "title", "critical");
 	}
 
 }
