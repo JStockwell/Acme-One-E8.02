@@ -29,8 +29,8 @@ public class AuthenticatedSystemConfigurationShowService implements AbstractShow
 		assert request != null;
 		
 		SystemConfiguration res;
-		
-		res = this.repository.findFirst();
+ 
+		res = this.repository.findSystemConfiguration();
 		
 		return res;
 	}
@@ -42,6 +42,7 @@ public class AuthenticatedSystemConfigurationShowService implements AbstractShow
 		assert model != null;
 		
 		request.unbind(entity, model, "defaultCurrency", "acceptedCurrencies", "strongSpamTerms", "strongThreshold", "weakSpamTerms", "weakThreshold");
+		
 	}
 
 }
