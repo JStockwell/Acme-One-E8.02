@@ -11,10 +11,10 @@ public class AnyAnnouncementListTest extends TestHarness{
 	@ParameterizedTest
 	@CsvFileSource(resources="/any/announcement/list.csv",encoding="utf-8",numLinesToSkip=1)
 	@Order(10)
-	public void positiveTest(final int recordIndex, final String title, final String body, final String critical, final String link) {
+	public void positiveTest(final int recordIndex,final String creationMoment, final String title, final String body, final String critical, final String link) {
 		super.signIn("inventor1", "inventor1");
 
-		super.clickOnMenu("Any", "item");
+		super.clickOnMenu("Any", "Announcement");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		
@@ -27,6 +27,7 @@ public class AnyAnnouncementListTest extends TestHarness{
 		super.checkInputBoxHasValue("body", body);
 		super.checkInputBoxHasValue("critical", critical);
 		super.checkInputBoxHasValue("link", link);
+		super.checkInputBoxHasValue("creationMoment", creationMoment);
 
 		super.signOut();
 	}
