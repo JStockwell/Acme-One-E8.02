@@ -53,8 +53,9 @@
 			<acme:menu-suboption code="master.menu.lists.system-configuration" action="/authenticated/system-configuration/show"/>
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.dashboards" access="hasRole('Patron')">
-      <acme:menu-suboption code="master.menu.dashboards.patron" action="/patron/patron-dashboard/show" access="hasRole('Patron')"/>
+		<acme:menu-option code="master.menu.dashboards" access="hasRole('Administrator') || hasRole('Patron')">
+      		<acme:menu-suboption code="master.menu.dashboards.patron" action="/patron/patron-dashboard/show" access="hasRole('Patron')"/>
+      		<acme:menu-suboption code="master.menu.dashboards.admin" action="/administrator/admin-dashboard/show" access="hasRole('Administrator')"/>
 		</acme:menu-option>
 	
 		
