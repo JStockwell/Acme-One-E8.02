@@ -25,7 +25,7 @@ public class PatronPatronageShowService implements AbstractShowService<Patron,Pa
 		
 		patronageId = request.getModel().getInteger("id");
 		patronage = this.repository.findOne(patronageId);
-		res = patronage != null && patronage.getPatron().getId() == request.getPrincipal().getActiveRoleId();
+		res = patronage != null && request.isPrincipal(patronageReport.getPatronage().getPatron());
 		
 		return res;
 	}
@@ -38,7 +38,7 @@ public class PatronPatronageShowService implements AbstractShowService<Patron,Pa
 		int id;
 		
 		id=request.getModel().getInteger("id");
-        res=this.repository.findOne(id);
+        	res=this.repository.findOne(id);
 		
 		return res;
 	}
