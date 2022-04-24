@@ -12,8 +12,8 @@ import acme.framework.repositories.AbstractRepository;
 public interface InventorItemRepository extends AbstractRepository{
 	
 	@Query("select i from Item i where i.inventor.id = :id")
-	Collection<Item> findComponentsByInventor(int id);
+	Collection<Item> findItemsByInventor(int id);
 
 	@Query("select i from Item i where i.id = :id")
-	Item findOneComponentById(int id);
+	Item findOneItemById(int id);
 }
