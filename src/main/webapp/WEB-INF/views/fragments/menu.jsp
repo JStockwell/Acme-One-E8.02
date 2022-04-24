@@ -25,6 +25,7 @@
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/administrator/populate-initial"/>
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/administrator/populate-sample"/>			
 			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.system-configuration.show" action="/administrator/system-configuration/show"/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
 		</acme:menu-option>
 		
@@ -47,7 +48,9 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">
-      		        <acme:menu-suboption code="master.menu.dashboards.patron" action="/patron/patron-dashboard/show" access="hasRole('Patron')"/>
+			<acme:menu-suboption code="master.menu.lists.patronage" action="/patron/patronage/list"/>
+			<acme:menu-suboption code="master.menu.dashboards.patron" action="/patron/patron-dashboard/show" access="hasRole('Patron')"/>
+			<acme:menu-suboption code="master.menu.lists.patronageReport" action="/patron/patronage-report/list"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
