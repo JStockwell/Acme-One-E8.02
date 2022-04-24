@@ -53,8 +53,6 @@ public class Item extends AbstractEntity{
 	@URL
 	private String link;
 	
-	private boolean draft;
-	
 	@ManyToOne(optional=false)
 	@Valid
 	@NotNull

@@ -174,7 +174,7 @@ link: String {URL}</panel_attributes>
       <x>880</x>
       <y>580</y>
       <w>380</w>
-      <h>170</h>
+      <h>160</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Item
@@ -185,7 +185,6 @@ technology: String {NotBlank, Length(max=100)}
 description: String {NotBlank, Length(max=255)}
 retail_price: Money
 link: String {URL}
-draft: boolean
 type: ITEM_TYPE {NotNull}</panel_attributes>
     <additional_attributes/>
   </element>

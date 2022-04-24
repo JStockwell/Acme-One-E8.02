@@ -19,15 +19,7 @@ public class AnyItemShowService implements AbstractShowService<Any,Item>{
 	public boolean authorise(final Request<Item> request) {
 		assert request != null;
 		
-		boolean res;
-		int itemId;
-		Item item;
-		
-		itemId = request.getModel().getInteger("id");
-		item = this.repository.findOneItemById(itemId);
-		res = item != null && !item.isDraft() || (item.isDraft() && request.isPrincipal(item.getInventor()));
-		
-		return res;
+		return true;
 	}
 	
 	@Override 
@@ -38,7 +30,7 @@ public class AnyItemShowService implements AbstractShowService<Any,Item>{
 		int id;
 		
 		id=request.getModel().getInteger("id");
-        res=this.repository.findOneItemById(id);
+        res=this.repository.findOneComponentById(id);
 		
 		return res;
 	}
