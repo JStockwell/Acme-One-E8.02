@@ -28,10 +28,9 @@ public class InventorPatronageListTest extends TestHarness{
 		super.checkInputBoxHasValue("code", code);
 		super.checkInputBoxHasValue("legislation", legislation);
 		super.checkInputBoxHasValue("budget", budget);
-//		super.checkInputBoxHasValue("status", status);
+		super.checkInputBoxHasValue("status", status);
 
 		super.signOut();
 	}
 	
-
 }
