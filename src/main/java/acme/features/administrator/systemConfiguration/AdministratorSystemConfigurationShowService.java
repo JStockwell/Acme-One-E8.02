@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.systemConfiguration.SystemConfiguration;
+import acme.features.any.userAccount.AnyUserAccountRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.entities.UserAccount;
 import acme.framework.roles.Administrator;
 import acme.framework.services.AbstractShowService;
 
@@ -14,11 +16,22 @@ public class AdministratorSystemConfigurationShowService implements AbstractShow
 
 	@Autowired
 	AdministratorSystemConfigurationRepository amdminsysconfigrepo;
+	
+	@Autowired
+	AnyUserAccountRepository userrepo;
 
 	@Override
 	public boolean authorise(final Request<SystemConfiguration> request) {
 		assert request != null;
-		return true;
+		final Integer id = request.getPrincipal().getAccountId();
+		final UserAccount user = this.userrepo.findUserAccountById(id);
+		if(user.hasRole(Administrator.class)) {
+			return true;
+
+		}
+		else {
+			return false;
+		}
 	}
 
 	@Override
