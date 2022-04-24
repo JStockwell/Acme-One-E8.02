@@ -6,6 +6,5 @@
 <acme:list>
 	<acme:list-column code="patronageReport.creation" path="creation" width="10%"/>
 	<acme:list-column code="patronageReport.memorandum" path="memorandum" width="10%"/>
-	<acme:list-column code="patronageReport.link" path="link" width="10%"/>
 	<acme:list-column code="patronageReport.patronage" path="patronage" width="10%"/>	
 </acme:list>
