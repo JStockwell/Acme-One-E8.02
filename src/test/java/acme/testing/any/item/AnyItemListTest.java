@@ -9,9 +9,9 @@ import acme.testing.TestHarness;
 public class AnyItemListTest extends TestHarness{
 	
 	@ParameterizedTest
-	@CsvFileSource(resources="/any/item/list.csv",encoding="utf-8",numLinesToSkip=1,delimiterString=";")
+	@CsvFileSource(resources="/any/item/list.csv",encoding="utf-8",numLinesToSkip=1)
 	@Order(10)
-	public void positiveTest(final int recordIndex, final String name, final String code, final String technology, final String description, final String price, final String itemtype, final String link) {
+	public void positiveTest(final int recordIndex, final String name, final String code, final String technology, final String description, final String retailPrice, final String itemtype, final String link) {
 		super.signIn("inventor1", "inventor1");
 
 		super.clickOnMenu("Any", "Item");
@@ -20,7 +20,7 @@ public class AnyItemListTest extends TestHarness{
 		
 		super.checkColumnHasValue(recordIndex, 0, name);
 		super.checkColumnHasValue(recordIndex, 1, technology);
-		super.checkColumnHasValue(recordIndex, 2, price);
+		super.checkColumnHasValue(recordIndex, 2, retailPrice);
 		super.checkColumnHasValue(recordIndex, 3, itemtype);
 
 		super.clickOnListingRecord(recordIndex);
@@ -29,7 +29,7 @@ public class AnyItemListTest extends TestHarness{
 		super.checkInputBoxHasValue("code", code);
 		super.checkInputBoxHasValue("technology", technology);
 		super.checkInputBoxHasValue("description", description);
-		super.checkInputBoxHasValue("price", price);
+		super.checkInputBoxHasValue("price", retailPrice);
 		super.checkInputBoxHasValue("link", link);
 		super.checkInputBoxHasValue("itemType", itemtype);
 

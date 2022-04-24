@@ -30,7 +30,7 @@ public class AnyItemListService implements AbstractListService<Any,Item>{
 		
 		final Collection<Item> res;
 		
-		res= this.repository.findItems();
+		res= this.repository.findComponents();
 		
 		return res;
 	}
