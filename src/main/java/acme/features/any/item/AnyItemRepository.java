@@ -11,9 +11,9 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AnyItemRepository extends AbstractRepository{
 	
-	@Query("select i from Item i")
-	Collection<Item> findComponents();
+	@Query("select i from Item i where i.draft = 0")
+	Collection<Item> findItems();
 
 	@Query("select i from Item i where i.id = :id")
-	Item findOneComponentById(int id);
+	Item findOneItemById(int id);
 }

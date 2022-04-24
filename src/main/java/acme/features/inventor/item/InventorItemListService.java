@@ -33,7 +33,7 @@ public class InventorItemListService implements AbstractListService<Inventor,Ite
 		
 		id=request.getPrincipal().getActiveRoleId();
 		
-		res= this.repository.findComponentsByInventor(id);
+		res= this.repository.findItemsByInventor(id);
 		
 		return res;
 	}
