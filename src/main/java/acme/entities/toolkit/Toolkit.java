@@ -52,6 +52,8 @@ public class Toolkit extends AbstractEntity{
 	@URL
 	protected String link;
 	
+	protected boolean draftMode;
+	
 	@ManyToOne(optional=false)
 	@Valid
 	@NotNull
