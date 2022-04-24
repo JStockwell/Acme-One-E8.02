@@ -1,4 +1,5 @@
-announcement.title=title
-announcement.critical=critical
-announcement.body=body
-announcement.link=link
+announcement.title=Title
+announcement.critical=Critical
+announcement.body=Body
+announcement.link=Link
+announcement.moment=Creation Moment

@@ -1,9 +1,16 @@
 package acme.features.patron.patronDashboard;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import javax.persistence.Tuple;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.patronage.Status;
+import acme.features.authenticated.systemConfiguration.AuthenticatedSystemConfigurationRepository;
 import acme.forms.PatronDashboard;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
@@ -16,6 +23,9 @@ public class PatronDashboardShowService implements AbstractShowService<Patron, P
 	@Autowired
 	protected PatronDashboardRepository repository;
 	
+	@Autowired
+	protected AuthenticatedSystemConfigurationRepository configurationRepository;
+	
 	@Override
 	public boolean authorise(final Request<PatronDashboard> request) {
 		assert request!=null;
@@ -27,56 +37,39 @@ public class PatronDashboardShowService implements AbstractShowService<Patron, P
 	public PatronDashboard findOne(final Request<PatronDashboard> request) {
 		assert request!=null;
 		
+		final String[] currencies = this.configurationRepository.findSystemConfiguration().getAcceptedCurrencies().split(",");
+		
 		PatronDashboard result;
-		Integer totalPatronagesProposed;
-		Integer totalPatronagesAccepted;
-		Integer totalPatronagesDenied;
-		Double averagePatronageBudgetPerStateProposed;
-		Double averagePatronageBudgetPerStateAccepted;
-		Double averagePatronageBudgetPerStateDenied;
-		Double deviationPatronageBudgetPerStateProposed;
-		Double deviationPatronageBudgetPerStateAccepted;
-		Double deviationPatronageBudgetPerStateDenied;
-		Double minimumPatronageBudgetPerStateProposed;
-		Double minimumPatronageBudgetPerStateAccepted;
-		Double minimumPatronageBudgetPerStateDenied;
-		Double maximumPatronageBudgetPerStateProposed;
-		Double maximumPatronageBudgetPerStateAccepted;
-		Double maximumPatronageBudgetPerStateDenied;
+		final Map<String, Long> totalPatronages;
+		final Map<String, Map<String, Double>> averagePatronageBudgetPerState = new HashMap<String, Map<String, Double>>();
+		final Map<String, Map<String, Double>> deviationPatronageBudgetPerState = new HashMap<String, Map<String,Double>>();
+		final Map<String, Map<String, Double>> minimumPatronageBudgetPerState = new HashMap<String, Map<String,Double>>();
+		final Map<String, Map<String, Double>> maximumPatronageBudgetPerState = new HashMap<String, Map<String,Double>>();
 		
 		result = new PatronDashboard();
 		
-		totalPatronagesProposed = this.repository.totalPatronage(request.getPrincipal().getActiveRoleId(), Status.Proposed);
-		totalPatronagesAccepted = this.repository.totalPatronage(request.getPrincipal().getActiveRoleId(), Status.Accepted);
-		totalPatronagesDenied = this.repository.totalPatronage(request.getPrincipal().getActiveRoleId(), Status.Denied);
-		averagePatronageBudgetPerStateProposed = this.repository.averagePatronageBudgetPerStatus(request.getPrincipal().getActiveRoleId(), Status.Proposed);
-		averagePatronageBudgetPerStateAccepted = this.repository.averagePatronageBudgetPerStatus(request.getPrincipal().getActiveRoleId(), Status.Accepted);
-		averagePatronageBudgetPerStateDenied = this.repository.averagePatronageBudgetPerStatus(request.getPrincipal().getActiveRoleId(), Status.Denied);
-		deviationPatronageBudgetPerStateProposed = this.repository.deviationPatronageBudgetPerState(request.getPrincipal().getActiveRoleId(), Status.Proposed);
-		deviationPatronageBudgetPerStateAccepted = this.repository.deviationPatronageBudgetPerState(request.getPrincipal().getActiveRoleId(), Status.Accepted);
-		deviationPatronageBudgetPerStateDenied = this.repository.deviationPatronageBudgetPerState(request.getPrincipal().getActiveRoleId(), Status.Denied);
-		minimumPatronageBudgetPerStateProposed = this.repository.minimumPatronageBudgetPerState(request.getPrincipal().getActiveRoleId(), Status.Proposed);
-		minimumPatronageBudgetPerStateAccepted = this.repository.minimumPatronageBudgetPerState(request.getPrincipal().getActiveRoleId(), Status.Accepted);
-		minimumPatronageBudgetPerStateDenied = this.repository.minimumPatronageBudgetPerState(request.getPrincipal().getActiveRoleId(), Status.Denied);
-		maximumPatronageBudgetPerStateProposed = this.repository.maximumPatronageBudgetPerState(request.getPrincipal().getActiveRoleId(), Status.Proposed);
-		maximumPatronageBudgetPerStateAccepted = this.repository.maximumPatronageBudgetPerState(request.getPrincipal().getActiveRoleId(), Status.Accepted);
-		maximumPatronageBudgetPerStateDenied = this.repository.maximumPatronageBudgetPerState(request.getPrincipal().getActiveRoleId(), Status.Denied);
+		totalPatronages = this.repository.totalPatronage(request.getPrincipal().getActiveRoleId()).stream().collect(Collectors.toMap(p->p.get(0).toString(), p->(Long)p.get(1)));
+		for(final String currency: currencies) {
+			final String c = currency.replace('"', ' ').trim();
+			final List<Tuple> averagePatronages = this.repository.averagePatronageBudgetPerStatus(request.getPrincipal().getActiveRoleId(), c);
+			averagePatronageBudgetPerState.put(c, 
+				averagePatronages.stream().collect(Collectors.toMap(p->p.get(0).toString(), p->(Double)p.get(1))));
+			final List<Tuple> deviationPatronages = this.repository.deviationPatronageBudgetPerState(request.getPrincipal().getActiveRoleId(), c);
+			deviationPatronageBudgetPerState.put(c, 
+				deviationPatronages.stream().collect(Collectors.toMap(p->p.get(0).toString(), p->(Double)p.get(1))));
+			final List<Tuple> maximumPatronages = this.repository.maximumPatronageBudgetPerState(request.getPrincipal().getActiveRoleId(), c);
+			maximumPatronageBudgetPerState.put(c, 
+				maximumPatronages.stream().collect(Collectors.toMap(p->p.get(0).toString(), p->(Double)p.get(1))));
+			final List<Tuple> minimumPatronages = this.repository.minimumPatronageBudgetPerState(request.getPrincipal().getActiveRoleId(), c);
+			minimumPatronageBudgetPerState.put(c, 
+				minimumPatronages.stream().collect(Collectors.toMap(p->p.get(0).toString(), p->(Double)p.get(1))));
+		}
 		
-		result.setTotalPatronagesProposed(totalPatronagesProposed);
-		result.setTotalPatronagesAccepted(totalPatronagesAccepted);
-		result.setTotalPatronagesDenied(totalPatronagesDenied);
-		result.setAveragePatronageBudgetPerStateProposed(averagePatronageBudgetPerStateProposed);
-		result.setAveragePatronageBudgetPerStateAccepted(averagePatronageBudgetPerStateAccepted);
-		result.setAveragePatronageBudgetPerStateDenied(averagePatronageBudgetPerStateDenied);
-		result.setDeviationPatronageBudgetPerStateProposed(deviationPatronageBudgetPerStateProposed);
-		result.setDeviationPatronageBudgetPerStateAccepted(deviationPatronageBudgetPerStateAccepted);
-		result.setDeviationPatronageBudgetPerStateDenied(deviationPatronageBudgetPerStateDenied);
-		result.setMinimumPatronageBudgetPerStateProposed(minimumPatronageBudgetPerStateProposed);
-		result.setMinimumPatronageBudgetPerStateAccepted(minimumPatronageBudgetPerStateAccepted);
-		result.setMinimumPatronageBudgetPerStateDenied(minimumPatronageBudgetPerStateDenied);
-		result.setMaximumPatronageBudgetPerStateProposed(maximumPatronageBudgetPerStateProposed);
-		result.setMaximumPatronageBudgetPerStateAccepted(maximumPatronageBudgetPerStateAccepted);
-		result.setMaximumPatronageBudgetPerStateDenied(maximumPatronageBudgetPerStateDenied);
+		result.setTotalPatronages(totalPatronages);
+		result.setAveragePatronageBudgetPerState(averagePatronageBudgetPerState);
+		result.setDeviationPatronageBudgetPerState(deviationPatronageBudgetPerState);
+		result.setMinimumPatronageBudgetPerState(minimumPatronageBudgetPerState);
+		result.setMaximumPatronageBudgetPerState(maximumPatronageBudgetPerState);
 		
 		return result;
 	}
@@ -88,21 +81,11 @@ public class PatronDashboardShowService implements AbstractShowService<Patron, P
 		assert model != null;
 
 		request.unbind(entity, model, 
-			"totalPatronagesProposed",
-		"totalPatronagesAccepted",
-		"totalPatronagesDenied",
-		"averagePatronageBudgetPerStateProposed",
-		"averagePatronageBudgetPerStateAccepted",
-		"averagePatronageBudgetPerStateDenied",
-		"deviationPatronageBudgetPerStateProposed",
-		"deviationPatronageBudgetPerStateAccepted",
-		"deviationPatronageBudgetPerStateDenied",
-		"minimumPatronageBudgetPerStateProposed",
-		"minimumPatronageBudgetPerStateAccepted",
-		"minimumPatronageBudgetPerStateDenied",
-		"maximumPatronageBudgetPerStateProposed",
-		"maximumPatronageBudgetPerStateAccepted",
-		"maximumPatronageBudgetPerStateDenied");
+			"totalPatronages",
+		"averagePatronageBudgetPerState",
+		"deviationPatronageBudgetPerState",
+		"minimumPatronageBudgetPerState",
+		"maximumPatronageBudgetPerState");
 		
 	}
 
