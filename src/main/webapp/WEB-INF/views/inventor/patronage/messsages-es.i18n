@@ -5,6 +5,7 @@ patronage.creationDate=Fecha de creación
 patronage.startDate=Fecha de Inicio
 patronage.finishDate=Fecha de finalización
 patronage.link=Link
+patronage.status=Estado
 patronage.patronCompany=Compañia del Patrón
 patronage.patronStatement=Frase del Patrón
 patronage.patronLink=Link del Patrón
