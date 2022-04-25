@@ -51,7 +51,7 @@ public class AdminDashboardShowRepository implements AbstractShowService<Adminis
 		final Map<String, Double> deviationToolsPricePerCurrency = new HashMap<String, Double>();
 		final Map<String, Double> minimumRetailPriceOfToolsPerCurrency = new HashMap<String, Double>();
 		final Map<String, Double> maximumRetailPriceOfToolsPerCurrency = new HashMap<String, Double>();
-		Map<String, Long> totalPatronages = new HashMap<String, Long>();
+		Map<String, Long> totalPatronages;
 		final Map<String, Map<String, Double>> averagePatronageBudgetPerState = new HashMap<String, Map<String,Double>>();
 		final Map<String, Map<String, Double>> deviationPatronageBudgetPerState = new HashMap<String, Map<String,Double>>();
 		final Map<String, Map<String, Double>> minimumPatronageBudgetPerState = new HashMap<String, Map<String,Double>>();
@@ -73,7 +73,7 @@ public class AdminDashboardShowRepository implements AbstractShowService<Adminis
 			minimumRetailPriceOfComponentsPerCurrency.put(c, this.repository.minimumRetailPriceOfComponentsPerCurrency(c));
 			final Map<String, Double> maxComponentTech = this.repository.maximumRetailPriceOfComponentsPerTechnology(c).stream().collect(Collectors.toMap(i->i.get(0).toString(), i->(Double)i.get(1)));
 			maximumRetailPriceOfComponentsPerTechnology.put(c, maxComponentTech);
-			maximumRetailPriceOfComponentsPerCurrency.put(c, this.repository.minimumRetailPriceOfComponentsPerCurrency(c));
+			maximumRetailPriceOfComponentsPerCurrency.put(c, this.repository.maximumRetailPriceOfComponentsPerCurrency(c));
 			averageToolsPricePerCurrency.put(c, this.repository.averageToolsPricePerCurrency(c));
 			deviationToolsPricePerCurrency.put(c, this.repository.deviationToolsPricePerCurrency(c));
 			minimumRetailPriceOfToolsPerCurrency.put(c, this.repository.minimumRetailPriceOfToolsPerCurrency(c));
