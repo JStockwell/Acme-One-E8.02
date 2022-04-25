@@ -38,7 +38,7 @@ public class AdminDashboard implements Serializable {
 	Map<String, Double> maximumRetailPriceOfToolsPerCurrency;
 								
 //	Key -> state of patronage (proposed/accepted/denied), Value -> total of patronages with this state
-	Map<String, Integer> totalPatronages;
+	Map<String, Long> totalPatronages;
 	Map<String, Map<String, Double>> averagePatronageBudgetPerState;
 	Map<String, Map<String, Double>> deviationPatronageBudgetPerState;
 	Map<String, Map<String, Double>> minimumPatronageBudgetPerState;

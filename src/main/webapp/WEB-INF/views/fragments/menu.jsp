@@ -27,6 +27,7 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.system-configuration.show" action="/administrator/system-configuration/show"/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
+			<acme:menu-suboption code="master.menu.dashboards.admin" action="/administrator/admin-dashboard/show"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.any">
@@ -60,8 +61,7 @@
 			<acme:menu-suboption code="master.menu.anonymous.mancabmor1-favourite-link" action="https://www.youtube.com/watch?v=-3JbbFL-aks"/>
 			<acme:menu-suboption code="master.menu.anonymous.alegestor-favourite-link" action="https://twitter.com/juanminismo/status/1464982823874486274"/>
 			<acme:menu-suboption code="master.menu.anonymous.jaistomen-favourite-link" action="http://www.gendesign.co.jp/E_index.html"/>
-		</acme:menu-option>
-		
+		</acme:menu-option>		
 	</acme:menu-left>
 
 	<acme:menu-right>
