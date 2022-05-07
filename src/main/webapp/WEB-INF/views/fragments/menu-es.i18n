@@ -92,3 +92,7 @@ master.menu.lists.item=Ítem
 master.menu.dashboards = Tablero
 master.menu.dashboards.patron = Tablero patrocinios
 master.menu.dashboards.admin = Tablero de Administrador
+
+# Create ################################################
+
+master.menu.lists.chirp.create=Crear chirp

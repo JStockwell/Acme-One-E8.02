@@ -92,3 +92,7 @@ master.menu.lists.item=Item
 master.menu.dashboards = Dashboards
 master.menu.dashboards.patron = Patronages Dashboard
 master.menu.dashboards.admin = Administrator Dashboard
+
+# Create ################################################
+
+master.menu.lists.chirp.create=Create chirp
