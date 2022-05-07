@@ -7,3 +7,7 @@ item.link = Link
 item.itemtype = Tipo de item
 item.itemtype.tool = Herramienta
 item.itemtype.component = Componente
+item.button.update=Actualizar
+item.button.delete=Borrar
+item.button.publish=Publicar
+item.button.create=Crear

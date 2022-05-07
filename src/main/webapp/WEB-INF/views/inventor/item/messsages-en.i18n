@@ -7,3 +7,7 @@ item.link = Link
 item.itemtype = Item type
 item.itemtype.tool = TOOL
 item.itemtype.component = COMPONENT
+item.button.update=Update
+item.button.delete=Delete
+item.button.publish=Publish
+item.button.create=Create
