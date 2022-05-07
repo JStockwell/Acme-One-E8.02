@@ -16,13 +16,8 @@ import acme.framework.services.AbstractCreateService;
 @Service
 public class AnyChirpCreateService implements AbstractCreateService<Any, Chirp> {
 
-	// Internal state ---------------------------------------------------------
-
 	@Autowired
 	protected AnyChirpRepository repository;
-
-	// AbstractCreateService<Employer, Duty> interface -------------------------
-
 
 	@Override
 	public boolean authorise(final Request<Chirp> request) {
@@ -55,7 +50,6 @@ public class AnyChirpCreateService implements AbstractCreateService<Any, Chirp> 
 		assert model != null;
 
 		request.unbind(entity, model, "title","author","body","mail");
-		//model.setAttribute("masterId", entity.getJob().getId());
 	}
 
 	@Override
