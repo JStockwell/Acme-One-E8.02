@@ -15,6 +15,8 @@
 			<acme:menu-suboption code="master.menu.administrator.system-configuration.show" action="/administrator/system-configuration/show"/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
 			<acme:menu-suboption code="master.menu.dashboards.admin" action="/administrator/admin-dashboard/show"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.announcement.create" action="/administrator/announcement/create"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.any">
