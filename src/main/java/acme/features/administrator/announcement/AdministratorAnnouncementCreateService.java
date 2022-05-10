@@ -26,6 +26,7 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 
 	@Override
 	public boolean authorise(final Request<Announcement> request) {
+		// TODO No es necesario, framework ya se encarga del auth
 		assert request != null;
 		final Integer id = request.getPrincipal().getAccountId();
 		final UserAccount user = this.userrepo.findUserAccountById(id);
@@ -40,6 +41,7 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 
 	@Override
 	public void validate(final Request<Announcement> request, final Announcement entity, final Errors errors) {
+		// TODO Confirmacion del servidor requerido. Mirar ACME Jobs
 		assert request != null;
 		assert entity != null;
 		assert errors != null;

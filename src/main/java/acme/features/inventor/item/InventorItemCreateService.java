@@ -35,6 +35,7 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 			Item existing;
 
 			existing = this.repository.findItemByCode(entity.getCode());
+			// TODO Quitar existing equals entity. No puede existir ya un item con el ID al crear
 			errors.state(request, existing == null || existing.getId() == entity.getId(), "reference", "employer.job.form.error.duplicated");
 		}
 	}
@@ -65,6 +66,7 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 		Money mon;
 		Inventor inventor;
 
+		// TODO Reemplazar con getActiveUserRole para no tener que hacer una llamada mas al repo
 		inventor = this.repository.findOneInventorById(request.getPrincipal().getActiveRoleId());
 
 		result = new Item();

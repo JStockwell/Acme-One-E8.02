@@ -27,6 +27,7 @@ public class InventorItemPublishService implements AbstractUpdateService<Invento
 		Inventor inventor;
 		Principal principal;
 
+		// TODO Mirar updateService
 		masterId = request.getModel().getInteger("id");
 		item = this.repository.findOneItemById(masterId);
 		inventor = item.getInventor();

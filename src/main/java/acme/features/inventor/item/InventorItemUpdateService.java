@@ -27,8 +27,10 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 		Inventor inventor;
 		Principal principal;
 
+		// TODO Comprobar que el item existe y que esta en modo draft
 		masterId = request.getModel().getInteger("id");
 		item = this.repository.findOneItemById(masterId);
+		// TODO Usar request.isPrincipal(inventor);
 		inventor = item.getInventor();
 		principal = request.getPrincipal();
 		result = item.isDraft() && inventor.getUserAccount().getId() == principal.getAccountId();
@@ -46,6 +48,7 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 			Item existing;
 
 			existing = this.repository.findItemByCode(entity.getCode());
+			// TODO Quitar existing equals null. Comprobar que no exista ya el codigo en OTRO item
 			errors.state(request, existing == null || existing.getId() == entity.getId(), "reference", "employer.job.form.error.duplicated");
 		}
 	}
