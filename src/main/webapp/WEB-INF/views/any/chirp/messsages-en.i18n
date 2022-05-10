@@ -1,5 +1,6 @@
 chirp.moment=Moment
 chirp.title=Title
-chirp.autor=Autor
+chirp.author=Author
 chirp.body=Body
 chirp.mail=Mail
+chirp.button.create=Create
