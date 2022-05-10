@@ -1,26 +1,23 @@
-package acme.features.any.chirp;
+package acme.features.administrator.announcement;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import acme.entities.Chirp;
+import acme.entities.Announcement;
 import acme.framework.controllers.AbstractController;
-import acme.framework.roles.Any;
+import acme.framework.roles.Administrator;
 
 @Controller
-public class AnyChirpController extends AbstractController<Any,Chirp>{
+public class AdministratorAnnouncementController extends AbstractController<Administrator,Announcement>{
 
 	@Autowired
-	protected AnyChirpListRecentService listRecent;
-	
-	@Autowired
-	protected AnyChirpCreateService create;
+	protected AdministratorAnnouncementCreateService create;
+
 	
 	@PostConstruct
 	protected void initialise() {
-		super.addCommand("list", this.listRecent);
 		super.addCommand("create", this.create);
 	}
 }
