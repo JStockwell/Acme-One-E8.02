@@ -11,7 +11,6 @@ import acme.features.any.userAccount.AnyUserAccountRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
-import acme.framework.entities.UserAccount;
 import acme.framework.roles.Administrator;
 import acme.framework.services.AbstractCreateService;
 
@@ -26,25 +25,21 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 
 	@Override
 	public boolean authorise(final Request<Announcement> request) {
-		// TODO No es necesario, framework ya se encarga del auth
 		assert request != null;
-		final Integer id = request.getPrincipal().getAccountId();
-		final UserAccount user = this.userrepo.findUserAccountById(id);
-		if(user.hasRole(Administrator.class)) {
-			return true;
-
-		}
-		else {
-			return false;
-		}
+		
+		return true;
 	}
 
 	@Override
 	public void validate(final Request<Announcement> request, final Announcement entity, final Errors errors) {
-		// TODO Confirmacion del servidor requerido. Mirar ACME Jobs
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		boolean confirmation;
+
+		confirmation = request.getModel().getBoolean("confirmation");
+		errors.state(request, confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
 
 	}
 

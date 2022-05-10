@@ -15,8 +15,16 @@
 		<acme:input-option code="COMPONENT" value="COMPONENT" selected="${itemType == 'COMPONENT'}"/>
 	</acme:input-select>
 	
-	<jstl:choose>	 
-		<jstl:when test="${acme:anyOf(command, 'update, delete, publish') && draft == true}">
+	<jstl:choose>
+<%-- 		<jstl:when test="${acme:anyOf(command, 'show') && draft == true}"> --%>
+<%-- 			<acme:button code="item.button.update" action="/inventor/item/update?id=${id}"/> --%>
+<%-- 			<acme:button code="item.button.publish" action="/inventor/item/publish?id=${id}"/> --%>
+<%-- 			<acme:button code="item.button.delete" action="/inventor/item/delete?id=${id}"/> --%>
+<%-- 		</jstl:when> --%>
+		<jstl:when test="${acme:anyOf(command, 'show, update, delete, publish') && draft == true}">
+<%-- 			<acme:button code="item.button.update" action="/inventor/item/update?id=${id}"/> --%>
+<%-- 			<acme:button code="item.button.publish" action="/inventor/item/publish?id=${id}"/> --%>
+<%-- 			<acme:button code="item.button.delete" action="/inventor/item/delete?id=${id}"/> --%>
 			<acme:submit code="item.button.update" action="/inventor/item/update"/>
 			<acme:submit code="item.button.delete" action="/inventor/item/delete"/>
 			<acme:submit code="item.button.publish" action="/inventor/item/publish"/>
@@ -26,3 +34,6 @@
 		</jstl:when>		
 	</jstl:choose>
 </acme:form>
+
+			
+

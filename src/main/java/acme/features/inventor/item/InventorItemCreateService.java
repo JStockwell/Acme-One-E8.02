@@ -35,8 +35,7 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 			Item existing;
 
 			existing = this.repository.findItemByCode(entity.getCode());
-			// TODO Quitar existing equals entity. No puede existir ya un item con el ID al crear
-			errors.state(request, existing == null || existing.getId() == entity.getId(), "reference", "employer.job.form.error.duplicated");
+			errors.state(request, existing == null, "code", "inventor.item.code.duplicated");
 		}
 	}
 

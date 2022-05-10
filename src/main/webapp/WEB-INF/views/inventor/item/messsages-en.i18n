@@ -11,3 +11,4 @@ item.button.update=Update
 item.button.delete=Delete
 item.button.publish=Publish
 item.button.create=Create
+inventor.item.code.duplicated=Code is already in use

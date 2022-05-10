@@ -7,7 +7,6 @@ import acme.entities.item.Item;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractUpdateService;
 import acme.roles.Inventor;
 
@@ -25,14 +24,12 @@ public class InventorItemPublishService implements AbstractUpdateService<Invento
 		int masterId;
 		Item item;
 		Inventor inventor;
-		Principal principal;
 
-		// TODO Mirar updateService
 		masterId = request.getModel().getInteger("id");
 		item = this.repository.findOneItemById(masterId);
+		assert item != null;
 		inventor = item.getInventor();
-		principal = request.getPrincipal();
-		result = item.isDraft() && inventor.getUserAccount().getId() == principal.getAccountId();
+		result = item.isDraft() && request.isPrincipal(inventor);
 
 		return result;
 	}
@@ -42,12 +39,14 @@ public class InventorItemPublishService implements AbstractUpdateService<Invento
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		
 
 		if (!errors.hasErrors("code")) {
 			Item existing;
 
 			existing = this.repository.findItemByCode(entity.getCode());
-			errors.state(request, existing == null || existing.getId() == entity.getId(), "reference", "employer.job.form.error.duplicated");
+			// TODO Quitar existing equals null. Comprobar que no exista ya el codigo en OTRO item
+			errors.state(request, existing == null || existing.getId() == entity.getId(), "code", "inventor.item.code.duplicated");
 		}
 	}
 
@@ -57,8 +56,7 @@ public class InventorItemPublishService implements AbstractUpdateService<Invento
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "reference", "title", "deadline", "salary");
-		request.bind(entity, errors, "score", "moreInfo", "description");
+		request.bind(entity, errors, "name","description","technology","link","itemType","price","code");
 	}
 
 	@Override
@@ -67,8 +65,7 @@ public class InventorItemPublishService implements AbstractUpdateService<Invento
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "title", "deadline", "salary");
-		request.unbind(entity, model, "score", "moreInfo", "description", "draftMode");
+		request.unbind(entity, model, "name","description","technology","link","itemType","price","code");
 	}
 
 	@Override

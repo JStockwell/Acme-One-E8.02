@@ -7,7 +7,6 @@ import acme.entities.item.Item;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractUpdateService;
 import acme.roles.Inventor;
 
@@ -25,15 +24,12 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 		int masterId;
 		Item item;
 		Inventor inventor;
-		Principal principal;
 
-		// TODO Comprobar que el item existe y que esta en modo draft
 		masterId = request.getModel().getInteger("id");
 		item = this.repository.findOneItemById(masterId);
-		// TODO Usar request.isPrincipal(inventor);
+		assert item != null;
 		inventor = item.getInventor();
-		principal = request.getPrincipal();
-		result = item.isDraft() && inventor.getUserAccount().getId() == principal.getAccountId();
+		result = item.isDraft() && request.isPrincipal(inventor);
 
 		return result;
 	}
@@ -49,7 +45,7 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 
 			existing = this.repository.findItemByCode(entity.getCode());
 			// TODO Quitar existing equals null. Comprobar que no exista ya el codigo en OTRO item
-			errors.state(request, existing == null || existing.getId() == entity.getId(), "reference", "employer.job.form.error.duplicated");
+			errors.state(request, existing == null || existing.getId() == entity.getId(), "code", "inventor.item.code.duplicated");
 		}
 	}
 
