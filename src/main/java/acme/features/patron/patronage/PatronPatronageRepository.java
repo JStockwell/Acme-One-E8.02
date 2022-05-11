@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.patronage.Patronage;
 import acme.framework.repositories.AbstractRepository;
+import acme.roles.Patron;
 
 @Repository
 public interface PatronPatronageRepository extends AbstractRepository {
@@ -15,6 +16,9 @@ public interface PatronPatronageRepository extends AbstractRepository {
 	Collection<Patronage> findPatronageByPatron(int id);
 
 	@Query("SELECT pt FROM Patronage pt WHERE pt.id = :id")
-	Patronage findOne(int id);
+	Patronage findOnePatronageById(int id);
+	
+	@Query("SELECT pt FROM Patronage pt WHERE pt.patron.id = :id")
+	Patron findOnePatronById(int id);
 
 }
