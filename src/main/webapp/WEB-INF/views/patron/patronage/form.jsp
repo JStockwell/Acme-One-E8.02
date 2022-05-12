@@ -11,6 +11,7 @@
 	<acme:input-textbox code="patronage.startDate" path="startDate"/>
 	<acme:input-textbox code="patronage.finishDate" path="finishDate"/>
 	<acme:input-url code="patronage.link" path="link" placeholder="patronage.link"/>
+	<acme:input-textbox code="patronage.draft" path="draft"/>
 	<acme:input-textbox code="inventor.name" path="inventorName"/>
 	<acme:input-email code="inventor.email" path="inventorEmail"/>
 	<acme:input-textbox code="inventor.company" path="inventorCompany"/>
