@@ -35,8 +35,6 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 
 	@Override
 	public void unbind(final Request<Patronage> request, final Patronage entity, final Model model) {
-
-		
 		assert request != null;
 		assert entity != null;
 		assert model != null;
@@ -94,6 +92,4 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		this.repository.save(entity);
 	}
 	
-	
-
 }
