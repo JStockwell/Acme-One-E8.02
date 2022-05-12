@@ -9,12 +9,3 @@ patronage.status=Status
 patronage.patronCompany=Patron Company
 patronage.patronStatement=Patron Statement
 patronage.patronLink=Patron Link
-
-patronage.button.create = Create
-patronage.button.update = Update
-patronage.button.delete = Delete
-patronage.button.publish = Publish
-
-patron.patronage.form.error.negative-budget = You can not have a negative budget
-patron.patronage.form.error.startDate-too-close-to-creationDate = The start date has to be at least one month after the creation date  
-patron.patronage.form.error.finishDate-too-close-to-startDate = The finish date has to be at least one month after the start date
