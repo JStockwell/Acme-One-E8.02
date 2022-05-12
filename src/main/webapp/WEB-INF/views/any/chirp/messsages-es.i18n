@@ -4,3 +4,4 @@ chirp.author=Autor
 chirp.body=Cuerpo
 chirp.mail=Mail
 chirp.button.create=Crear
+chirp.announcement.form.label.confirmation=Confirmar

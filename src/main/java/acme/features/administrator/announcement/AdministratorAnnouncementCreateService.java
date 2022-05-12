@@ -11,7 +11,6 @@ import acme.features.any.userAccount.AnyUserAccountRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
-import acme.framework.entities.UserAccount;
 import acme.framework.roles.Administrator;
 import acme.framework.services.AbstractCreateService;
 
@@ -27,15 +26,8 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 	@Override
 	public boolean authorise(final Request<Announcement> request) {
 		assert request != null;
-		final Integer id = request.getPrincipal().getAccountId();
-		final UserAccount user = this.userrepo.findUserAccountById(id);
-		if(user.hasRole(Administrator.class)) {
-			return true;
-
-		}
-		else {
-			return false;
-		}
+		
+		return true;
 	}
 
 	@Override
@@ -43,6 +35,11 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		boolean confirmation;
+
+		confirmation = request.getModel().getBoolean("confirmation");
+		errors.state(request, confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
 
 	}
 
