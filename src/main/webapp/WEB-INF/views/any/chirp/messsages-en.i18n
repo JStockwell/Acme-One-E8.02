@@ -5,4 +5,3 @@ chirp.body=Body
 chirp.mail=Mail
 chirp.button.create=Create
 chirp.announcement.form.label.confirmation=Confirm
-validator.spam=Spam detected

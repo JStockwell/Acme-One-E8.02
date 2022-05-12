@@ -9,12 +9,16 @@ import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractUpdateService;
 import acme.roles.Inventor;
+import acme.utility.TextValidator;
 
 @Service
 public class InventorItemUpdateService implements AbstractUpdateService<Inventor, Item> {
 
 	@Autowired
 	protected InventorItemRepository repository;
+	
+	@Autowired
+	protected TextValidator validator;
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
@@ -44,8 +48,18 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 			Item existing;
 
 			existing = this.repository.findItemByCode(entity.getCode());
-			// TODO Quitar existing equals null. Comprobar que no exista ya el codigo en OTRO item
-			errors.state(request, existing == null || existing.getId() == entity.getId(), "code", "inventor.item.code.duplicated");
+			errors.state(request, existing.getId() == entity.getId(), "code", "inventor.item.code.duplicated");
+			
+			String technology;
+			technology = request.getModel().getString("technology");
+			String description;
+			description = request.getModel().getString("description");
+			String name;
+			name = request.getModel().getString("name");
+			
+			errors.state(request, !this.validator.checkSpam(technology), "technology", "validator.spam");
+			errors.state(request, !this.validator.checkSpam(description), "description", "validator.spam");
+			errors.state(request, !this.validator.checkSpam(name), "name", "validator.spam");
 		}
 	}
 

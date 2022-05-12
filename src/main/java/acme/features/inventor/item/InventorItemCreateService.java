@@ -11,12 +11,16 @@ import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractCreateService;
 import acme.roles.Inventor;
+import acme.utility.TextValidator;
 
 @Service
 public class InventorItemCreateService implements AbstractCreateService<Inventor, Item> {
 
 	@Autowired
 	protected InventorItemRepository repository;
+	
+	@Autowired
+	protected TextValidator validator;
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
@@ -36,6 +40,17 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 
 			existing = this.repository.findItemByCode(entity.getCode());
 			errors.state(request, existing == null, "code", "inventor.item.code.duplicated");
+			
+			String technology;
+			technology = request.getModel().getString("technology");
+			String description;
+			description = request.getModel().getString("description");
+			String name;
+			name = request.getModel().getString("name");
+			
+			errors.state(request, !this.validator.checkSpam(technology), "technology", "validator.spam");
+			errors.state(request, !this.validator.checkSpam(description), "description", "validator.spam");
+			errors.state(request, !this.validator.checkSpam(name), "name", "validator.spam");
 		}
 	}
 

@@ -45,9 +45,12 @@ public class AnyChirpCreateService implements AbstractCreateService<Any, Chirp> 
 		title = request.getModel().getString("title");
 		String body;
 		body = request.getModel().getString("body");
+		String author;
+		author = request.getModel().getString("author");
 		
 		errors.state(request, !this.validator.checkSpam(title), "title", "validator.spam");
 		errors.state(request, !this.validator.checkSpam(body), "body", "validator.spam");
+		errors.state(request, !this.validator.checkSpam(author), "author", "validator.spam");
 	}
 
 	@Override
