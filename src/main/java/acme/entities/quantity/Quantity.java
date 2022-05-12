@@ -7,7 +7,11 @@ import javax.validation.constraints.NotNull;
 import acme.entities.item.Item;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.entities.AbstractEntity;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class Quantity extends AbstractEntity{
 
 	/**
