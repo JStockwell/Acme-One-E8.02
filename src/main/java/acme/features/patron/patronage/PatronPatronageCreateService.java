@@ -64,7 +64,7 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert errors != null;
 		
 		if(!errors.hasErrors("budget")) {
-			errors.state(request, entity.getBudget().getAmount() > 0, "budget", "patron.patronage.form.error.negative-budget"); //Se coloca los messages-view
+			errors.state(request, entity.getBudget().getAmount() > 0, "budget", "patron.patronage.form.error.negative-budget");
 		}
 		
 		if(!errors.hasErrors("startDate")) {
@@ -72,7 +72,7 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 			final Date startDate = entity.getStartDate();
 			final Long monthToMiliseconds = 2592000000l;
 			
-			errors.state(request, (startDate.getTime() - creationDate.getTime())/monthToMiliseconds > 1, "startDate", "patron.patronage.form.error.startDate-too-close-to-creationDate"); //Se coloca los messages-view
+			errors.state(request, (startDate.getTime() - creationDate.getTime())/monthToMiliseconds > 1, "startDate", "patron.patronage.form.error.startDate-too-close-to-creationDate");
 		}
 		
 		if(!errors.hasErrors("finishDate")) {
@@ -80,7 +80,7 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 			final Date finishDate = entity.getFinishDate();
 			final Long monthToMiliseconds = 2592000000l;
 			
-			errors.state(request, (finishDate.getTime() - startDate.getTime())/monthToMiliseconds > 1, "finishDate", "patron.patronage.form.error.finishDate-too-close-to-startDate"); //Se coloca los messages-view
+			errors.state(request, (finishDate.getTime() - startDate.getTime())/monthToMiliseconds > 1, "finishDate", "patron.patronage.form.error.finishDate-too-close-to-startDate");
 		}
 	}
 
