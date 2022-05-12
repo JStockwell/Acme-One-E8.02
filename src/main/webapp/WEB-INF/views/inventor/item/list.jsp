@@ -9,3 +9,5 @@
 	<acme:list-column code="item.retailPrice" path="price" width="20%"/>
 	<acme:list-column code="item.itemtype" path="itemType" width="20%"/>
 </acme:list>
+
+<acme:button code="item.button.create" action="/inventor/item/create"/>

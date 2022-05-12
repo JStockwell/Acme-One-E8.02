@@ -24,6 +24,7 @@ master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.system-configuration.show = System configuration
 master.menu.administrator.shut-down = Shut down
+master.menu.administrator.announcement.create=Create announcement
 
 # master.menu.any ####################################################
 
@@ -37,6 +38,7 @@ master.menu.authenticated=Authenticated
 
 master.menu.inventor = Inventor
 master.menu.inventor.myitems = My items
+master.menu.inventor.item.create=Create item
 
 # master.menu.patron ##########################################################
 
@@ -91,3 +93,8 @@ master.menu.lists.item=Item
 
 master.menu.dashboards = Dashboards
 master.menu.dashboards.patron = Patronages Dashboard
+master.menu.dashboards.admin = Administrator Dashboard
+
+# Create ################################################
+
+master.menu.lists.chirp.create=Create chirp

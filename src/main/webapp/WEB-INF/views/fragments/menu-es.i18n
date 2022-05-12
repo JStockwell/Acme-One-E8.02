@@ -24,6 +24,7 @@ master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.system-configuration.show = Configuración del sistema
 master.menu.administrator.shut-down = Parar el sistema
+master.menu.administrator.announcement.create=Crear anuncio
 
 # master.menu.any ####################################################
 
@@ -37,6 +38,7 @@ master.menu.authenticated=Autenticado
 
 master.menu.inventor = Inventor
 master.menu.inventor.myitems = Mis ítems
+master.menu.inventor.item.create= Crear item
 
 # master.menu.patron ##########################################################
 
@@ -91,3 +93,8 @@ master.menu.lists.item=Ítem
 
 master.menu.dashboards = Tablero
 master.menu.dashboards.patron = Tablero patrocinios
+master.menu.dashboards.admin = Tablero de Administrador
+
+# Create ################################################
+
+master.menu.lists.chirp.create=Crear chirp

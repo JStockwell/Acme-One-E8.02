@@ -1,16 +1,3 @@
-
-<%--
-- menu.jsp
--
-- Copyright (C) 2012-2022 Rafael Corchuelo.
--
-- In keeping with the traditional purpose of furthering education and research, it is
-- the policy of the copyright owner to permit non-commercial use and redistribution of
-- this software. It has been tested carefully, but it is not guaranteed for any particular
-- purposes.  The copyright owner does not offer any warranties or representations, nor do
-- they accept any liabilities with respect to them.
---%>
-
 <%@page language="java" import="acme.framework.helpers.PrincipalHelper"%>
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -27,6 +14,9 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.system-configuration.show" action="/administrator/system-configuration/show"/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
+			<acme:menu-suboption code="master.menu.dashboards.admin" action="/administrator/admin-dashboard/show"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.announcement.create" action="/administrator/announcement/create"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.any">
@@ -35,6 +25,8 @@
 			<acme:menu-suboption code="master.menu.lists.item" action="/any/item/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.user-account.list" action="/any/user-account/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.lists.chirp.create" action="/any/chirp/create"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
@@ -45,6 +37,8 @@
 			<acme:menu-suboption code="master.menu.inventor.myitems" action="/inventor/item/list"/>
 			<acme:menu-suboption code="master.menu.lists.patronage" action="/inventor/patronage/list"/>
 			<acme:menu-suboption code="master.menu.lists.patronageReport" action="/inventor/patronage-report/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.inventor.item.create" action="/inventor/item/create"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">
@@ -60,8 +54,7 @@
 			<acme:menu-suboption code="master.menu.anonymous.mancabmor1-favourite-link" action="https://www.youtube.com/watch?v=-3JbbFL-aks"/>
 			<acme:menu-suboption code="master.menu.anonymous.alegestor-favourite-link" action="https://twitter.com/juanminismo/status/1464982823874486274"/>
 			<acme:menu-suboption code="master.menu.anonymous.jaistomen-favourite-link" action="http://www.gendesign.co.jp/E_index.html"/>
-		</acme:menu-option>
-		
+		</acme:menu-option>		
 	</acme:menu-left>
 
 	<acme:menu-right>

@@ -30,10 +30,10 @@ public class InventorPatronageListService implements AbstractListService<Invento
 		assert request != null;
 		
 		Collection<Patronage> res;
-		int masterId;
+		int id;
 		
-		masterId =  request.getPrincipal().getActiveRoleId();
-		res = this.repository.findAllByInventorId(masterId);
+		id =  request.getPrincipal().getActiveRoleId();
+		res = this.repository.findAllByInventorId(id);
 		
 		return res;
 	}
@@ -44,7 +44,7 @@ public class InventorPatronageListService implements AbstractListService<Invento
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "code", "legislation", "budget", "creationDate", "startDate", "finishDate", "link");
+		request.unbind(entity, model, "code", "legislation", "budget", "status");
 	}
 
 }

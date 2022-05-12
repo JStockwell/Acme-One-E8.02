@@ -1,0 +1,26 @@
+administrator.admin-darshboard.form.title = Administrator's Dashboard
+
+administrator.admin-dashboard.form.total-components = Total number of components
+administrator.admin-dashboard.form.price-components-tech = Average retail price of components per technology
+administrator.admin-dashboard.form.price-components = Average retail price of components
+administrator.admin-dashboard.form.deviation-components-tech = Deviation of the retail price of components per technology
+administrator.admin-dashboard.form.deviation-components = Deviation retail price of components
+administrator.admin-dashboard.form.minimum-components-tech = Minimum retail price of components per technology
+administrator.admin-dashboard.form.minimum-components = Minimum retail price of components
+administrator.admin-dashboard.form.maximum-components-tech = Maximum retail price of components per technology
+administrator.admin-dashboard.form.maximum-components = Maximum retail price of components
+
+administrator.admin-dashboard.form.tools-total = Total number of tools
+administrator.admin-dashboard.form.average-tools = Average retail price of tools
+administrator.admin-dashboard.form.deviation-tools = Deviation of retail price of tools
+administrator.admin-dashboard.form.minimum-tools = Minimum retail price of tools
+administrator.admin-dashboard.form.maximum-tools = Maximum retail price of tools
+
+administrator.admin-dashboard.form.patronages-total = Total number of patronages per state
+administrator.admin-dashboard.form.proposed = Proposed
+administrator.admin-dashboard.form.accepted = Accepted
+administrator.admin-dashboard.form.denied = Denied
+administrator.admin-dashboard.form.average-patronages = Average budget of patronages per state
+administrator.admin-dashboard.form.deviation-patronages = Deviation of the budget of patronages per state
+administrator.admin-dashboard.form.minimum-patronages = Minimum budget of patronages per state
+administrator.admin-dashboard.form.maximum-patronages = Maximum budget of patronages per state
