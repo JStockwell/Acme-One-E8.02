@@ -50,7 +50,7 @@ public class InventorItemValidation {
 			final String acceptedCurrencies=this.sysConfRepository.findSystemConfiguration().getAcceptedCurrencies();
 
 			errors.state(request, amount>=0, "price", "inventor.item.money.negative");
-			errors.state(request, acceptedCurrencies.contains(currency), "price", "inventor.item.money.wrongCurrency");
+			errors.state(request, acceptedCurrencies.contains(currency) && currency.length()==3, "price", "inventor.item.money.wrongCurrency");
 		}
 	}
 
