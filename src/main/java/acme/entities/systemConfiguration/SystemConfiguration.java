@@ -1,6 +1,9 @@
 package acme.entities.systemConfiguration;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Entity;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -37,25 +40,25 @@ public class SystemConfiguration extends AbstractEntity {
 	@NotBlank
 	@Pattern(regexp = "[\"[A-Z]{3}\"?,]*")
 	protected String acceptedCurrencies;
-	
+
 	// TODO Cambiar regex a expresion universal de alfanumerico
 	@NotBlank
 	@Pattern(regexp = "[\"[a-zA-Z\\p{Zs}ñÑáÁéÉíÍóÓúÚ’-]\"?,]*")
 	protected String strongSpamTerms;
 	
-	// TODO Restringir numero de digitos
 	@NotNull
+	@Digits(fraction = 2, integer = 3)
 	@Range(min = 0, max = 100)
-	protected double strongThreshold;
+	protected BigDecimal strongThreshold;
 	
 	// TODO Cambiar regex a expresion universal de alfanumerico
 	@NotBlank
 	@Pattern(regexp = "[\"[a-zA-Z\\p{Zs}ñÑáÁéÉíÍóÓúÚ’-]\"?,]*")
 	protected String weakSpamTerms;
 	
-	// TODO Restringir numero de digitos
 	@NotNull
+	@Digits(fraction = 2, integer = 3)
 	@Range(min = 0, max = 100)
-	protected double weakThreshold;
+	protected BigDecimal weakThreshold;
 	
 }
