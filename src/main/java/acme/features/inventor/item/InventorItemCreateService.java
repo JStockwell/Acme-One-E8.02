@@ -11,12 +11,16 @@ import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractCreateService;
 import acme.roles.Inventor;
+import acme.utility.TextValidator;
 
 @Service
 public class InventorItemCreateService implements AbstractCreateService<Inventor, Item> {
 
 	@Autowired
 	protected InventorItemRepository repository;
+	
+	@Autowired
+	protected TextValidator validator;
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
@@ -31,11 +35,20 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 		assert entity != null;
 		assert errors != null;
 
+		// TODO Restriccion de precio positivo
 		if (!errors.hasErrors("code")) {
 			Item existing;
 
 			existing = this.repository.findItemByCode(entity.getCode());
 			errors.state(request, existing == null, "code", "inventor.item.code.duplicated");
+			
+			final String technology = entity.getTechnology();
+			final String description = entity.getDescription();
+			final String name = entity.getName();
+			
+			errors.state(request, !this.validator.checkSpam(technology), "technology", "validator.spam");
+			errors.state(request, !this.validator.checkSpam(description), "description", "validator.spam");
+			errors.state(request, !this.validator.checkSpam(name), "name", "validator.spam");
 		}
 	}
 
@@ -65,9 +78,8 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 		Money mon;
 		Inventor inventor;
 
-		// TODO Reemplazar con getActiveUserRole para no tener que hacer una llamada mas al repo
 		inventor = this.repository.findOneInventorById(request.getPrincipal().getActiveRoleId());
-
+		
 		result = new Item();
 		mon = new Money();
 		mon.setAmount(.0);

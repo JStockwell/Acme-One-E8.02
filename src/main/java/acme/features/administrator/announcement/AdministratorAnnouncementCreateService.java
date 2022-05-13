@@ -13,6 +13,7 @@ import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
 import acme.framework.roles.Administrator;
 import acme.framework.services.AbstractCreateService;
+import acme.utility.TextValidator;
 
 @Service
 public class AdministratorAnnouncementCreateService implements AbstractCreateService<Administrator, Announcement> {
@@ -22,6 +23,9 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 	
 	@Autowired
 	AnyUserAccountRepository userrepo;
+	
+	@Autowired
+	protected TextValidator validator;
 
 	@Override
 	public boolean authorise(final Request<Announcement> request) {
@@ -40,6 +44,12 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 
 		confirmation = request.getModel().getBoolean("confirmation");
 		errors.state(request, confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
+		
+		final String title = entity.getTitle();
+		final String body = entity.getBody();
+		
+		errors.state(request, !this.validator.checkSpam(title), "title", "validator.spam");
+		errors.state(request, !this.validator.checkSpam(body), "body", "validator.spam");
 
 	}
 
