@@ -33,22 +33,27 @@ public class SystemConfiguration extends AbstractEntity {
 	@Pattern(regexp = "\"[A-Z]{3}\"")
 	protected String defaultCurrency;
 	
+	// TODO Cambiar regex
 	@NotBlank
 	@Pattern(regexp = "[\"[A-Z]{3}\"?,]*")
 	protected String acceptedCurrencies;
-		
+	
+	// TODO Cambiar regex a expresion universal de alfanumerico
 	@NotBlank
 	@Pattern(regexp = "[\"[a-zA-Z\\p{Zs}ñÑáÁéÉíÍóÓúÚ’-]\"?,]*")
 	protected String strongSpamTerms;
 	
+	// TODO Restringir numero de digitos
 	@NotNull
 	@Range(min = 0, max = 100)
 	protected double strongThreshold;
 	
+	// TODO Cambiar regex a expresion universal de alfanumerico
 	@NotBlank
 	@Pattern(regexp = "[\"[a-zA-Z\\p{Zs}ñÑáÁéÉíÍóÓúÚ’-]\"?,]*")
 	protected String weakSpamTerms;
 	
+	// TODO Restringir numero de digitos
 	@NotNull
 	@Range(min = 0, max = 100)
 	protected double weakThreshold;

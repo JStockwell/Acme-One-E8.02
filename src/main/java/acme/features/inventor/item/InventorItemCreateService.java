@@ -35,12 +35,14 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 		assert entity != null;
 		assert errors != null;
 
+		// TODO Restriccion de precio positivo
 		if (!errors.hasErrors("code")) {
 			Item existing;
 
 			existing = this.repository.findItemByCode(entity.getCode());
 			errors.state(request, existing == null, "code", "inventor.item.code.duplicated");
 			
+			// TODO Coger datos desde entity en vez de model
 			String technology;
 			technology = request.getModel().getString("technology");
 			String description;
@@ -80,9 +82,8 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 		Money mon;
 		Inventor inventor;
 
-		// TODO Reemplazar con getActiveUserRole para no tener que hacer una llamada mas al repo
 		inventor = this.repository.findOneInventorById(request.getPrincipal().getActiveRoleId());
-
+		
 		result = new Item();
 		mon = new Money();
 		mon.setAmount(.0);

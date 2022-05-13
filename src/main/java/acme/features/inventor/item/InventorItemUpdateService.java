@@ -25,12 +25,14 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 		assert request != null;
 
 		boolean result;
+		// TODO Renombrar a id
 		int masterId;
 		Item item;
 		Inventor inventor;
 
 		masterId = request.getModel().getInteger("id");
 		item = this.repository.findOneItemById(masterId);
+		// TODO Poner el assert en el resultado
 		assert item != null;
 		inventor = item.getInventor();
 		result = item.isDraft() && request.isPrincipal(inventor);
@@ -44,6 +46,7 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 		assert entity != null;
 		assert errors != null;
 
+		// TODO Cambiar con el validate del create service con los cambios
 		if (!errors.hasErrors("code")) {
 			Item existing;
 
