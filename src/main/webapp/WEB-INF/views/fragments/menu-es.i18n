@@ -97,3 +97,4 @@ master.menu.dashboards.admin = Tablero de Administrador
 # Create ################################################
 
 master.menu.lists.chirp.create=Crear chirp
+master.menu.create.toolkit=Crear Toolkit
