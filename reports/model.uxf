@@ -29,8 +29,8 @@ email: String {NotBlank}</panel_attributes>
 Announcement
 --
 creation_moment: Date {Temporal(TemporalType.TIMESTAMP), Past, NotNull}
-title: String {NotBlank, Length(max=100)
-body: String {NotBlank}
+title: String {NotBlank, Length(max=100)}
+body: String {NotBlank, Length(max=255)}
 critical: boolean
 link: String {URL}</panel_attributes>
     <additional_attributes/>
@@ -49,7 +49,7 @@ Chirp
 creation_moment: Date {Temporal(TemporalType.TIMESTAMP), Past, NotNull}
 title: String {NotBlank, Length(max=100)
 author: String {NotBlank, Length(max=100)}
-body: String {NotBlank}
+body: String {NotBlank, Length(max=255)}
 email: String {email}</panel_attributes>
     <additional_attributes/>
   </element>
@@ -158,10 +158,10 @@ link: String {URL}</panel_attributes>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Patronage
 --
-status: PATRONAGE_STATUS
+status: PATRONAGE_STATUS {NotNull}
 code: String {NotBlank, Pattern(“^[A-Z]{3}-[0-9]{3}(-[A-Z])?$”), unique)}
 legal_stuff: String {NotBlank, Length(min=250)}
-budget: double
+budget: Money {NotNull}
 creation_date: Date {Past, NotTemporal(TemporalType.TIMESTAMP)}
 start_date: Date {Temporal(TemporalType.TIMESTAMP)}
 end_date: Date {Temporal(TemporalType.TIMESTAMP)}
@@ -183,7 +183,7 @@ name: string {NotBlank, Length(max=100)}
 code: String {NotBlank, Pattern(“^[A-Z]{3}-[0-9]{3}(-[A-Z])?$”), unique)}
 technology: String {NotBlank, Length(max=100)}
 description: String {NotBlank, Length(max=255)}
-retail_price: Money
+retail_price: Money {NotNull}
 link: String {URL}
 draft: boolean
 type: ITEM_TYPE {NotNull}</panel_attributes>
@@ -350,7 +350,7 @@ corresponds to</panel_attributes>
 m1=0..n
 m2=1
 gives</panel_attributes>
-    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;260.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -465,5 +465,29 @@ m1=1
 m2=0..n
 has</panel_attributes>
     <additional_attributes>10.0;20.0;180.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1360</x>
+      <y>800</y>
+      <w>280</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>if the item type is TOOL, the maximum
+number will be also 1
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1480</x>
+      <y>730</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
 </diagram>

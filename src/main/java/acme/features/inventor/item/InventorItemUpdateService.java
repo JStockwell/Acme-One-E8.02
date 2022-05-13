@@ -31,7 +31,7 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 		id = request.getModel().getInteger("id");
 		item = this.repository.findOneItemById(id);
 		inventor = item.getInventor();
-		result = item.isDraft() && request.isPrincipal(inventor) && item == null;
+		result = item != null && item.isDraft() && request.isPrincipal(inventor);
 
 		return result;
 	}
@@ -60,7 +60,7 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "name","description","technology","link","itemType","price","code");
+		request.unbind(entity, model, "name","description","technology","link","itemType","price","code","draft");
 	}
 
 	@Override

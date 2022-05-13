@@ -13,4 +13,3 @@ item.button.publish=Publish
 item.button.create=Create
 inventor.item.code.duplicated=Code is already in use
 inventor.item.money.negative = Money amount cannot be negative
-inventor.item.money.wrongCurrency = Currency not allowed
