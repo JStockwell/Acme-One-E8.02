@@ -53,12 +53,9 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 			existing = this.repository.findItemByCode(entity.getCode());
 			errors.state(request, existing.getId() == entity.getId(), "code", "inventor.item.code.duplicated");
 			
-			String technology;
-			technology = request.getModel().getString("technology");
-			String description;
-			description = request.getModel().getString("description");
-			String name;
-			name = request.getModel().getString("name");
+			final String technology = entity.getTechnology();
+			final String description = entity.getDescription();
+			final String name = entity.getName();
 			
 			errors.state(request, !this.validator.checkSpam(technology), "technology", "validator.spam");
 			errors.state(request, !this.validator.checkSpam(description), "description", "validator.spam");

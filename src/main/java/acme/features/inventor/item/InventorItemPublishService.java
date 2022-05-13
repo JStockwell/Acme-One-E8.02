@@ -9,6 +9,7 @@ import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractUpdateService;
 import acme.roles.Inventor;
+import acme.utility.TextValidator;
 
 @Service
 public class InventorItemPublishService implements AbstractUpdateService<Inventor, Item> {
@@ -16,6 +17,9 @@ public class InventorItemPublishService implements AbstractUpdateService<Invento
 	@Autowired
 	protected InventorItemRepository repository;
 
+	@Autowired
+	protected TextValidator validator;
+	
 	@Override
 	public boolean authorise(final Request<Item> request) {
 		assert request != null;
@@ -40,14 +44,23 @@ public class InventorItemPublishService implements AbstractUpdateService<Invento
 		assert entity != null;
 		assert errors != null;
 		
-
+		// TODO Añadir validacion del update
 		if (!errors.hasErrors("code")) {
 			Item existing;
 
-			// TODO Añadir validacion del update
 			existing = this.repository.findItemByCode(entity.getCode());
-			// TODO Quitar existing equals null. Comprobar que no exista ya el codigo en OTRO item
-			errors.state(request, existing == null || existing.getId() == entity.getId(), "code", "inventor.item.code.duplicated");
+			errors.state(request, existing.getId() == entity.getId(), "code", "inventor.item.code.duplicated");
+			
+			final String technology = entity.getTechnology();
+			final String description = entity.getDescription();
+			final String name = entity.getName();
+			
+			errors.state(request, !this.validator.checkSpam(technology), "technology", "validator.spam");
+			errors.state(request, !this.validator.checkSpam(description), "description", "validator.spam");
+			errors.state(request, !this.validator.checkSpam(name), "name", "validator.spam");
+			
+			existing = this.repository.findItemByCode(entity.getCode());
+			errors.state(request, existing.getId() == entity.getId(), "code", "inventor.item.code.duplicated");
 		}
 	}
 

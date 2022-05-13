@@ -41,12 +41,9 @@ public class AnyChirpCreateService implements AbstractCreateService<Any, Chirp> 
 		confirmation = request.getModel().getBoolean("confirmation");
 		errors.state(request, confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
 
-		String title;
-		title = request.getModel().getString("title");
-		String body;
-		body = request.getModel().getString("body");
-		String author;
-		author = request.getModel().getString("author");
+		final String title = entity.getTitle();
+		final String body = entity.getBody();
+		final String author = entity.getAuthor();
 		
 		errors.state(request, !this.validator.checkSpam(title), "title", "validator.spam");
 		errors.state(request, !this.validator.checkSpam(body), "body", "validator.spam");
