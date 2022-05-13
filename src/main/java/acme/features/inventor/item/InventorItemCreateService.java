@@ -11,7 +11,6 @@ import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractCreateService;
 import acme.roles.Inventor;
-import acme.utility.TextValidator;
 
 @Service
 public class InventorItemCreateService implements AbstractCreateService<Inventor, Item> {
@@ -20,7 +19,7 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 	protected InventorItemRepository repository;
 	
 	@Autowired
-	protected TextValidator validator;
+	protected InventorItemValidation validator;
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
@@ -35,21 +34,7 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 		assert entity != null;
 		assert errors != null;
 
-		// TODO Restriccion de precio positivo
-		if (!errors.hasErrors("code")) {
-			Item existing;
-
-			existing = this.repository.findItemByCode(entity.getCode());
-			errors.state(request, existing == null, "code", "inventor.item.code.duplicated");
-			
-			final String technology = entity.getTechnology();
-			final String description = entity.getDescription();
-			final String name = entity.getName();
-			
-			errors.state(request, !this.validator.checkSpam(technology), "technology", "validator.spam");
-			errors.state(request, !this.validator.checkSpam(description), "description", "validator.spam");
-			errors.state(request, !this.validator.checkSpam(name), "name", "validator.spam");
-		}
+		this.validator.validateItem(request, entity, errors);
 	}
 
 	@Override
