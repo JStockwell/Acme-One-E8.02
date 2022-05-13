@@ -13,7 +13,7 @@ import acme.roles.Inventor;
 public class InventorItemController extends AbstractController<Inventor,Item>{
 
 	@Autowired
-	protected InventorItemListService listRecent;
+	protected InventorItemListService listMine;
 
 	@Autowired
 	protected InventorItemShowService show;
@@ -32,7 +32,7 @@ public class InventorItemController extends AbstractController<Inventor,Item>{
 	
 	@PostConstruct
 	protected void initialise() {
-		super.addCommand("list", this.listRecent);
+		super.addCommand("list", this.listMine);
 		super.addCommand("show", this.show);
 		super.addCommand("create", this.create);
 		super.addCommand("update", this.update);

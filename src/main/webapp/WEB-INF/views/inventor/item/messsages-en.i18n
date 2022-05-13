@@ -12,3 +12,4 @@ item.button.delete=Delete
 item.button.publish=Publish
 item.button.create=Create
 inventor.item.code.duplicated=Code is already in use
+inventor.item.money.negative=The price can not be negative

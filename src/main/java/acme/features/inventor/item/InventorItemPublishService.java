@@ -21,15 +21,14 @@ public class InventorItemPublishService implements AbstractUpdateService<Invento
 		assert request != null;
 
 		boolean result;
-		int masterId;
+		int id;
 		Item item;
 		Inventor inventor;
 
-		masterId = request.getModel().getInteger("id");
-		item = this.repository.findOneItemById(masterId);
-		assert item != null;
+		id = request.getModel().getInteger("id");
+		item = this.repository.findOneItemById(id);
 		inventor = item.getInventor();
-		result = item.isDraft() && request.isPrincipal(inventor);
+		result = item !=null && item.isDraft() && request.isPrincipal(inventor);
 
 		return result;
 	}
@@ -45,8 +44,14 @@ public class InventorItemPublishService implements AbstractUpdateService<Invento
 			Item existing;
 
 			existing = this.repository.findItemByCode(entity.getCode());
-			// TODO Quitar existing equals null. Comprobar que no exista ya el codigo en OTRO item
 			errors.state(request, existing == null || existing.getId() == entity.getId(), "code", "inventor.item.code.duplicated");
+		}
+		if (!errors.hasErrors("price")) {
+			final Double amount=entity.getPrice().getAmount();
+			final String currency=entity.getPrice().getCurrency();
+			final String acceptedCurrencies=this.repository.getSystemConfiguration().getAcceptedCurrencies();
+
+			errors.state(request, amount>=0 && acceptedCurrencies.contains(currency), "code", "inventor.item.money.negative");
 		}
 	}
 
