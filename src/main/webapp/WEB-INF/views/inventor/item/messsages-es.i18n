@@ -12,4 +12,5 @@ item.button.delete=Borrar
 item.button.publish=Publicar
 item.button.create=Crear
 inventor.item.code.duplicated=El codigo ya esta en uso
-inventor.item.money.negative=El precio no puede ser negativo
+inventor.item.money.negative = Cantidad de dinero no puede ser negativo
+inventor.item.money.wrongCurrency = Divisa no permitida
