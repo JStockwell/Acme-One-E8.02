@@ -12,15 +12,32 @@ import acme.roles.Inventor;
 @Controller
 public class InventorItemController extends AbstractController<Inventor,Item>{
 
+	// TODO Refactorizar a un nombre mas adecuado eg. listMine
 	@Autowired
 	protected InventorItemListService listRecent;
 
 	@Autowired
 	protected InventorItemShowService show;
 	
+	@Autowired
+	protected InventorItemCreateService	create;
+
+	@Autowired
+	protected InventorItemUpdateService	update;
+
+	@Autowired
+	protected InventorItemDeleteService	delete;
+
+	@Autowired
+	protected InventorItemPublishService publish;
+	
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("list", this.listRecent);
 		super.addCommand("show", this.show);
+		super.addCommand("create", this.create);
+		super.addCommand("update", this.update);
+		super.addCommand("publish", "update", this.publish);
+		super.addCommand("delete", this.delete);
 	}
 }

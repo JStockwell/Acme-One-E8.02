@@ -12,12 +12,16 @@ import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
 import acme.framework.roles.Any;
 import acme.framework.services.AbstractCreateService;
+import acme.utility.TextValidator;
 
 @Service
 public class AnyChirpCreateService implements AbstractCreateService<Any, Chirp> {
 
 	@Autowired
 	protected AnyChirpRepository repository;
+	
+	@Autowired
+	protected TextValidator validator;
 
 	@Override
 	public boolean authorise(final Request<Chirp> request) {
@@ -32,6 +36,18 @@ public class AnyChirpCreateService implements AbstractCreateService<Any, Chirp> 
 		assert entity != null;
 		assert errors != null;
 
+		boolean confirmation;
+
+		confirmation = request.getModel().getBoolean("confirmation");
+		errors.state(request, confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
+
+		final String title = entity.getTitle();
+		final String body = entity.getBody();
+		final String author = entity.getAuthor();
+		
+		errors.state(request, !this.validator.checkSpam(title), "title", "validator.spam");
+		errors.state(request, !this.validator.checkSpam(body), "body", "validator.spam");
+		errors.state(request, !this.validator.checkSpam(author), "author", "validator.spam");
 	}
 
 	@Override
