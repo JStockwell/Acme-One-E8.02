@@ -9,7 +9,6 @@ import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractUpdateService;
 import acme.roles.Inventor;
-import acme.utility.TextValidator;
 
 @Service
 public class InventorItemUpdateService implements AbstractUpdateService<Inventor, Item> {
@@ -18,24 +17,21 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 	protected InventorItemRepository repository;
 	
 	@Autowired
-	protected TextValidator validator;
+	protected InventorItemValidation validator;
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
 		assert request != null;
 
 		boolean result;
-		// TODO Renombrar a id
-		int masterId;
+		int id;
 		Item item;
 		Inventor inventor;
 
-		masterId = request.getModel().getInteger("id");
-		item = this.repository.findOneItemById(masterId);
-		// TODO Poner el assert en el resultado
-		assert item != null;
+		id = request.getModel().getInteger("id");
+		item = this.repository.findOneItemById(id);
 		inventor = item.getInventor();
-		result = item.isDraft() && request.isPrincipal(inventor);
+		result = item.isDraft() && request.isPrincipal(inventor) && item == null;
 
 		return result;
 	}
@@ -46,21 +42,7 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 		assert entity != null;
 		assert errors != null;
 
-		// TODO Cambiar con el validate del create service con los cambios
-		if (!errors.hasErrors("code")) {
-			Item existing;
-
-			existing = this.repository.findItemByCode(entity.getCode());
-			errors.state(request, existing.getId() == entity.getId(), "code", "inventor.item.code.duplicated");
-			
-			final String technology = entity.getTechnology();
-			final String description = entity.getDescription();
-			final String name = entity.getName();
-			
-			errors.state(request, !this.validator.checkSpam(technology), "technology", "validator.spam");
-			errors.state(request, !this.validator.checkSpam(description), "description", "validator.spam");
-			errors.state(request, !this.validator.checkSpam(name), "name", "validator.spam");
-		}
+		this.validator.validateItem(request, entity, errors);
 	}
 
 	@Override
