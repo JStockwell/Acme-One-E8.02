@@ -67,6 +67,4 @@ public class AdministratorAnnouncementCreateTest extends TestHarness {
 		super.signOut();
 	}
 
-	// Ancillary methods ------------------------------------------------------
-
 }

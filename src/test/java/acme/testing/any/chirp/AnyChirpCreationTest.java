@@ -61,6 +61,4 @@ public class AnyChirpCreationTest extends TestHarness {
 		super.signOut();
 	}
 
-	// Ancillary methods ------------------------------------------------------
-
 }
