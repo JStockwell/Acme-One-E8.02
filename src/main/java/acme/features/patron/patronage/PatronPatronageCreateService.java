@@ -25,6 +25,9 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 	protected PatronPatronageRepository repository;
 	
 	@Autowired
+	protected PatronPatronageValidation validator;
+	
+	@Autowired
 	protected InventorItemRepository inventorRepository;
 
 	@Override
@@ -102,25 +105,7 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert entity != null;
 		assert errors != null;
 		
-		if(!errors.hasErrors("budget")) {
-			errors.state(request, entity.getBudget().getAmount() > 0, "budget", "patron.patronage.form.error.negative-budget");
-		}
-		
-		if(!errors.hasErrors("startDate")) {
-			final Date creationDate = entity.getCreationDate();
-			final Date startDate = entity.getStartDate();
-			final Long monthToMiliseconds = 2592000000l;
-			
-			errors.state(request, (startDate.getTime() - creationDate.getTime())/monthToMiliseconds > 1, "startDate", "patron.patronage.form.error.startDate-too-close-to-creationDate");
-		}
-		
-		if(!errors.hasErrors("finishDate")) {
-			final Date startDate = entity.getStartDate();
-			final Date finishDate = entity.getFinishDate();
-			final Long monthToMiliseconds = 2592000000l;
-			
-			errors.state(request, (finishDate.getTime() - startDate.getTime())/monthToMiliseconds > 1, "finishDate", "patron.patronage.form.error.finishDate-too-close-to-startDate");
-		}
+		this.validator.validatePatronage(request, entity, errors);
 	}
 
 	@Override
