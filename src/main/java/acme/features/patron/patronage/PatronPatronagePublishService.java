@@ -1,7 +1,5 @@
 package acme.features.patron.patronage;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +15,9 @@ public class PatronPatronagePublishService implements AbstractUpdateService<Patr
 	
 	@Autowired
 	protected PatronPatronageRepository repository;
+	
+	@Autowired
+	protected PatronPatronageValidation validator;
 
 	@Override
 	public boolean authorise(final Request<Patronage> request) {
@@ -72,25 +73,7 @@ public class PatronPatronagePublishService implements AbstractUpdateService<Patr
 		assert entity != null;
 		assert errors != null;
 		
-		if(!errors.hasErrors("budget")) {
-			errors.state(request, entity.getBudget().getAmount() > 0, "budget", "patron.patronage.form.error.negative-budget"); //Se coloca los messages-view
-		}
-		
-		if(!errors.hasErrors("startDate")) {
-			final Date creationDate = entity.getCreationDate();
-			final Date startDate = entity.getStartDate();
-			final Long monthToMiliseconds = 2592000000l;
-			
-			errors.state(request, (startDate.getTime() - creationDate.getTime())/monthToMiliseconds > 1, "startDate", "patron.patronage.form.error.startDate-too-close-to-creationDate"); //Se coloca los messages-view
-		}
-		
-		if(!errors.hasErrors("finishDate")) {
-			final Date startDate = entity.getStartDate();
-			final Date finishDate = entity.getFinishDate();
-			final Long monthToMiliseconds = 2592000000l;
-			
-			errors.state(request, (finishDate.getTime() - startDate.getTime())/monthToMiliseconds > 1, "finishDate", "patron.patronage.form.error.finishDate-too-close-to-startDate"); //Se coloca los messages-view
-		}
+		this.validator.validatePatronage(request, entity, errors);
 	}
 
 	@Override
