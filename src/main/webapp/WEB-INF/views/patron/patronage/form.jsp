@@ -4,6 +4,12 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:form>
+	<acme:input-select code="patronage.status" path="status">
+		<acme:input-option code="Proposed" value="Proposed" selected="${status == 'Proposed'}"/>
+		<acme:input-option code="Accepted" value="Accepted" selected="${status == 'Accepted'}"/>
+		<acme:input-option code="Denied" value="Denied" selected="${status == 'Denied'}"/>
+	</acme:input-select>
+	
 	<acme:input-textbox code="patronage.code" path="code"/>
 	<acme:input-textbox code="patronage.legislation" path="legislation"/>
 	<acme:input-textbox code="patronage.budget" path="budget"/>
@@ -24,5 +30,8 @@
 			<acme:submit code="patronage.button.delete" action="/patron/patronage/delete"/>
 			<acme:submit code="patronage.button.publish" action="/patron/patronage/publish"/>
 		</jstl:when>
+		<jstl:when test="${acme:anyOf(command, 'create')}">
+			<acme:submit code="item.button.create" action="/patron/patronage/create"/>
+		</jstl:when>	
 	</jstl:choose>
 </acme:form>
