@@ -77,6 +77,8 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 			finishDate = formatter.parse(finishDate_string);
 		} catch (final ParseException e) {} 
 		
+	    money.setAmount(.0);
+	    money.setCurrency("EUR");
 		
 		res = new Patronage();
 		res.setStatus(Status.Proposed);
