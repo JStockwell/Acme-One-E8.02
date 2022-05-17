@@ -1,3 +1,4 @@
+patronage.status=Estado
 patronage.code=Código
 patronage.legislation=Legislacion
 patronage.budget=Presupuesto
@@ -5,8 +6,19 @@ patronage.creationDate=Fecha de creación
 patronage.startDate=Fecha de Inicio
 patronage.finishDate=Fecha de finalización
 patronage.link=Link
+patronage.draft=Borrador
 inventor.name = Nombre del Inventor
 inventor.email = Email del Inventor
 inventor.company = Compañía del Inventor
 inventor.statement = Declaración del Inventor
 inventor.link = Link del Inventor
+
+patronage.button.create = Crear
+patronage.button.update = Actualizar
+patronage.button.delete = Eliminar
+patronage.button.publish = Publicar
+
+patron.patronage.form.error.negative-budget = No puede haber un presupuesto negativo
+patron.patronage.form.error.startDate-too-close-to-creationDate = La fecha de inicio tiene que ser al menos un mes posterior a la de creación
+patron.patronage.form.error.finishDate-too-close-to-startDate = La fecha final tiene que ser al menos un mes posterior a la de inicio
+patron.patronage.form.error.wrongCurrency = Divisa no permitida

@@ -68,6 +68,8 @@ public class Patronage extends AbstractEntity{
 	@URL
 	private String link;
 	
+	private boolean draft;
+	
 	
 	// Relationships --------------------------------------------------------------------
 	
