@@ -29,7 +29,7 @@ public class AdministratorAnnouncementCreateTest extends TestHarness {
 		super.clickOnMenu("Any", "Announcement");
 
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(2, "desc");
 		super.checkColumnHasValue(recordIndex, 0, title);
 		super.checkColumnHasValue(recordIndex, 1, critical);
 
@@ -66,7 +66,5 @@ public class AdministratorAnnouncementCreateTest extends TestHarness {
 
 		super.signOut();
 	}
-
-	// Ancillary methods ------------------------------------------------------
 
 }

@@ -57,7 +57,7 @@ public class AnyChirpListTest extends TestHarness{
 
 		super.clickOnMenu("Any", "Chirp");
 		super.checkListingExists();
-		super.sortListing(4, "desc");
+		super.sortListing(0, "asc");
 		
 		super.checkColumnHasValue(recordIndex, 0, title);
 		super.checkColumnHasValue(recordIndex, 1, author);

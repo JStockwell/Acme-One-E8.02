@@ -1,0 +1,9 @@
+timestamp,simple-path,time
+"2022-05-14 12:35:41.622","/master/welcome",3197
+"2022-05-14 12:35:41.915","/master/welcome",251
+"2022-05-14 12:35:43.061","/master/sign-in",1093
+"2022-05-14 12:35:44.301","/master/welcome",578
+"2022-05-14 12:35:45.539","/inventor/item/create",1081
+"2022-05-14 12:35:47.174","/master/welcome",555
+"2022-05-14 12:35:47.861","/inventor/item/list",564
+"2022-05-14 12:35:49.582","/inventor/item/show",554
