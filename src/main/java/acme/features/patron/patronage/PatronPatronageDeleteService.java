@@ -81,6 +81,7 @@ public class PatronPatronageDeleteService implements AbstractDeleteService<Patro
 		
 		Collection<PatronageReport> patronageReports;
 		
+		// TODO Tiene que estar en modo draft para borrar, así que no puede tener reports.
 		patronageReports = this.repository.findPatronageReportByPatronageId(entity.getId());
 		for(final PatronageReport patronageReport : patronageReports) {
 			this.repository.delete(patronageReport);

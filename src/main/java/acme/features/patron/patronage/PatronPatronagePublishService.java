@@ -81,6 +81,7 @@ public class PatronPatronagePublishService implements AbstractUpdateService<Patr
 		assert request != null;
 		assert entity != null;
 
+		// TODO Cambiar el status de draft a proposed
 		entity.setDraft(false);
 		this.repository.save(entity);
 	}

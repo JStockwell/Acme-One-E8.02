@@ -25,6 +25,7 @@ public class Quantity extends AbstractEntity{
 	@ManyToOne(optional = false)
 	protected Item item;
 	
+	// TODO Añadir quantity > 0
 	protected int itemQuantity;
 
 }
