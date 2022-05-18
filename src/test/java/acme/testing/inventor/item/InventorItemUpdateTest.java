@@ -9,7 +9,7 @@ import acme.testing.TestHarness;
 public class InventorItemUpdateTest extends TestHarness {
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/inventor/item/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/inventor/item/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1,delimiterString=";")
 	@Order(10)
 	public void positiveTest(final int recordIndex, final String name, final String description, final String code, final String technology, final String price, final String link, final String itemType) {
 		super.signIn("inventor1", "inventor1");
@@ -17,9 +17,9 @@ public class InventorItemUpdateTest extends TestHarness {
 		super.clickOnMenu("Inventor", "My items");
 
 		super.checkListingExists();
-		super.sortListing(1, "asc");
+		super.sortListing(0, "asc");
 		
-		super.clickOnListingRecord(recordIndex);
+		super.clickOnListingRecord(0);
 
 		super.checkFormExists();
 
@@ -36,13 +36,13 @@ public class InventorItemUpdateTest extends TestHarness {
 		super.clickOnMenu("Inventor", "My items");
 
 		super.checkListingExists();
-		super.sortListing(1, "asc");
-		super.checkColumnHasValue(recordIndex, 0, name);
-		super.checkColumnHasValue(recordIndex, 1, technology);
-		super.checkColumnHasValue(recordIndex, 2, price);
-		super.checkColumnHasValue(recordIndex, 3, itemType);
+		super.sortListing(0, "asc");
+		super.checkColumnHasValue(0, 0, name);
+		super.checkColumnHasValue(0, 1, technology);
+		super.checkColumnHasValue(0, 2, price);
+		super.checkColumnHasValue(0, 3, itemType);
 
-		super.clickOnListingRecord(recordIndex);
+		super.clickOnListingRecord(0);
 
 		super.checkFormExists();
 		super.checkInputBoxHasValue("name", name);
@@ -52,7 +52,7 @@ public class InventorItemUpdateTest extends TestHarness {
 		super.checkInputBoxHasValue("price", price);
 		super.checkInputBoxHasValue("link", link);
 		super.checkInputBoxHasValue("itemType", itemType);
-
+		
 		super.signOut();
 	}
 

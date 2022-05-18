@@ -3,10 +3,14 @@ package acme.testing.any.chirp;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.testing.TestHarness;
 
 public class AnyChirpCreationTest extends TestHarness {
+	
+	@Autowired
+	private AnyChirpTestRepository repository;
 	
 	@ParameterizedTest
 	@CsvFileSource(resources = "/any/chirp/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -34,7 +38,7 @@ public class AnyChirpCreationTest extends TestHarness {
 		super.checkColumnHasValue(recordIndex, 1, author);
 		super.checkColumnHasValue(recordIndex, 2, body);
 		super.checkColumnHasValue(recordIndex, 3, mail);
-
+		
 		super.signOut();
 	}
 

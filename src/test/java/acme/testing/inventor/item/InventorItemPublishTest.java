@@ -9,17 +9,30 @@ import acme.testing.TestHarness;
 public class InventorItemPublishTest extends TestHarness {
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/inventor/item/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/inventor/item/publish-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void positiveTest(final int recordIndex, final String name, final String description, final String code, final String technology, final String price, final String link, final String itemType) {
 		super.signIn("inventor1", "inventor1");
 		
+		super.clickOnMenu("Inventor", "Create item");
+		super.checkFormExists();
+		
+		super.fillInputBoxIn("name", "yyyyyyy");
+		super.fillInputBoxIn("description", "fasdfasdf");
+		super.fillInputBoxIn("code", "HDJ-001");
+		super.fillInputBoxIn("technology", "ea");
+		super.fillInputBoxIn("price", "EUR 5");
+		super.fillInputBoxIn("link", "");
+		super.fillInputBoxIn("itemType", "TOOL");
+
+		super.clickOnSubmit("Create");
+		
 		super.clickOnMenu("Inventor", "My items");
 
 		super.checkListingExists();
-		super.sortListing(1, "asc");
+		super.sortListing(0, "asc");
 		
-		super.clickOnListingRecord(recordIndex);
+		super.clickOnListingRecord(2);
 
 		super.checkFormExists();
 
@@ -36,13 +49,13 @@ public class InventorItemPublishTest extends TestHarness {
 		super.clickOnMenu("Inventor", "My items");
 
 		super.checkListingExists();
-		super.sortListing(1, "asc");
-		super.checkColumnHasValue(recordIndex, 0, name);
-		super.checkColumnHasValue(recordIndex, 1, technology);
-		super.checkColumnHasValue(recordIndex, 2, price);
-		super.checkColumnHasValue(recordIndex, 3, itemType);
+		super.sortListing(0, "asc");
+		super.checkColumnHasValue(2, 0, name);
+		super.checkColumnHasValue(2, 1, technology);
+		super.checkColumnHasValue(2, 2, price);
+		super.checkColumnHasValue(2, 3, itemType);
 
-		super.clickOnListingRecord(recordIndex);
+		super.clickOnListingRecord(2);
 
 		super.checkFormExists();
 		super.checkInputBoxHasValue("name", name);
@@ -69,7 +82,7 @@ public class InventorItemPublishTest extends TestHarness {
 		super.clickOnMenu("Inventor", "My items");
 
 		super.checkListingExists();
-		super.sortListing(1, "asc");
+		super.sortListing(0, "asc");
 		
 		super.clickOnListingRecord(0);
 
