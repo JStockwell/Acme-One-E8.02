@@ -67,9 +67,13 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		Date finishDate = null;
 		
 		patron = this.repository.findOnePatronById(request.getPrincipal().getActiveRoleId());
+		// TODO Proporcionar inventor en el formulario mediante un select
 		inventor = this.inventorRepository.findOneInventorById(1);
+		// TODO Añadir valores iniciales
 		money = new Money();
 				
+		// TODO valores nulos todos excepto el patron, fecha de creacion y status
+		// TODO Creation Date deberia ser instante actual y se deja los demás nulos
 		final String creationDate_string = "01-01-2022";
 		final String startDate_string = "15-02-2022";
 		final String finishDate_string = "30-03-2022";
@@ -79,11 +83,12 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 			startDate = formatter.parse(startDate_string);
 			finishDate = formatter.parse(finishDate_string);
 		} catch (final ParseException e) {} 
-		
+	    
 	    money.setAmount(.0);
 	    money.setCurrency("EUR");
 		
 		res = new Patronage();
+		// TODO Set to draft
 		res.setStatus(Status.Proposed);
 		res.setCode("PTG-999");
 		res.setLegislation("blabla");

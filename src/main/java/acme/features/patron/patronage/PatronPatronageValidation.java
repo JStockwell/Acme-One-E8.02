@@ -25,9 +25,12 @@ public class PatronPatronageValidation {
 	
 	public void validatePatronage(final Request<Patronage> request, final Patronage entity, final Errors errors) {
 		
+		// TODO Añadir validacion de codigo. Create si no existe, update y publish que sean el correcto.
+		
 		if(!errors.hasErrors("startDate")) {
 			final Date creationDate = entity.getCreationDate();
 			final Date startDate = entity.getStartDate();
+			// TODO Trabajar con clase Calendar. Mirar ACMEJobs en registro de trabajo, el deadline
 			final Long monthToMiliseconds = 2592000000l;
 			
 			errors.state(request, (startDate.getTime() - creationDate.getTime())/monthToMiliseconds > 1, "startDate", "patron.patronage.form.error.startDate-too-close-to-creationDate");
@@ -36,6 +39,7 @@ public class PatronPatronageValidation {
 		if(!errors.hasErrors("finishDate")) {
 			final Date startDate = entity.getStartDate();
 			final Date finishDate = entity.getFinishDate();
+			// TODO Trabajar con clase Calendar. Mirar ACMEJobs en registro de trabajo, el deadline
 			final Long monthToMiliseconds = 2592000000l;
 			
 			errors.state(request, (finishDate.getTime() - startDate.getTime())/monthToMiliseconds > 1, "finishDate", "patron.patronage.form.error.finishDate-too-close-to-startDate");
@@ -51,6 +55,7 @@ public class PatronPatronageValidation {
 			final String currency=entity.getBudget().getCurrency();
 			final String acceptedCurrencies=this.sysConfRepository.findSystemConfiguration().getAcceptedCurrencies();
 
+			// TODO Ammount > 0
 			errors.state(request, amount>=0, "budget", "patron.patronage.form.error.negative-budget");
 			errors.state(request, acceptedCurrencies.contains(currency) && currency.length()==3, "budget", "patron.patronage.form.error.wrongCurrency");
 		}
