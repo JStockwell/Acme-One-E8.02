@@ -29,18 +29,16 @@ public class SystemConfiguration extends AbstractEntity {
 //	 A list of weak spam terms, which must include “sexy”, “nigeria", “you’ve won”, “one mil-lion”, and their corresponding Spanish translations by default.
 //	 A weak spam threshold, which must be 25% by default.
 	
-	// TODO Quitar " "
 	@NotBlank
 	@Pattern(regexp = "\\p{L}{3}")
 	protected String defaultCurrency;
 	
-	// TODO Cambiar regex. Web https://www.regex101.com
 	@NotBlank
-	@Pattern(regexp = "[\"[A-Z]{3}\"?,]*")
+	@Pattern(regexp = "([\\p{L}]{3}+)(, ?[\\p{L}]{3}+)*")
 	protected String acceptedCurrencies;
 	
 	@NotBlank
-	@Pattern(regexp = "[\\p{L}\\p{N} ,']")
+	@Pattern(regexp = "([\\p{L} '-]+)(, ?[\\p{L} '-]+)*")
 	protected String strongSpamTerms;
 	
 	@NotNull
@@ -48,7 +46,7 @@ public class SystemConfiguration extends AbstractEntity {
 	protected double strongThreshold;
 	
 	@NotBlank
-	@Pattern(regexp = "[\\p{L}\\p{N} ,']")
+	@Pattern(regexp = "([\\p{L} '-]+)(, ?[\\p{L} '-]+)*")
 	protected String weakSpamTerms;
 	
 	@NotNull
