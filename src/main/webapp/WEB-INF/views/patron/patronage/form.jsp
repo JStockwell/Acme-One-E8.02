@@ -12,12 +12,17 @@
 		<acme:input-option code="Draft" value="Draft" selected="${status == 'Draft'}"/>
 	</acme:input-select>
 	<acme:input-textbox code="patronage.legislation" path="legislation"/>
-	<acme:input-textbox code="patronage.budget" path="budget"/>
-	<acme:input-textbox code="patronage.creationDate" path="creationDate"/>
-	<acme:input-textbox code="patronage.startDate" path="startDate"/>
-	<acme:input-textbox code="patronage.finishDate" path="finishDate"/>
+	<acme:input-money code="patronage.budget" path="budget"/>
+	<acme:input-moment code="patronage.creationDate" path="creationDate"/>
+	<acme:input-moment code="patronage.startDate" path="startDate"/>
+	<acme:input-moment code="patronage.finishDate" path="finishDate"/>
 	<acme:input-url code="patronage.link" path="link" placeholder="patronage.link"/>
-	<acme:input-textbox code="inventor.name" path="inventorName"/>
+
+	
+	<acme:input-select code="inventor.name" path="inventorName">
+		<acme:input-option code="" value="${}"/>
+	</acme:input-select>
+	
 	<acme:input-email code="inventor.email" path="inventorEmail"/>
 	<acme:input-textbox code="inventor.company" path="inventorCompany"/>
 	<acme:input-textbox code="inventor.statement" path="inventorStatement"/>
