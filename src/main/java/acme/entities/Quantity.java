@@ -1,4 +1,4 @@
-package acme.Quantity.entities;
+package acme.entities.Quantity;
 
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
