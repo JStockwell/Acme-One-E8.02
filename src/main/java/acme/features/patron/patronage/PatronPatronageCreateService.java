@@ -13,7 +13,6 @@ import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractCreateService;
-import acme.roles.Inventor;
 import acme.roles.Patron;
 
 @Service
@@ -58,45 +57,20 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		
 		Patronage res;
 		Patron patron;
-		Inventor inventor;
-		Money money;
-		final Date creationDate = null;
-		final Date startDate = null;
-		final Date finishDate = null;
+		final Money money;
+		final Date creationDate = new Date();
 		
 		patron = this.repository.findOnePatronById(request.getPrincipal().getActiveRoleId());
 		// TODO Proporcionar inventor en el formulario mediante un select
-		inventor = this.inventorRepository.findOneInventorById(1);
-		// TODO Añadir valores iniciales
-		money = new Money();
 				
-		// TODO valores nulos todos excepto el patron, fecha de creacion y status
-		// TODO Creation Date deberia ser instante actual y se deja los demás nulos
-		
-//		final String creationDate_string = "01-01-2022";
-//		final String startDate_string = "15-02-2022";
-//		final String finishDate_string = "30-03-2022";
-//		final SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-//	    try {
-//	    	creationDate = formatter.parse(creationDate_string);
-//			startDate = formatter.parse(startDate_string);
-//			finishDate = formatter.parse(finishDate_string);
-//		} catch (final ParseException e) {} 
-	    
-	    money.setAmount(.0);
-	    money.setCurrency("EUR");
-		
+//	    money.setAmount(.0);
+//	    money.setCurrency("EUR");
 		res = new Patronage();
 		res.setStatus(Status.Draft);
-//		res.setCode("PTG-999");
-//		res.setLegislation("blabla");
-//		res.setBudget(money);
 		res.setCreationDate(creationDate);
-//		res.setStartDate(startDate);
-//		res.setFinishDate(finishDate);
-//		res.setLink("");
 		res.setPatron(patron);
-//		res.setInventor(inventor);
+		 		
+		System.out.println();
 		
 		return res;
 	}
