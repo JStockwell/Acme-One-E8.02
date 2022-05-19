@@ -57,7 +57,7 @@ public class AnyAnnouncementListTest extends TestHarness{
 
 		super.clickOnMenu("Any", "Announcement");
 		super.checkListingExists();
-		super.sortListing(2, "desc");
+		super.sortListing(0, "asc");
 		
 		super.checkColumnHasValue(recordIndex, 0, title);
 		super.checkColumnHasValue(recordIndex, 1, critical);
