@@ -3,7 +3,7 @@ package acme.features.administrator.systemConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.systemConfiguration.SystemConfiguration;
+import acme.entities.SystemConfiguration;
 import acme.features.any.userAccount.AnyUserAccountRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;

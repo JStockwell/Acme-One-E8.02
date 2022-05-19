@@ -1,11 +1,10 @@
-package acme.entities.quantity;
+package acme.entities;
 
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import acme.entities.item.Item;
-import acme.entities.toolkit.Toolkit;
 import acme.framework.entities.AbstractEntity;
 
 public class Quantity extends AbstractEntity{

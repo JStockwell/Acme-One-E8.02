@@ -1,4 +1,4 @@
-package acme.entities.systemConfiguration;
+package acme.entities;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
@@ -31,7 +31,7 @@ public class SystemConfiguration extends AbstractEntity {
 	
 	// TODO Quitar " "
 	@NotBlank
-	@Pattern(regexp = "\"[A-Z]{3}\"")
+	@Pattern(regexp = "\\p{L}{3}")
 	protected String defaultCurrency;
 	
 	// TODO Cambiar regex. Web https://www.regex101.com
@@ -39,24 +39,20 @@ public class SystemConfiguration extends AbstractEntity {
 	@Pattern(regexp = "[\"[A-Z]{3}\"?,]*")
 	protected String acceptedCurrencies;
 	
-	// TODO Cambiar regex a expresion universal de alfanumerico. Mirar \pL \pN
 	@NotBlank
-	@Pattern(regexp = "[\"[a-zA-Z\\p{Zs}ñÑáÁéÉíÍóÓúÚ’-]\"?,]*")
+	@Pattern(regexp = "[\\p{L}\\p{N} ,']")
 	protected String strongSpamTerms;
 	
-	// TODO Restringir numero de digitos
 	@NotNull
-	@Range(min = 0, max = 100)
+	@Range(min = 0, max = 1)
 	protected double strongThreshold;
 	
-	// TODO Cambiar regex a expresion universal de alfanumerico
 	@NotBlank
-	@Pattern(regexp = "[\"[a-zA-Z\\p{Zs}ñÑáÁéÉíÍóÓúÚ’-]\"?,]*")
+	@Pattern(regexp = "[\\p{L}\\p{N} ,']")
 	protected String weakSpamTerms;
 	
-	// TODO Restringir numero de digitos
 	@NotNull
-	@Range(min = 0, max = 100)
+	@Range(min = 0, max = 1)
 	protected double weakThreshold;
 	
 }
