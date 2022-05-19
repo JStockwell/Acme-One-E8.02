@@ -4,3 +4,6 @@ toolkit.description = Description
 toolkit.assemblyNotes = Assembly Notes
 toolkit.link = Link
 toolkit.create = Create
+toolkit.update = Update
+toolkit.delete = Delete
+toolkit.publish = Publish

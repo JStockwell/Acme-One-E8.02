@@ -4,3 +4,6 @@ toolkit.description = Descripción
 toolkit.assemblyNotes = Notas de ensamblado
 toolkit.link = Enlance
 toolkit.create = Crear
+toolkit.update = Actualizar
+toolkit.delete = Eliminar
+toolkit.publish = Publicar

@@ -11,6 +11,11 @@
 	<acme:input-url code="toolkit.link" path="link"/>
 	
 	<jstl:choose>
+		<jstl:when test="${acme:anyOf(command, 'show, update, delete, publish') && draftMode == true }">
+			<acme:submit code="toolkit.update" action="/inventor/toolkit/update"/>
+			<acme:submit code="toolkit.delete" action="/inventor/toolkit/delete"/>
+			<acme:submit code="toolkit.publish" action="/inventor/toolkit/publish"/>
+		</jstl:when>
 		<jstl:when test="${ command == 'create' }">
 			<acme:submit code="toolkit.create" action="/inventor/toolkit/create"/>
 		</jstl:when>

@@ -1,30 +1,41 @@
 package acme.features.inventor.toolkit;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
-import acme.framework.services.AbstractCreateService;
+import acme.framework.services.AbstractUpdateService;
 import acme.roles.Inventor;
 import acme.utility.TextValidator;
 
-@Service
-public class ToolkitCreateService implements AbstractCreateService<Inventor, Toolkit>{
-	
+public class ToolkitPublishService implements AbstractUpdateService<Inventor, Toolkit>{
+
 	@Autowired
-	private ToolkitRepository repository;
+	protected ToolkitRepository repository;
 	
 	@Autowired
 	protected TextValidator validator;
+	
 	
 	@Override
 	public boolean authorise(final Request<Toolkit> request) {
 		assert request != null;
 		
-		return true;
+		boolean result;
+		int toolkitId;
+		Toolkit toolkit;
+		Inventor inventor;
+		
+		toolkitId = request.getModel().getInteger("masterId");
+		toolkit = this.repository.findToolkitById(toolkitId);
+		inventor = toolkit.getInventor();
+		
+		result = toolkit.isDraftMode() && request.isPrincipal(inventor);
+		
+		
+		return result;
 	}
 
 	@Override
@@ -43,27 +54,22 @@ public class ToolkitCreateService implements AbstractCreateService<Inventor, Too
 		assert entity != null;
 		assert model != null;
 		
+		model.setAttribute("draftMode", entity.isDraftMode());
 		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link");
+		model.setAttribute("masterId", request.getModel().getAttribute("masterId"));
+		model.setAttribute("draftMode", entity.isDraftMode());
 		
 	}
 
 	@Override
-	public Toolkit instantiate(final Request<Toolkit> request) {
-		assert request!=null;
+	public Toolkit findOne(final Request<Toolkit> request) {
+		assert request != null;
 		
 		Toolkit result;
-		Inventor inventor;
+		int id;
 		
-		result = new Toolkit();
-		inventor = this.repository.findInventorById(request.getPrincipal().getActiveRoleId());
-		
-		result.setCode("");
-		result.setAssemblyNotes("");
-		result.setDescription("");
-		result.setLink("");
-		result.setTitle("");
-		result.setInventor(inventor);
-		result.setDraftMode(true);
+		id = request.getModel().getInteger("masterId");
+		result = this.repository.findToolkitById(id);
 		
 		return result;
 	}
@@ -87,10 +93,11 @@ public class ToolkitCreateService implements AbstractCreateService<Inventor, Too
 	}
 
 	@Override
-	public void create(final Request<Toolkit> request, final Toolkit entity) {
+	public void update(final Request<Toolkit> request, final Toolkit entity) {
 		assert request != null;
 		assert entity != null;
 		
+		entity.setDraftMode(false);
 		this.repository.save(entity);
 		
 	}

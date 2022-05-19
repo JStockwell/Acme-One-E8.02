@@ -14,9 +14,21 @@ public class ToolkitController extends AbstractController<Inventor, Toolkit>{
 	@Autowired
 	protected ToolkitCreateService createService;
 	
+	@Autowired 
+	protected ToolkitUpdateService updateService;
+	
+	@Autowired
+	protected ToolkitDeleteService deleteService;
+	
+	@Autowired
+	protected ToolkitPublishService publishService;
+	
 	
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("create", this.createService);
+		super.addCommand("update", this.updateService);
+		super.addCommand("publish", "update", this.publishService);
+		super.addCommand("delete", this.deleteService);
 	}
 }
