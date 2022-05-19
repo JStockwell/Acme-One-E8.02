@@ -38,7 +38,7 @@ public class SystemConfiguration extends AbstractEntity {
 	protected String acceptedCurrencies;
 	
 	@NotBlank
-	@Pattern(regexp = "([\\p{L} '-]+)(, ?[\\p{L} '-]+)*")
+	@Pattern(regexp = "([\\p{L} ’-]+)(, ?[\\p{L} ’-]+)*")
 	protected String strongSpamTerms;
 	
 	@NotNull
@@ -46,7 +46,7 @@ public class SystemConfiguration extends AbstractEntity {
 	protected double strongThreshold;
 	
 	@NotBlank
-	@Pattern(regexp = "([\\p{L} '-]+)(, ?[\\p{L} '-]+)*")
+	@Pattern(regexp = "([\\p{L} ’-]+)(, ?[\\p{L} ’-]+)*")
 	protected String weakSpamTerms;
 	
 	@NotNull
