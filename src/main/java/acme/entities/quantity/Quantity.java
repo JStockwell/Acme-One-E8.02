@@ -30,5 +30,6 @@ public class Quantity extends AbstractEntity{
 	protected Item item;
 	
 	protected int itemQuantity;
+	
 
 }
