@@ -38,8 +38,8 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
-		request.bind(entity, errors, "status", "code", "legislation", "budget", "creationDate", "startDate", "finishDate", "link");
+		entity.setInventor(this.repository.findOneInventorById(Integer.valueOf(request.getModel().getAttribute("inventorId").toString())));
+		request.bind(entity, errors, "status", "code", "legislation", "budget", "creationDate", "startDate", "finishDate", "link", "inventorId");
 	}
 
 	@Override
@@ -49,6 +49,7 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert model != null;
 
 		request.unbind(entity, model, "status", "code", "legislation", "budget", "creationDate", "startDate", "finishDate", "link");
+		model.setAttribute("inventors", this.repository.findAllInventors());
 	}
 
 	@Override
@@ -58,7 +59,7 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		Patronage res;
 		Patron patron;
 		final Money money;
-		final Date creationDate = new Date();
+		final Date creationDate = new Date(System.currentTimeMillis()-1);
 		
 		patron = this.repository.findOnePatronById(request.getPrincipal().getActiveRoleId());
 		// TODO Proporcionar inventor en el formulario mediante un select
