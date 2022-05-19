@@ -6,7 +6,6 @@ patronage.creationDate=Creation Date
 patronage.startDate=Start Date
 patronage.finishDate=Finish Date
 patronage.link=Link
-patronage.draft=Draft
 inventor.name = Inventor's Name
 inventor.email = Inventor's Email
 inventor.company = Inventor's Company
