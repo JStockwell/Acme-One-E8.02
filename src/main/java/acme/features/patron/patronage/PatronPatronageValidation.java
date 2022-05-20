@@ -1,6 +1,8 @@
 package acme.features.patron.patronage;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,25 +26,27 @@ public class PatronPatronageValidation {
 	protected TextValidator validator;
 	
 	public void validatePatronage(final Request<Patronage> request, final Patronage entity, final Errors errors) {
-		
-		// TODO Añadir validacion de codigo. Create si no existe, update y publish que sean el correcto.
-		
+				
 		if(!errors.hasErrors("startDate")) {
-			final Date creationDate = entity.getCreationDate();
-			final Date startDate = entity.getStartDate();
-			// TODO Trabajar con clase Calendar. Mirar ACMEJobs en registro de trabajo, el deadline
-			final Long monthToMiliseconds = 2592000000l;
+			Calendar calendar;
+			Date minimumStartDate;
 			
-			errors.state(request, (startDate.getTime() - creationDate.getTime())/monthToMiliseconds > 1, "startDate", "patron.patronage.form.error.startDate-too-close-to-creationDate");
+			calendar = new GregorianCalendar();
+			calendar.add(Calendar.MONTH, 1);
+			minimumStartDate = calendar.getTime();
+			
+			errors.state(request, entity.getStartDate().after(minimumStartDate), "startDate", "patron.patronage.form.error.startDate-too-close-to-creationDate");
 		}
 		
 		if(!errors.hasErrors("finishDate")) {
-			final Date startDate = entity.getStartDate();
-			final Date finishDate = entity.getFinishDate();
-			// TODO Trabajar con clase Calendar. Mirar ACMEJobs en registro de trabajo, el deadline
-			final Long monthToMiliseconds = 2592000000l;
+			Calendar calendar;
+			Date minimumFinishDate;
 			
-			errors.state(request, (finishDate.getTime() - startDate.getTime())/monthToMiliseconds > 1, "finishDate", "patron.patronage.form.error.finishDate-too-close-to-startDate");
+			calendar = new GregorianCalendar();
+			calendar.add(Calendar.MONTH, 1);
+			minimumFinishDate = calendar.getTime();
+			
+			errors.state(request, entity.getFinishDate().after(minimumFinishDate), "finishDate", "patron.patronage.form.error.finishDate-too-close-to-startDate");
 		}
 
 		if (!errors.hasErrors("legislation")) {
@@ -55,8 +59,7 @@ public class PatronPatronageValidation {
 			final String currency=entity.getBudget().getCurrency();
 			final String acceptedCurrencies=this.sysConfRepository.findSystemConfiguration().getAcceptedCurrencies();
 
-			// TODO Ammount > 0
-			errors.state(request, amount>=0, "budget", "patron.patronage.form.error.negative-budget");
+			errors.state(request, amount>0, "budget", "patron.patronage.form.error.negative-budget");
 			errors.state(request, acceptedCurrencies.contains(currency) && currency.length()==3, "budget", "patron.patronage.form.error.wrongCurrency");
 		}
 	}

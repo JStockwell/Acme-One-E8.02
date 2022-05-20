@@ -1,12 +1,10 @@
 package acme.features.patron.patronage;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.patronage.Patronage;
-import acme.entities.patronage.PatronageReport;
+import acme.entities.patronage.Status;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -31,7 +29,7 @@ public class PatronPatronageDeleteService implements AbstractDeleteService<Patro
 		id = request.getModel().getInteger("id");
 		patronage = this.repository.findOnePatronageById(id);
 		patron = patronage.getPatron();
-		res = patronage.isDraft() && request.isPrincipal(patron);
+		res = patronage.getStatus().equals(Status.Draft) && request.isPrincipal(patron);
 
 		return res;
 	}
@@ -78,15 +76,7 @@ public class PatronPatronageDeleteService implements AbstractDeleteService<Patro
 	public void delete(final Request<Patronage> request, final Patronage entity) {
 		assert request != null;
 		assert entity != null;
-		
-		Collection<PatronageReport> patronageReports;
-		
-		// TODO Tiene que estar en modo draft para borrar, así que no puede tener reports.
-		patronageReports = this.repository.findPatronageReportByPatronageId(entity.getId());
-		for(final PatronageReport patronageReport : patronageReports) {
-			this.repository.delete(patronageReport);
-		}
-
+				
 		this.repository.delete(entity);
 	}
 

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.patronage.Patronage;
+import acme.entities.patronage.Status;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -31,7 +32,7 @@ public class PatronPatronagePublishService implements AbstractUpdateService<Patr
 		id = request.getModel().getInteger("id");
 		patronage = this.repository.findOnePatronageById(id);
 		patron = patronage.getPatron();
-		res = patronage.isDraft() && request.isPrincipal(patron);
+		res = patronage.getStatus().equals(Status.Draft) && request.isPrincipal(patron);
 		
 		return res;
 	}
@@ -51,7 +52,7 @@ public class PatronPatronagePublishService implements AbstractUpdateService<Patr
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "status", "code", "legislation", "budget", "creationDate", "startDate", "finishDate", "link", "draft");
+		request.unbind(entity, model, "status", "code", "legislation", "budget", "creationDate", "startDate", "finishDate", "link");
 	}
 
 	@Override
@@ -73,6 +74,12 @@ public class PatronPatronagePublishService implements AbstractUpdateService<Patr
 		assert entity != null;
 		assert errors != null;
 		
+		if (!errors.hasErrors("code")) {
+			Patronage existing;
+			existing = this.repository.findPatronageByCode(entity.getCode());
+			errors.state(request, existing == null || existing.getCode().equals(entity.getCode()), "code", "patron.patronage.code.duplicated");
+		}
+		
 		this.validator.validatePatronage(request, entity, errors);
 	}
 
@@ -81,8 +88,7 @@ public class PatronPatronagePublishService implements AbstractUpdateService<Patr
 		assert request != null;
 		assert entity != null;
 
-		// TODO Cambiar el status de draft a proposed
-		entity.setDraft(false);
+		entity.setStatus(Status.Proposed);
 		this.repository.save(entity);
 	}
 

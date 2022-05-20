@@ -1,7 +1,5 @@
 package acme.features.patron.patronage;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +13,6 @@ import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractCreateService;
-import acme.roles.Inventor;
 import acme.roles.Patron;
 
 @Service
@@ -41,8 +38,8 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
-		request.bind(entity, errors, "status", "code", "legislation", "budget", "creationDate", "startDate", "finishDate", "link");
+		entity.setInventor(this.repository.findOneInventorById(Integer.valueOf(request.getModel().getAttribute("inventorId").toString())));
+		request.bind(entity, errors, "status", "code", "legislation", "budget", "creationDate", "startDate", "finishDate", "link", "inventorId");
 	}
 
 	@Override
@@ -52,6 +49,7 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert model != null;
 
 		request.unbind(entity, model, "status", "code", "legislation", "budget", "creationDate", "startDate", "finishDate", "link");
+		model.setAttribute("inventors", this.repository.findAllInventors());
 	}
 
 	@Override
@@ -60,46 +58,15 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		
 		Patronage res;
 		Patron patron;
-		Inventor inventor;
-		Money money;
-		Date creationDate = null;
-		Date startDate = null;
-		Date finishDate = null;
+		final Money money;
+		final Date creationDate = new Date(System.currentTimeMillis()-1);
 		
 		patron = this.repository.findOnePatronById(request.getPrincipal().getActiveRoleId());
-		// TODO Proporcionar inventor en el formulario mediante un select
-		inventor = this.inventorRepository.findOneInventorById(1);
-		// TODO Añadir valores iniciales
-		money = new Money();
-				
-		// TODO valores nulos todos excepto el patron, fecha de creacion y status
-		// TODO Creation Date deberia ser instante actual y se deja los demás nulos
-		final String creationDate_string = "01-01-2022";
-		final String startDate_string = "15-02-2022";
-		final String finishDate_string = "30-03-2022";
-		final SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-	    try {
-	    	creationDate = formatter.parse(creationDate_string);
-			startDate = formatter.parse(startDate_string);
-			finishDate = formatter.parse(finishDate_string);
-		} catch (final ParseException e) {} 
-	    
-	    money.setAmount(.0);
-	    money.setCurrency("EUR");
-		
+
 		res = new Patronage();
-		// TODO Set to draft
-		res.setStatus(Status.Proposed);
-		res.setCode("PTG-999");
-		res.setLegislation("blabla");
-		res.setBudget(money);
+		res.setStatus(Status.Draft);
 		res.setCreationDate(creationDate);
-		res.setStartDate(startDate);
-		res.setFinishDate(finishDate);
-		res.setLink("");
-		res.setDraft(true);
 		res.setPatron(patron);
-		res.setInventor(inventor);
 		
 		return res;
 	}
@@ -109,6 +76,12 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		
+		if (!errors.hasErrors("code")) {
+			Patronage existing;
+			existing = this.repository.findPatronageByCode(entity.getCode());
+			errors.state(request, existing == null, "code", "patron.patronage.code.duplicated");
+		}
 		
 		this.validator.validatePatronage(request, entity, errors);
 	}
