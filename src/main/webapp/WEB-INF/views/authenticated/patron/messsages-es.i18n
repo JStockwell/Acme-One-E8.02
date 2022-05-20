@@ -1,0 +1,9 @@
+authenticated.patron.form.title.create = Convertirse en patron
+authenticated.patron.form.title.update = Actualizar patron
+
+authenticated.patron.form.label.company=Empresa
+authenticated.patron.form.label.statement=Estado
+authenticated.patron.form.label.link= Enlace
+
+authenticated.patron.form.button.create=Registrar
+authenticated.patron.form.button.update=Actualizar 
