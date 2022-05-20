@@ -62,16 +62,11 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		final Date creationDate = new Date(System.currentTimeMillis()-1);
 		
 		patron = this.repository.findOnePatronById(request.getPrincipal().getActiveRoleId());
-		// TODO Proporcionar inventor en el formulario mediante un select
-				
-//	    money.setAmount(.0);
-//	    money.setCurrency("EUR");
+
 		res = new Patronage();
 		res.setStatus(Status.Draft);
 		res.setCreationDate(creationDate);
 		res.setPatron(patron);
-		 		
-		System.out.println();
 		
 		return res;
 	}
