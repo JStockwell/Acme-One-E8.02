@@ -1,0 +1,9 @@
+authenticated.patron.patron.form.title.create = Become patron
+authenticated.patron.patron.form.title.update = Update patron
+
+authenticated.patron.form.label.company=Company
+authenticated.patron.form.label.statement=Statement
+authenticated.patron.form.label.link=Link
+
+authenticated.patron.form.button.create = Sign Up
+authenticated.patron.form.button.update = Update

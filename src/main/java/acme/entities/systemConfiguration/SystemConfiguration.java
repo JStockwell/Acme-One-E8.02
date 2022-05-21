@@ -20,7 +20,7 @@ public class SystemConfiguration extends AbstractEntity {
 	
 	protected static final long serialVersionUID = 1l;
 	
-//	Atributes
+//	Attributes
 	
 //	 A system currency, which must be “EUR” by default.
 //	 A list of accepted currencies, which must be initialised to “EUR”, “USD”, and “GBP”.
@@ -30,32 +30,27 @@ public class SystemConfiguration extends AbstractEntity {
 //	 A weak spam threshold, which must be 25% by default.
 	
 	@NotBlank
-	@Pattern(regexp = "\"[A-Z]{3}\"")
+	@Pattern(regexp = "\\p{L}{3}")
 	protected String defaultCurrency;
 	
-	// TODO Cambiar regex
 	@NotBlank
-	@Pattern(regexp = "[\"[A-Z]{3}\"?,]*")
+	@Pattern(regexp = "([\\p{L}]{3}+)(, ?[\\p{L}]{3}+)*")
 	protected String acceptedCurrencies;
 	
-	// TODO Cambiar regex a expresion universal de alfanumerico
 	@NotBlank
-	@Pattern(regexp = "[\"[a-zA-Z\\p{Zs}ñÑáÁéÉíÍóÓúÚ’-]\"?,]*")
+	@Pattern(regexp = "([\\p{L} ’-]+)(, ?[\\p{L} ’-]+)*")
 	protected String strongSpamTerms;
 	
-	// TODO Restringir numero de digitos
 	@NotNull
-	@Range(min = 0, max = 100)
+	@Range(min = 0, max = 1)
 	protected double strongThreshold;
 	
-	// TODO Cambiar regex a expresion universal de alfanumerico
 	@NotBlank
-	@Pattern(regexp = "[\"[a-zA-Z\\p{Zs}ñÑáÁéÉíÍóÓúÚ’-]\"?,]*")
+	@Pattern(regexp = "([\\p{L} ’-]+)(, ?[\\p{L} ’-]+)*")
 	protected String weakSpamTerms;
 	
-	// TODO Restringir numero de digitos
 	@NotNull
-	@Range(min = 0, max = 100)
+	@Range(min = 0, max = 1)
 	protected double weakThreshold;
 	
 }

@@ -49,10 +49,7 @@ public class InventorItemShowService implements AbstractShowService<Inventor,Ite
 		assert entity!= null;
 		assert model!= null;
 		
-		// TODO Mirar por que hemos sacado draft e id en unbind. No hay que sacar ID
-		request.unbind(entity, model, "name", "code","technology","description","price","link","itemType");
-		model.setAttribute("draft", entity.isDraft());
-		model.setAttribute("id", entity.getId());
+		request.unbind(entity, model, "name", "code","technology","description","price","link","itemType","draft");
 	}
 
 }

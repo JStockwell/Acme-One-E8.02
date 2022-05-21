@@ -45,7 +45,9 @@ public class PatronageReport extends AbstractEntity{
 	@NotNull
 	protected Patronage patronage;
 	
-	// TODO simplify with libraries
+	// TODO Añadir codigo
+	
+	// TODO Generación incorrecta. Guardar el codigo cuando se crea el patronage report
 	public String getCode() {
 		String code = this.patronage.getCode();
 		final String id = String.valueOf(this.getId());

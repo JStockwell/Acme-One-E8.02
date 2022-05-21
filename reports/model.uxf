@@ -29,8 +29,8 @@ email: String {NotBlank}</panel_attributes>
 Announcement
 --
 creation_moment: Date {Temporal(TemporalType.TIMESTAMP), Past, NotNull}
-title: String {NotBlank, Length(max=100)
-body: String {NotBlank}
+title: String {NotBlank, Length(max=100)}
+body: String {NotBlank, Length(max=255)}
 critical: boolean
 link: String {URL}</panel_attributes>
     <additional_attributes/>
@@ -49,7 +49,7 @@ Chirp
 creation_moment: Date {Temporal(TemporalType.TIMESTAMP), Past, NotNull}
 title: String {NotBlank, Length(max=100)
 author: String {NotBlank, Length(max=100)}
-body: String {NotBlank}
+body: String {NotBlank, Length(max=255)}
 email: String {email}</panel_attributes>
     <additional_attributes/>
   </element>
@@ -109,8 +109,8 @@ enabled: boolean</panel_attributes>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 PatronageReport
 --
-sequence_number: String {NotBlank, Pattern(“^[A-Z]{3}-[0-9]{3}(-[A-Z])?$[:]^SW[0-9]{4}$”)}
-creation_moment: Date {NotNull,Temporal.DateTime}
+sequence_number: String {NotBlank, Pattern(“^[A-Z]{3}-[0-9]{3}(-[A-Z])?:[0-9]{4}$”)}
+creation_moment: Date {Past, NotNull,Temporal.DateTime}
 memorandum: String {NotBlank, Length(max=250)}
 link: String {URL}</panel_attributes>
     <additional_attributes/>
@@ -158,13 +158,13 @@ link: String {URL}</panel_attributes>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Patronage
 --
-status: PATRONAGE_STATUS
+status: PATRONAGE_STATUS {NotNull}
 code: String {NotBlank, Pattern(“^[A-Z]{3}-[0-9]{3}(-[A-Z])?$”), unique)}
 legal_stuff: String {NotBlank, Length(min=250)}
-budget: double
-creation_date: Date {Past, NotTemporal(TemporalType.TIMESTAMP)}
-start_date: Date {Temporal(TemporalType.TIMESTAMP)}
-end_date: Date {Temporal(TemporalType.TIMESTAMP)}
+budget: Money {NotNull, positive}
+creation_date: Date {Null, Past, NotTemporal(TemporalType.TIMESTAMP)}
+start_date: Date {NotNull, Temporal(TemporalType.TIMESTAMP)}
+end_date: Date {NotNull, Temporal(TemporalType.TIMESTAMP)}
 link: String {URL}</panel_attributes>
     <additional_attributes/>
   </element>
@@ -183,7 +183,7 @@ name: string {NotBlank, Length(max=100)}
 code: String {NotBlank, Pattern(“^[A-Z]{3}-[0-9]{3}(-[A-Z])?$”), unique)}
 technology: String {NotBlank, Length(max=100)}
 description: String {NotBlank, Length(max=255)}
-retail_price: Money
+retail_price: Money {NotNull}
 link: String {URL}
 draft: boolean
 type: ITEM_TYPE {NotNull}</panel_attributes>
@@ -240,16 +240,17 @@ COMPONENT</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>480</x>
-      <y>765</y>
+      <y>750</y>
       <w>255</w>
-      <h>135</h>
+      <h>165</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Enum&gt;&gt;
 PATRONAGE_STATUS
 --
 PROPOSED
 ACCEPTED
-DENIED</panel_attributes>
+DENIED
+DRAFT</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -347,9 +348,9 @@ corresponds to</panel_attributes>
       <h>75</h>
     </coordinates>
     <panel_attributes>lt=&lt;-x
-m1=0..n
-m2=1
-gives</panel_attributes>
+m1=1
+m2=0..n
+is given</panel_attributes>
     <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -376,7 +377,7 @@ is about</panel_attributes>
     </coordinates>
     <panel_attributes>end_date must be at least one month after 
 start_date. And start_date must be al least
-one month after the actual date.
+one month after the current date.
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -430,12 +431,12 @@ has</panel_attributes>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 SystemConfiguration
 --
-defaultCurrency: String {NotBlank, Pattern("\"[A-Z]{3}\"")}
-acceptedCurrencies: String {NotBlank, Pattern("[\"[A-Z]{3}\"?,]*")}
-strong_spam_terms: String {NotBlank, Pattern("[\"[a-zA-Z\\p{Zs}ñÑáÁéÉíÍóÓúÚ’-]\"?,]*")}
-strong_spam_threshold: Double {Range(min = 0, max = 100)}
-weak_spam_terms: String {NotBlank, Pattern("[\"[a-zA-Z\\p{Zs}ñÑáÁéÉíÍóÓúÚ’-]\"?,]*")}
-weak_spam_threshold: Double {Range(min = 0, max = 100)}</panel_attributes>
+defaultCurrency: String {NotBlank, Pattern("\\p{L}{3}")}
+acceptedCurrencies: String {NotBlank, Pattern("([\\p{L}]{3}+)(, ?[\\p{L}]{3}+)*")}
+strong_spam_terms: String {NotBlank, Pattern("([\\p{L} ’-]+)(, ?[\\p{L} ’-]+)")}
+strong_spam_threshold: Double {Range(min = 0, max = 1)}
+weak_spam_terms: String {NotBlank, Pattern("([\\p{L} ’-]+)(, ?[\\p{L} ’-]+)*")}
+weak_spam_threshold: Double {Range(min = 0, max = 1)}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -444,13 +445,13 @@ weak_spam_threshold: Double {Range(min = 0, max = 100)}</panel_attributes>
       <x>1620</x>
       <y>735</y>
       <w>75</w>
-      <h>165</h>
+      <h>180</h>
     </coordinates>
     <panel_attributes>lt=&lt;-x
 m1=1
 m2=0..n
 has</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -465,5 +466,30 @@ m1=1
 m2=0..n
 has</panel_attributes>
     <additional_attributes>10.0;20.0;180.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>2100</x>
+      <y>1170</y>
+      <w>280</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>if the item type is TOOL, 
+the maximum number will 
+be also 1
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2235</x>
+      <y>1095</y>
+      <w>45</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
 </diagram>

@@ -66,8 +66,7 @@ public class Patronage extends AbstractEntity{
 	private Date finishDate;
 	
 	@URL
-	private String link;
-	
+	private String link;	
 	
 	// Relationships --------------------------------------------------------------------
 	

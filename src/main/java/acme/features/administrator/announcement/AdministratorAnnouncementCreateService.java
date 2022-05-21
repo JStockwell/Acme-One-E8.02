@@ -45,11 +45,15 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 		confirmation = request.getModel().getBoolean("confirmation");
 		errors.state(request, confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
 		
-		final String title = entity.getTitle();
-		final String body = entity.getBody();
+		if (!errors.hasErrors("title")) {
+			final String title = entity.getTitle();
+			errors.state(request, !this.validator.checkSpam(title), "title", "validator.spam");
+			}
 		
-		errors.state(request, !this.validator.checkSpam(title), "title", "validator.spam");
-		errors.state(request, !this.validator.checkSpam(body), "body", "validator.spam");
+		if (!errors.hasErrors("body")) {
+			final String body = entity.getBody();
+			errors.state(request, !this.validator.checkSpam(body), "body", "validator.spam");
+		}
 
 	}
 
