@@ -1,0 +1,12 @@
+authenticated.inventor.inventor.form.title.create = Become inventor
+authenticated.inventor.inventor.form.title.update = Update inventor
+
+authenticated.inventor.form.label.company=Company
+authenticated.inventor.form.label.statement=Statement
+authenticated.inventor.form.label.link=Link
+
+authenticated.inventor.form.button.create = Sign Up
+authenticated.inventor.form.button.update = Update
+
+inventor.patronage.form.button.updateStatus.accept = Accept
+inventor.patronage.form.button.updateStatus.deny = Deny 
