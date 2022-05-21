@@ -100,3 +100,5 @@ master.menu.dashboards.admin = Administrator Dashboard
 # Create ################################################
 
 master.menu.lists.chirp.create=Create chirp
+master.menu.create.toolkit=Create Toolkit
+master.menu.inventor.quantity.create=Create Quantity
