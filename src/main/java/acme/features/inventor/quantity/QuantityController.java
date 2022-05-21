@@ -15,8 +15,16 @@ public class QuantityController extends AbstractController<Inventor, Quantity>{
 	@Autowired
 	protected QuantityCreateService createService;
 	
+	@Autowired
+	protected QuantityUpdateService updateService;
+	
+	@Autowired
+	protected QuantityDeleteService deleteService;
+	
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("create", this.createService);
+		super.addCommand("update", this.updateService);
+		super.addCommand("delete", this.deleteService);
 	}
 }

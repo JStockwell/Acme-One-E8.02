@@ -1,35 +1,39 @@
 package acme.features.inventor.quantity;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.item.Item;
-import acme.entities.item.ItemType;
 import acme.entities.quantity.Quantity;
 import acme.entities.toolkit.Toolkit;
-import acme.features.inventor.toolkit.ToolkitRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
-import acme.framework.services.AbstractCreateService;
+import acme.framework.services.AbstractDeleteService;
 import acme.roles.Inventor;
 
 @Service
-public class QuantityCreateService implements AbstractCreateService<Inventor, Quantity>{
-	
+public class QuantityDeleteService implements AbstractDeleteService<Inventor, Quantity>{
+
 	@Autowired
 	protected QuantityRepository repository;
 	
-	@Autowired
-	protected ToolkitRepository toolkitRepository;
-
 	@Override
 	public boolean authorise(final Request<Quantity> request) {
 		assert request!=null;
 		
-		return true;
+		boolean result;
+		int quantityId;
+		Inventor inventor;
+		Toolkit toolkit;
+		
+		quantityId = request.getModel().getInteger("masterId");
+		toolkit = this.repository.findQuantityById(quantityId).getToolkit();
+		inventor = toolkit.getInventor();
+		
+		result = (toolkit.isDraftMode())&&(request.isPrincipal(inventor));
+		
+		return result;
 	}
 
 	@Override
@@ -52,6 +56,7 @@ public class QuantityCreateService implements AbstractCreateService<Inventor, Qu
 		
 		request.bind(entity, errors, "toolkitId", "itemId", "itemQuantity");
 		
+		
 	}
 
 	@Override
@@ -60,25 +65,26 @@ public class QuantityCreateService implements AbstractCreateService<Inventor, Qu
 		assert entity!=null;
 		assert model!=null;
 		
-		model.setAttribute("toolkitId", 0);
-		model.setAttribute("itemId", 0);
-		request.unbind(entity, model, "itemQuantity");
+		model.setAttribute("draftMode", entity.getToolkit().isDraftMode());
+		model.setAttribute("masterId", entity.getId());
+		model.setAttribute("toolkitId", entity.getToolkit().getId());
+		model.setAttribute("itemId", entity.getItem().getId());
 		model.setAttribute("toolkits", this.repository.getToolkitsNotPublishedFromInventor(
-				request.getPrincipal().getActiveRoleId()));
+			request.getPrincipal().getActiveRoleId()));
 		model.setAttribute("items", this.repository.getItemsPublished());
-		model.setAttribute("draftMode", true);
+		request.unbind(entity, model, "itemQuantity");
 		
 	}
 
 	@Override
-	public Quantity instantiate(final Request<Quantity> request) {
+	public Quantity findOne(final Request<Quantity> request) {
 		assert request!=null;
 		
 		Quantity result;
+		int masterId;
 		
-		result = new Quantity();
-		
-		result.setItemQuantity(1);
+		masterId = request.getModel().getInteger("masterId");
+		result = this.repository.findQuantityById(masterId);
 		
 		return result;
 	}
@@ -89,30 +95,16 @@ public class QuantityCreateService implements AbstractCreateService<Inventor, Qu
 		assert entity!=null;
 		assert errors!=null;
 		
-		if(!errors.hasErrors("itemQuantity")) {
-			final Item item = entity.getItem();
-			final Integer itemQuantity = entity.getItemQuantity();
-			
-			errors.state(request, !(item.getItemType().equals(ItemType.TOOL)&&itemQuantity>1), 
-				"itemQuantity", "quantity.tool.quantity");
-			errors.state(request, !(itemQuantity<1), "itemQuantity", "quantity.wrongQuantity");
-		}
-		final List<Quantity> quantities = this.repository.getAllQuantities();
-		for(final Quantity q: quantities) {
-			final Item item = q.getItem();
-			final Toolkit toolkit = q.getToolkit();
-			errors.state(request, !(entity.getItem().equals(item)&&entity.getToolkit().equals(toolkit)), 
-				"itemQuantity", "quantity.pair.exists");
-		}
 		
 	}
 
+
 	@Override
-	public void create(final Request<Quantity> request, final Quantity entity) {
+	public void delete(final Request<Quantity> request, final Quantity entity) {
 		assert request!=null;
 		assert entity!=null;
 		
-		this.repository.save(entity);
+		this.repository.delete(entity);
 		
 	}
 

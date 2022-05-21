@@ -13,23 +13,34 @@ import acme.features.inventor.toolkit.ToolkitRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
-import acme.framework.services.AbstractCreateService;
+import acme.framework.services.AbstractUpdateService;
 import acme.roles.Inventor;
 
 @Service
-public class QuantityCreateService implements AbstractCreateService<Inventor, Quantity>{
-	
+public class QuantityUpdateService implements AbstractUpdateService<Inventor, Quantity>{
+
 	@Autowired
 	protected QuantityRepository repository;
 	
 	@Autowired
 	protected ToolkitRepository toolkitRepository;
-
+	
 	@Override
 	public boolean authorise(final Request<Quantity> request) {
 		assert request!=null;
 		
-		return true;
+		boolean result;
+		int quantityId;
+		Inventor inventor;
+		Toolkit toolkit;
+		
+		quantityId = request.getModel().getInteger("masterId");
+		toolkit = this.repository.findQuantityById(quantityId).getToolkit();
+		inventor = toolkit.getInventor();
+		
+		result = (toolkit.isDraftMode())&&(request.isPrincipal(inventor));
+		
+		return result;
 	}
 
 	@Override
@@ -52,6 +63,7 @@ public class QuantityCreateService implements AbstractCreateService<Inventor, Qu
 		
 		request.bind(entity, errors, "toolkitId", "itemId", "itemQuantity");
 		
+		
 	}
 
 	@Override
@@ -60,25 +72,26 @@ public class QuantityCreateService implements AbstractCreateService<Inventor, Qu
 		assert entity!=null;
 		assert model!=null;
 		
-		model.setAttribute("toolkitId", 0);
-		model.setAttribute("itemId", 0);
-		request.unbind(entity, model, "itemQuantity");
+		model.setAttribute("draftMode", entity.getToolkit().isDraftMode());
+		model.setAttribute("masterId", entity.getId());
+		model.setAttribute("toolkitId", entity.getToolkit().getId());
+		model.setAttribute("itemId", entity.getItem().getId());
 		model.setAttribute("toolkits", this.repository.getToolkitsNotPublishedFromInventor(
-				request.getPrincipal().getActiveRoleId()));
+			request.getPrincipal().getActiveRoleId()));
 		model.setAttribute("items", this.repository.getItemsPublished());
-		model.setAttribute("draftMode", true);
+		request.unbind(entity, model, "itemQuantity");
 		
 	}
 
 	@Override
-	public Quantity instantiate(final Request<Quantity> request) {
+	public Quantity findOne(final Request<Quantity> request) {
 		assert request!=null;
 		
 		Quantity result;
+		int masterId;
 		
-		result = new Quantity();
-		
-		result.setItemQuantity(1);
+		masterId = request.getModel().getInteger("masterId");
+		result = this.repository.findQuantityById(masterId);
 		
 		return result;
 	}
@@ -108,7 +121,7 @@ public class QuantityCreateService implements AbstractCreateService<Inventor, Qu
 	}
 
 	@Override
-	public void create(final Request<Quantity> request, final Quantity entity) {
+	public void update(final Request<Quantity> request, final Quantity entity) {
 		assert request!=null;
 		assert entity!=null;
 		

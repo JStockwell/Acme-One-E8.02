@@ -1,0 +1,9 @@
+quantity.toolkit = Toolkit
+quantity.item = Ítem
+quantity.itemQuantity = Cantidad de ítems
+quantity.create = Añadir cantidad
+quantity.wrongQuantity = La cantidad no puede ser menor a 1
+quantity.tool.quantity = La cantidad de herramientas sólo puede ser 1
+quantity.pair.exists = Esa pareja Toolkit-Ítem ya existe
+quantity.update = Actualizar cantidad
+quantity.delete = Borrar cantidad
