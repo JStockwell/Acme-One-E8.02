@@ -12,7 +12,6 @@ import acme.roles.Inventor;
 @Controller
 public class InventorItemController extends AbstractController<Inventor,Item>{
 
-	// TODO Refactorizar a un nombre mas adecuado eg. listMine
 	@Autowired
 	protected InventorItemListService listMine;
 

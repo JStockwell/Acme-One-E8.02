@@ -1,0 +1,9 @@
+quantity.toolkit = Toolkit
+quantity.item = Item
+quantity.itemQuantity = Quantity of items
+quantity.create = Add Quantity
+quantity.wrongQuantity = Quantity can't be less than 1
+quantity.tool.quantity = Quantity for tools can only be one
+quantity.pair.exists = That pair Toolkit-Item already exists
+quantity.update = Update Quantity
+quantity.delete = Delete Quantity
