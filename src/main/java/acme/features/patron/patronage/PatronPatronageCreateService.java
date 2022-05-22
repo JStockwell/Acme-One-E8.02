@@ -11,7 +11,6 @@ import acme.features.inventor.item.InventorItemRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
-import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractCreateService;
 import acme.roles.Patron;
 
@@ -39,7 +38,8 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert entity != null;
 		assert errors != null;
 		// TODO Cambiar a getInteger en vez de Integer.valueOf
-		entity.setInventor(this.repository.findOneInventorById(Integer.valueOf(request.getModel().getAttribute("inventorId").toString())));
+//		entity.setInventor(this.repository.findOneInventorById(Integer.valueOf(request.getModel().getAttribute("inventorId").toString())));
+		entity.setInventor(this.repository.findOneInventorById(request.getModel().getInteger("inventorId")));
 		// TODO Quitar InventorId, ya que patronage no tiene InventorId
 		request.bind(entity, errors, "status", "code", "legislation", "budget", "creationDate", "startDate", "finishDate", "link", "inventorId");
 	}
@@ -61,7 +61,6 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		
 		Patronage res;
 		Patron patron;
-		final Money money;
 		final Date creationDate = new Date(System.currentTimeMillis()-1);
 		
 		patron = this.repository.findOnePatronById(request.getPrincipal().getActiveRoleId());
