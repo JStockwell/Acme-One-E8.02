@@ -19,13 +19,25 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
 
 	@Autowired
 	protected InventorPatronageReportRepository repository;
-
+	
 	@Override
 	public boolean authorise(final Request<PatronageReport> request) {
 		assert request != null;
 		
-		return true;
+		boolean result;
+		int patronageReportId;
+		PatronageReport report;
+		Inventor inventor;
+		
+		patronageReportId = request.getModel().getInteger("id");
+		report = this.repository.findPatronageReportById(patronageReportId);
+		inventor = report.getPatronage().getInventor();
+		result = request.isPrincipal(inventor);
+		
+		return result;
 	}
+	
+	
 
 	@Override
 	public void validate(final Request<PatronageReport> request, final PatronageReport entity, final Errors errors) {
@@ -65,9 +77,13 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
 		PatronageReport result;
 		Date moment;
 		Calendar calendar;
-		final Inventor inventor;
-		final Patronage patronage; //how do i get a patronage out of the inventor
+		Patronage patronage; //how do i get a valid patronage to have as placeholder
+		Integer patronageReportId;
 		
+		patronageReportId = request.getModel().getInteger("id");
+		patronage = this.repository.findPatronageReportById(patronageReportId).getPatronage();
+		
+		//TODO añadir un select con todos los patronages del inventor en el jsp
 		
 		moment = new Date();
 		calendar = Calendar.getInstance();
