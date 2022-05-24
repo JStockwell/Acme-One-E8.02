@@ -3,3 +3,5 @@ patronageReport.creation=Fecha de creación
 patronageReport.memorandum=Memorandum
 patronageReport.link=Link
 patronageReport.patronage=Código del patronazgo
+patronageReport.button.create=Crear
+patronageReport.form.label.confirmation=Confirmar

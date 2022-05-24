@@ -78,10 +78,10 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
 		Date moment;
 		Calendar calendar;
 		Patronage patronage; //how do i get a valid patronage to have as placeholder
-		Integer patronageReportId;
+		Integer masterId;
 		
-		patronageReportId = request.getModel().getInteger("id");
-		patronage = this.repository.findPatronageReportById(patronageReportId).getPatronage();
+		masterId = request.getModel().getInteger("id");
+		patronage = this.repository.findPatronageReportById(masterId).getPatronage();
 		
 		//TODO añadir un select con todos los patronages del inventor en el jsp
 		
