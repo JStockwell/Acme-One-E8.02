@@ -37,11 +37,9 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		// TODO Cambiar a getInteger en vez de Integer.valueOf
-//		entity.setInventor(this.repository.findOneInventorById(Integer.valueOf(request.getModel().getAttribute("inventorId").toString())));
 		entity.setInventor(this.repository.findOneInventorById(request.getModel().getInteger("inventorId")));
 		// TODO Quitar InventorId, ya que patronage no tiene InventorId
-		request.bind(entity, errors, "status", "code", "legislation", "budget", "creationDate", "startDate", "finishDate", "link", "inventor");
+		request.bind(entity, errors, "code", "legislation", "budget", "creationDate", "startDate", "finishDate", "link", "inventorId");
 	}
 
 	@Override
