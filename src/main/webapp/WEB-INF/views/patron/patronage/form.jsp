@@ -34,9 +34,9 @@
 	<acme:input-moment code="patronage.finishDate" path="finishDate"/>
 	<acme:input-url code="patronage.link" path="link" placeholder="patronage.link"/>
 	
-	<acme:input-select code="inventor.name" path="inventor">
+	<acme:input-select code="inventor.name" path="inventorId">
 		<jstl:forEach items="${inventors}" var = "inventor">
-			<acme:input-option code="${inventor.getUserAccount().getUsername()}" value="${inventor.getId()}" selected="${inventor.getId() == inventor}"/>
+			<acme:input-option code="${inventor.getUserAccount().getUsername()}" value="${inventor.getId()}" selected="${inventor.getId() == inventorId}"/>
 		</jstl:forEach>
 	</acme:input-select>
 </jstl:if>
