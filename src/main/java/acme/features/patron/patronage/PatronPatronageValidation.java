@@ -1,9 +1,8 @@
 package acme.features.patron.patronage;
 
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
+import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,26 +27,14 @@ public class PatronPatronageValidation {
 	public void validatePatronage(final Request<Patronage> request, final Patronage entity, final Errors errors) {
 				
 		if(!errors.hasErrors("startDate")) {
-			Calendar calendar;
-			Date minimumStartDate;
-			
-			calendar = new GregorianCalendar();
-			calendar.add(Calendar.MONTH, 1);
-			minimumStartDate = calendar.getTime();
+			final Date minimumStartDate = DateUtils.addMonths(entity.getCreationDate(), 1);
 			
 			errors.state(request, entity.getStartDate().after(minimumStartDate), "startDate", "patron.patronage.form.error.startDate-too-close-to-creationDate");
 		}
 		
-		// TODO Comprobar errores en startDate tambien
 		if(!errors.hasErrors("finishDate")) {
-			Calendar calendar;
-			Date minimumFinishDate;
-			
-			// TODO Cambiar a fecha de inicio, no la fecha actual
-			calendar = new GregorianCalendar();
-			calendar.add(Calendar.MONTH, 1);
-			minimumFinishDate = calendar.getTime();
-			
+			final Date minimumFinishDate = DateUtils.addMonths(entity.getStartDate(), 1);
+	
 			errors.state(request, entity.getFinishDate().after(minimumFinishDate), "finishDate", "patron.patronage.form.error.finishDate-too-close-to-startDate");
 		}
 
@@ -62,8 +49,7 @@ public class PatronPatronageValidation {
 			final String acceptedCurrencies=this.sysConfRepository.findSystemConfiguration().getAcceptedCurrencies();
 
 			errors.state(request, amount>0, "budget", "patron.patronage.form.error.negative-budget");
-			// TODO Quitar currency.length == 3
-			errors.state(request, acceptedCurrencies.contains(currency) && currency.length()==3, "budget", "patron.patronage.form.error.wrongCurrency");
+			errors.state(request, acceptedCurrencies.contains(currency), "budget", "patron.patronage.form.error.wrongCurrency");
 		}
 	}
 

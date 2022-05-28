@@ -36,3 +36,4 @@ mvnw\.cmd
 logs/populator.log
 logs/application.log
 *.log
+/.apt_generated_tests/

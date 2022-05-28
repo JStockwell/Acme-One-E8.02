@@ -27,12 +27,6 @@
 
 <jstl:if test="${command == 'create'}">
 	<acme:input-textbox code="patronage.code" path="code"/>
-	<acme:input-select code="patronage.status" path="status">
-		<acme:input-option code="Proposed" value="Proposed" selected="${status == 'Proposed'}"/>
-		<acme:input-option code="Accepted" value="Accepted" selected="${status == 'Accepted'}"/>
-		<acme:input-option code="Denied" value="Denied" selected="${status == 'Denied'}"/>
-		<acme:input-option code="Draft" value="Draft" selected="${status == 'Draft'}"/>
-	</acme:input-select>
 	<acme:input-textbox code="patronage.legislation" path="legislation"/>
 	<acme:input-money code="patronage.budget" path="budget"/>
 	<acme:input-moment code="patronage.creationDate" path="creationDate"/>
@@ -42,7 +36,7 @@
 	
 	<acme:input-select code="inventor.name" path="inventorId">
 		<jstl:forEach items="${inventors}" var = "inventor">
-			<acme:input-option code="${inventor.getUserAccount().getUsername()}" value="${inventor.getId()}" selected="${inventor.getId() == inventorId }"/>
+			<acme:input-option code="${inventor.getUserAccount().getUsername()}" value="${inventor.getId()}" selected="${inventor.getId() == inventorId}"/>
 		</jstl:forEach>
 	</acme:input-select>
 </jstl:if>
