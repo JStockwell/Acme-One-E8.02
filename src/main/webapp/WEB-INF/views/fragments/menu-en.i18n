@@ -36,8 +36,8 @@ master.menu.authenticated=Authenticated
 
 # master.menu.inventor ########################################################
 
-master.menu.inventor = Inventor
-master.menu.inventor.myitems = My items
+master.menu.inventor =Inventor
+master.menu.inventor.myitems =My items
 master.menu.inventor.item.create=Create item
 
 # master.menu.patron ##########################################################
@@ -75,6 +75,8 @@ master.menu.anonymous.greortsol-favourite-link = 30271286C: Ortega Soldado, Greg
 master.menu.user-account = Account
 master.menu.user-account.general-data = General data
 master.menu.user-account.list = List user accounts
+master.menu.user-account.become-inventor = Become a inventor
+master.menu.user-account.become-patron = Become a patron
 
 # master.menu.lists ####################################################
 
@@ -98,3 +100,5 @@ master.menu.dashboards.admin = Administrator Dashboard
 # Create ################################################
 
 master.menu.lists.chirp.create=Create chirp
+master.menu.create.toolkit=Create Toolkit
+master.menu.inventor.quantity.create=Create Quantity

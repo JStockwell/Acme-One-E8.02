@@ -1,0 +1,27 @@
+timestamp,simple-path,time
+"2022-05-12 21:19:29.524","/master/welcome",3217
+"2022-05-12 21:19:29.818","/master/welcome",253
+"2022-05-12 21:19:30.971","/master/sign-in",1087
+"2022-05-12 21:19:32.187","/master/welcome",557
+"2022-05-12 21:19:33.425","/administrator/announcement/create",569
+"2022-05-12 21:19:35.107","/master/welcome",559
+"2022-05-12 21:19:36.328","/any/announcement/list",560
+"2022-05-12 21:19:37.591","/any/announcement/show",554
+"2022-05-12 21:19:38.144","/master/welcome",257
+"2022-05-12 21:19:38.761","/master/welcome",557
+"2022-05-12 21:19:41.076","/master/welcome",224
+"2022-05-12 21:19:41.327","/master/welcome",221
+"2022-05-12 21:19:41.948","/master/sign-in",558
+"2022-05-12 21:19:43.178","/master/welcome",556
+"2022-05-12 21:19:43.888","/administrator/announcement/create",555
+"2022-05-12 21:19:45.554","/administrator/announcement/create",557
+"2022-05-12 21:19:45.813","/master/welcome",219
+"2022-05-12 21:19:46.431","/master/welcome",555
+"2022-05-12 21:19:48.712","/master/welcome",206
+"2022-05-12 21:19:48.95","/master/welcome",204
+"2022-05-12 21:19:49.561","/master/sign-in",555
+"2022-05-12 21:19:50.764","/master/welcome",556
+"2022-05-12 21:19:51.474","/administrator/announcement/create",557
+"2022-05-12 21:19:53.238","/administrator/announcement/create",556
+"2022-05-12 21:19:53.518","/master/welcome",237
+"2022-05-12 21:19:54.141","/master/welcome",561

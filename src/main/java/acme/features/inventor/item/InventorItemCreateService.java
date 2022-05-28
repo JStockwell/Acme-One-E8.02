@@ -17,6 +17,9 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 
 	@Autowired
 	protected InventorItemRepository repository;
+	
+	@Autowired
+	protected InventorItemValidation validator;
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
@@ -31,12 +34,7 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 		assert entity != null;
 		assert errors != null;
 
-		if (!errors.hasErrors("code")) {
-			Item existing;
-
-			existing = this.repository.findItemByCode(entity.getCode());
-			errors.state(request, existing == null, "code", "inventor.item.code.duplicated");
-		}
+		this.validator.validateItem(request, entity, errors);
 	}
 
 	@Override
@@ -65,9 +63,8 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 		Money mon;
 		Inventor inventor;
 
-		// TODO Reemplazar con getActiveUserRole para no tener que hacer una llamada mas al repo
 		inventor = this.repository.findOneInventorById(request.getPrincipal().getActiveRoleId());
-
+		
 		result = new Item();
 		mon = new Money();
 		mon.setAmount(.0);
