@@ -3,16 +3,15 @@ package acme.features.inventor.chimpum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.patronage.Patronage;
-import acme.entities.patronage.Status;
+import acme.entities.item.Chimpum;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractUpdateService;
-import acme.roles.Patron;
+import acme.roles.Inventor;
 
 @Service
-public class InventorChimpumUpdateService implements AbstractUpdateService<Patron, Patronage>{
+public class InventorChimpumUpdateService implements AbstractUpdateService<Inventor, Chimpum>{
 	
 	@Autowired
 	protected InventorChimpumRepository repository;
@@ -21,70 +20,70 @@ public class InventorChimpumUpdateService implements AbstractUpdateService<Patro
 	protected InventorChimpumValidation validator;
 
 	@Override
-	public boolean authorise(final Request<Patronage> request) {
+	public boolean authorise(final Request<Chimpum> request) {
 		assert request != null;
 		
 		boolean res;
 		int id;
-		Patronage patronage;
-		Patron patron;
+		Chimpum chimpum;
+		Inventor inventor;
 		
 		id = request.getModel().getInteger("id");
-		patronage = this.repository.findOnePatronageById(id);
-		patron = patronage.getPatron();
-		res = patronage.getStatus().equals(Status.Draft) && request.isPrincipal(patron);
+		chimpum = this.repository.findOneChimpumById(id);
+		inventor = chimpum.getItem().getInventor();
+		res = request.isPrincipal(inventor);
 		
 		return res;
 	}
 
 	@Override
-	public void bind(final Request<Patronage> request, final Patronage entity, final Errors errors) {
+	public void bind(final Request<Chimpum> request, final Chimpum entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "status", "code", "legislation", "budget", "creationDate", "startDate", "finishDate", "link");
+		request.bind(entity, errors, "");
 	}
 
 	@Override
-	public void unbind(final Request<Patronage> request, final Patronage entity, final Model model) {
+	public void unbind(final Request<Chimpum> request, final Chimpum entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "status", "code", "legislation", "budget", "creationDate", "startDate", "finishDate", "link");
+		request.unbind(entity, model, "");
 	}
 
 	@Override
-	public Patronage findOne(final Request<Patronage> request) {
+	public Chimpum findOne(final Request<Chimpum> request) {
 		assert request != null;
 
-		Patronage res;
+		Chimpum res;
 		int id;
 
 		id = request.getModel().getInteger("id");
-		res = this.repository.findOnePatronageById(id);
+		res = this.repository.findOneChimpumById(id);
 
 		return res;
 	}
 
 	@Override
-	public void validate(final Request<Patronage> request, final Patronage entity, final Errors errors) {
+	public void validate(final Request<Chimpum> request, final Chimpum entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
 		
 		if (!errors.hasErrors("code")) {
-			Patronage existing;
-			existing = this.repository.findPatronageByCode(entity.getCode());
+			Chimpum existing;
+			existing = this.repository.findChimpumByCode(entity.getCode());
 			errors.state(request, existing == null || existing.getCode().equals(entity.getCode()), "code", "patron.patronage.code.duplicated");
 		}
 		
-		this.validator.validatePatronage(request, entity, errors);
+		this.validator.validateChimpum(request, entity, errors);
 	}
 
 	@Override
-	public void update(final Request<Patronage> request, final Patronage entity) {
+	public void update(final Request<Chimpum> request, final Chimpum entity) {
 		assert request != null;
 		assert entity != null;
 

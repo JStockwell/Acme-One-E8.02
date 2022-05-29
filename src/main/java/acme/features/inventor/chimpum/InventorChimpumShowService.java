@@ -3,58 +3,53 @@ package acme.features.inventor.chimpum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.patronage.Patronage;
+import acme.entities.item.Chimpum;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractShowService;
-import acme.roles.Patron;
+import acme.roles.Inventor;
 
 @Service
-public class InventorChimpumShowService implements AbstractShowService<Patron,Patronage> {
+public class InventorChimpumShowService implements AbstractShowService<Inventor,Chimpum> {
 
 	@Autowired
 	protected InventorChimpumRepository repository;
 	
 	@Override
-	public boolean authorise(final Request<Patronage> request) {
+	public boolean authorise(final Request<Chimpum> request) {
 		assert request != null;
 		
 		boolean res;
 		int patronageId;
-		Patronage patronage;
+		Chimpum chimpum;
 		
 		patronageId = request.getModel().getInteger("id");
-		patronage = this.repository.findOnePatronageById(patronageId);
-		res = patronage != null && request.isPrincipal(patronage.getPatron());
+		chimpum = this.repository.findOneChimpumById(patronageId);
+		res = chimpum != null && request.isPrincipal(chimpum.getItem().getInventor());
 		
 		return res;
 	}
 
 	@Override
-	public Patronage findOne(final Request<Patronage> request) {
+	public Chimpum findOne(final Request<Chimpum> request) {
 		assert request != null;
 		
-		Patronage res;
+		Chimpum res;
 		int id;
 		
 		id=request.getModel().getInteger("id");
-        res=this.repository.findOnePatronageById(id);
+        res=this.repository.findOneChimpumById(id);
 		
 		return res;
 	}
 
 	@Override
-	public void unbind(final Request<Patronage> request, final Patronage entity, final Model model) {
+	public void unbind(final Request<Chimpum> request, final Chimpum entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "code","legislation","budget","creationDate","startDate","finishDate","link","status");
-		model.setAttribute("inventorName", entity.getInventor().getIdentity().getFullName());
-		model.setAttribute("inventorEmail", entity.getInventor().getIdentity().getEmail());
-		model.setAttribute("inventorCompany", entity.getInventor().getCompany());
-		model.setAttribute("inventorStatement", entity.getInventor().getStatement());
-		model.setAttribute("inventorLink", entity.getInventor().getLink());
+		request.unbind(entity, model, "");
 		
 	}
 }
