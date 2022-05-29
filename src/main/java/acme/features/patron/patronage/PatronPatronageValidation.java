@@ -48,7 +48,7 @@ public class PatronPatronageValidation {
 			final String currency=entity.getBudget().getCurrency();
 			final String acceptedCurrencies=this.sysConfRepository.findSystemConfiguration().getAcceptedCurrencies();
 
-			errors.state(request, amount>0, "budget", "patron.patronage.form.error.negative-budget");
+			errors.state(request, amount>0., "budget", "patron.patronage.form.error.negative-budget");
 			errors.state(request, acceptedCurrencies.contains(currency), "budget", "patron.patronage.form.error.wrongCurrency");
 		}
 	}
