@@ -1,2 +1,2 @@
-recordIndex,name,description,code,technology,price,link,itemType
-0,zzzzzza,aaaaaa,GOS-001,cool,EUR 45.00,,COMPONENT
+recordIndex;code;legislation;budget;startDate;finishDate;link
+0;PTG-999;aaaaaa;USD 602,265.73;2071/05/21 16:12;2093/06/17 04:27;https://www.sanchez.net/
