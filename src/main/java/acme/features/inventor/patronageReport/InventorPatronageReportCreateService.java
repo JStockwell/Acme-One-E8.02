@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.patronage.Patronage;
 import acme.entities.patronage.PatronageReport;
+import acme.features.inventor.patronage.InventorPatronageRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -19,6 +20,7 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
 
 	@Autowired
 	protected InventorPatronageReportRepository repository;
+	protected InventorPatronageRepository patronageRepository;
 	
 	@Override
 	public boolean authorise(final Request<PatronageReport> request) {
@@ -77,13 +79,11 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
 		PatronageReport result;
 		Date moment;
 		Calendar calendar;
-		Patronage patronage; //how do i get a valid patronage to have as placeholder
+		Patronage patronage;
 		Integer masterId;
 		
-		masterId = request.getModel().getInteger("id");
-		patronage = this.repository.findPatronageReportById(masterId).getPatronage();
-		
-		//TODO añadir un select con todos los patronages del inventor en el jsp
+		masterId = request.getModel().getInteger("patronageId");
+		patronage = this.patronageRepository.findPatronageById(masterId);
 		
 		moment = new Date();
 		calendar = Calendar.getInstance();

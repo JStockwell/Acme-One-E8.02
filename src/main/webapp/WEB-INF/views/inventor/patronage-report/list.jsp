@@ -8,5 +8,3 @@
 	<acme:list-column code="patronageReport.memorandum" path="memorandum" width="10%"/>
 	<acme:list-column code="patronageReport.patronage" path="patronage" width="10%"/>	
 </acme:list>
-
-<acme:button code="patronageReport.button.create" action="/inventor/patronage-report/create?masterId=${masterId}"/>
