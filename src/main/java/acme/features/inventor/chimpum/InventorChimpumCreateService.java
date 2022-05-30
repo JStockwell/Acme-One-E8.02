@@ -28,6 +28,7 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 	@Override
 	public boolean authorise(final Request<Chimpum> request) {
 		assert request != null;
+		
 		return true;
 	}
 
@@ -37,7 +38,8 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 		assert entity != null;
 		assert errors != null;
 		
-		request.bind(entity, errors, "");
+		entity.setItem(this.repository.findOneItemById(request.getModel().getInteger("itemId")));
+		request.bind(entity, errors, "code", "creationMoment", "title", "description", "startDate", "finishDate", "budget", "link");
 	}
 
 	@Override
@@ -46,7 +48,8 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "");
+		request.unbind(entity, model, "code", "creationMoment", "title", "description", "startDate", "finishDate", "budget", "link");
+		model.setAttribute("items", this.repository.findAllItemsByInventor(entity.getItem().getInventor().getId()));
 	}
 
 	@Override
@@ -54,12 +57,10 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 		assert request != null;
 		
 		Chimpum res;
-		Inventor inventor;
 		final Date creationDate = new Date(System.currentTimeMillis()-1);
 		
-		inventor = this.repository.findOneInventorById(request.getPrincipal().getActiveRoleId());
-
 		res = new Chimpum();
+		res.setCreationMoment(creationDate);
 		
 		return res;
 	}
@@ -73,7 +74,7 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 		if (!errors.hasErrors("code")) {
 			Chimpum existing;
 			existing = this.repository.findChimpumByCode(entity.getCode());
-			errors.state(request, existing == null, "code", "patron.patronage.code.duplicated");
+			errors.state(request, existing == null, "code", "patron.patronage.code.duplicated"); //TODO replace for a jsp valid thingy
 		}
 		
 		this.validator.validateChimpum(request, entity, errors);

@@ -29,13 +29,13 @@ public class InventorChimpumValidation {
 		if(!errors.hasErrors("startDate")) {
 			final Date minimumStartDate = DateUtils.addMonths(entity.getCreationMoment(), 1);
 			
-			errors.state(request, entity.getStartDate().after(minimumStartDate), "startDate", "patron.patronage.form.error.startDate-too-close-to-creationDate");
+			errors.state(request, entity.getStartDate().after(minimumStartDate), "startDate", "patron.patronage.form.error.startDate-too-close-to-creationDate"); //jsp change
 		}
 		
 		if(!errors.hasErrors("finishDate")) {
 			final Date minimumFinishDate = DateUtils.addWeeks(entity.getStartDate(), 1);
 	
-			errors.state(request, entity.getFinishDate().after(minimumFinishDate), "finishDate", "patron.patronage.form.error.finishDate-too-close-to-startDate");
+			errors.state(request, entity.getFinishDate().after(minimumFinishDate), "finishDate", "patron.patronage.form.error.finishDate-too-close-to-startDate"); //jsp change
 		}
 
 //		if (!errors.hasErrors("legislation")) {
@@ -48,8 +48,8 @@ public class InventorChimpumValidation {
 			final String currency=entity.getBudget().getCurrency();
 			final String acceptedCurrencies=this.sysConfRepository.findSystemConfiguration().getAcceptedCurrencies();
 
-			errors.state(request, amount>0, "budget", "patron.patronage.form.error.negative-budget");
-			errors.state(request, acceptedCurrencies.contains(currency), "budget", "patron.patronage.form.error.wrongCurrency");
+			errors.state(request, amount>0., "budget", "patron.patronage.form.error.negative-budget"); //jsp change
+			errors.state(request, acceptedCurrencies.contains(currency), "budget", "patron.patronage.form.error.wrongCurrency"); //jsp change
 		}
 	}
 

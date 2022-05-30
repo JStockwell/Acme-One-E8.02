@@ -30,7 +30,7 @@ public class InventorChimpumUpdateService implements AbstractUpdateService<Inven
 		
 		id = request.getModel().getInteger("id");
 		chimpum = this.repository.findOneChimpumById(id);
-		inventor = chimpum.getItem().getInventor();
+		inventor = chimpum.getItem().getInventor(); //supposing a one to one relation this should suffice
 		res = request.isPrincipal(inventor);
 		
 		return res;
@@ -42,7 +42,7 @@ public class InventorChimpumUpdateService implements AbstractUpdateService<Inven
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "");
+		request.bind(entity, errors, "code", "creationMoment", "title", "description", "startDate", "finishDate", "budget", "link");
 	}
 
 	@Override
@@ -51,7 +51,7 @@ public class InventorChimpumUpdateService implements AbstractUpdateService<Inven
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "");
+		request.unbind(entity, model, "code", "creationMoment", "title", "description", "startDate", "finishDate", "budget", "link");
 	}
 
 	@Override
@@ -76,7 +76,7 @@ public class InventorChimpumUpdateService implements AbstractUpdateService<Inven
 		if (!errors.hasErrors("code")) {
 			Chimpum existing;
 			existing = this.repository.findChimpumByCode(entity.getCode());
-			errors.state(request, existing == null || existing.getCode().equals(entity.getCode()), "code", "patron.patronage.code.duplicated");
+			errors.state(request, existing == null || existing.getCode().equals(entity.getCode()), "code", "patron.patronage.code.duplicated"); //TODO jsp el código a introducir
 		}
 		
 		this.validator.validateChimpum(request, entity, errors);

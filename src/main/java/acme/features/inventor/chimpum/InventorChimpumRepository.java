@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.item.Chimpum;
+import acme.entities.item.Item;
 import acme.framework.repositories.AbstractRepository;
-import acme.roles.Inventor;
 import acme.roles.Patron;
 
 @Repository
@@ -28,10 +28,9 @@ public interface InventorChimpumRepository extends AbstractRepository {
 	@Query("SELECT ch FROM Chimpum ch")
 	Collection<Chimpum> findAllChimpums();
 	
-	@Query("SELECT i FROM Inventor i WHERE i.id = :id")
-	Inventor findOneInventorById(int id);
+	@Query("SELECT i FROM Item i WHERE i.id = :id")
+	Item findOneItemById(int id);
 	
-	@Query("SELECT i FROM Inventor i")
-	Collection<Inventor> findAllInventors();
-
+	@Query("SELECT i FROM Item i WHERE i.inventor.id = :id")
+	Collection<Item> findAllItemsByInventor(int id);
 }
