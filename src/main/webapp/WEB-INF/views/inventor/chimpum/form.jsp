@@ -6,27 +6,29 @@
 <acme:form>
 <jstl:if test="${command != 'create'}">
 	<acme:input-textbox code="chimpum.code" path="code"/>
-	<acme:input-textbox code="patronage.legislation" path="legislation"/>
-	<acme:input-money code="patronage.budget" path="budget"/>
-	<acme:input-moment code="patronage.creationDate" path="creationDate"/>
-	<acme:input-moment code="patronage.startDate" path="startDate"/>
-	<acme:input-moment code="patronage.finishDate" path="finishDate"/>
-	<acme:input-url code="patronage.link" path="link" placeholder="patronage.link"/>
-	<acme:input-email code="inventor.name" path="inventorName"/>
-	<acme:input-email code="inventor.email" path="inventorEmail"/>
-	<acme:input-textbox code="inventor.company" path="inventorCompany"/>
-	<acme:input-textbox code="inventor.statement" path="inventorStatement"/>
-	<acme:input-url code="inventor.link" path="inventorLink"/>
+	<acme:input-textbox code="chimpum.title" path="title"/>
+	<acme:input-textbox code="chimpum.description" path="description"/>
+	<acme:input-moment code="chimpum.creationMoment" path="creationDate"/>
+	<acme:input-moment code="chimpum.startDate" path="startDate"/>
+	<acme:input-moment code="chimpum.finishDate" path="finishDate"/>
+	<acme:input-money code="chimpum.budget" path="budget"/>
+	<acme:input-url code="chimpum.link" path="link" placeholder="chimpum.link"/>
+	
+	<acme:input-textbox code="item.name" path="itemName"/>
+	
+	<acme:input-textbox code="inventor.name" path="inventorName"/>
+	
 </jstl:if>
 
 <jstl:if test="${command == 'create'}">
-	<acme:input-textbox code="patronage.code" path="code"/>
-	<acme:input-textbox code="patronage.legislation" path="legislation"/>
-	<acme:input-money code="patronage.budget" path="budget"/>
-	<acme:input-moment code="patronage.creationDate" path="creationDate"/>
-	<acme:input-moment code="patronage.startDate" path="startDate"/>
-	<acme:input-moment code="patronage.finishDate" path="finishDate"/> 
-	<acme:input-url code="patronage.link" path="link" placeholder="patronage.link"/>
+	<acme:input-textbox code="chimpum.code" path="code"/>
+	<acme:input-textbox code="chimpum.title" path="title"/>
+	<acme:input-textbox code="chimpum.description" path="description"/>
+	<acme:input-moment code="chimpum.creationMoment" path="creationDate"/>
+	<acme:input-moment code="chimpum.startDate" path="startDate"/>
+	<acme:input-moment code="chimpum.finishDate" path="finishDate"/>
+	<acme:input-money code="chimpum.budget" path="budget"/>
+	<acme:input-url code="chimpum.link" path="link" placeholder="chimpum.link"/>
 	
 	<acme:input-select code="inventor.name" path="inventorId">
 		<jstl:forEach items="${inventors}" var = "inventor">

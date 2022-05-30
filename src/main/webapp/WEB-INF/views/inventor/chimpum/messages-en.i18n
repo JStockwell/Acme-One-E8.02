@@ -1,23 +1,21 @@
-patronage.status=Status
-patronage.code=Code
-patronage.legislation=Legislation
-patronage.budget=Budget
-patronage.creationDate=Creation Date
-patronage.startDate=Start Date
-patronage.finishDate=Finish Date
-patronage.link=Link
+chimpum.code=Code
+chimpum.title=Title
+chimpum.budget=Budget
+chimpum.description=Description
+chimpum.creationMoment=Creation Moment
+chimpum.startDate=Start Date
+chimpum.finishDate=Finish Date
+chimpum.link=Link
+
+chimpum.button.create = Create
+chimpum.button.update = Update
+chimpum.button.delete = Delete
+
+item.name = Item Name
+
 inventor.name = Inventor's Name
-inventor.email = Inventor's Email
-inventor.company = Inventor's Company
-inventor.statement = Inventor's Statement
-inventor.link = Inventor's Link
 
-patronage.button.create = Create
-patronage.button.update = Update
-patronage.button.delete = Delete
-patronage.button.publish = Publish
-
-patron.patronage.form.error.negative-budget = You can not have a negative budget
-patron.patronage.form.error.startDate-too-close-to-creationDate = The start date has to be at least one month after the creation date  
-patron.patronage.form.error.finishDate-too-close-to-startDate = The finish date has to be at least one month after the start date
-patron.patronage.form.error.wrongCurrency = The currency is not allowed
+inventor.chimpum.form.error.negative-budget = You can not have a negative budget
+inventor.chimpum.form.error.startDate-too-close-to-creationDate = The start date has to be at least one month after the creation date  
+inventor.chimpum.form.error.finishDate-too-close-to-startDate = The finish date has to be at least one month after the start date
+inventor.chimpum.form.error.wrongCurrency = The currency is not allowed
