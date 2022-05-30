@@ -36,7 +36,7 @@
 	
 	<acme:input-select code="inventor.name" path="inventorId">
 		<jstl:forEach items="${inventors}" var = "inventor">
-			<acme:input-option code="${inventor.getUserAccount().getUsername()}" value="${inventor.getId()}" selected="${inventor.getId() == inventorId}"/>
+			<acme:input-option code="${inventor.getIdentity().getFullName()}" value="${inventor.getId()}" selected="${inventor.getId() == inventorId}"/>
 		</jstl:forEach>
 	</acme:input-select>
 </jstl:if>
