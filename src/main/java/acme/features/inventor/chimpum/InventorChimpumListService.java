@@ -43,7 +43,7 @@ public class InventorChimpumListService implements AbstractListService<Inventor,
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "");
+		request.unbind(entity, model, "code", "title", "description", "budget");
 		
 	}
 	

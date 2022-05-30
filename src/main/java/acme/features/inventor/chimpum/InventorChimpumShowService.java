@@ -20,11 +20,11 @@ public class InventorChimpumShowService implements AbstractShowService<Inventor,
 		assert request != null;
 		
 		boolean res;
-		int patronageId;
+		int chimpumId;
 		Chimpum chimpum;
 		
-		patronageId = request.getModel().getInteger("id");
-		chimpum = this.repository.findOneChimpumById(patronageId);
+		chimpumId = request.getModel().getInteger("id");
+		chimpum = this.repository.findOneChimpumById(chimpumId);
 		res = chimpum != null && request.isPrincipal(chimpum.getItem().getInventor());
 		
 		return res;
@@ -49,7 +49,8 @@ public class InventorChimpumShowService implements AbstractShowService<Inventor,
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "");
-		
+		request.unbind(entity, model, "code", "creationMoment", "title", "description", "startDate", "finishDate", "budget", "link");
+		model.setAttribute("item", entity.getItem().getName());
+		model.setAttribute("inventor", entity.getItem().getInventor().getIdentity().getFullName());
 	}
 }
