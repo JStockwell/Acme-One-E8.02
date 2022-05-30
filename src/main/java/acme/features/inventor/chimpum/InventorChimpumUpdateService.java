@@ -42,6 +42,7 @@ public class InventorChimpumUpdateService implements AbstractUpdateService<Inven
 		assert entity != null;
 		assert errors != null;
 
+		entity.setItem(this.repository.findOneItemById(request.getModel().getInteger("itemId")));
 		request.bind(entity, errors, "code", "creationMoment", "title", "description", "startDate", "finishDate", "budget", "link");
 	}
 
@@ -52,7 +53,8 @@ public class InventorChimpumUpdateService implements AbstractUpdateService<Inven
 		assert model != null;
 
 		request.unbind(entity, model, "code", "creationMoment", "title", "description", "startDate", "finishDate", "budget", "link");
-	}
+		model.setAttribute("items", this.repository.findAllItemsByInventor(entity.getItem().getInventor().getId()));
+		}
 
 	@Override
 	public Chimpum findOne(final Request<Chimpum> request) {

@@ -39,7 +39,7 @@ public class InventorChimpumDeleteService implements AbstractDeleteService<Inven
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "");
+		request.bind(entity, errors, "code", "creationMoment", "title", "description", "startDate", "finishDate", "budget", "link");
 	}
 
 	@Override
@@ -48,7 +48,7 @@ public class InventorChimpumDeleteService implements AbstractDeleteService<Inven
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "");
+		request.unbind(entity, model, "code", "creationMoment", "title", "description", "startDate", "finishDate", "budget", "link");
 	}
 
 	@Override
