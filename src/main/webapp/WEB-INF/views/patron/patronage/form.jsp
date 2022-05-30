@@ -18,7 +18,7 @@
 	<acme:input-moment code="patronage.startDate" path="startDate"/>
 	<acme:input-moment code="patronage.finishDate" path="finishDate"/>
 	<acme:input-url code="patronage.link" path="link" placeholder="patronage.link"/>
-	<acme:input-email code="inventor.name" path="inventorName"/>
+	<acme:input-textbox code="inventor.name" path="inventorName"/>
 	<acme:input-email code="inventor.email" path="inventorEmail"/>
 	<acme:input-textbox code="inventor.company" path="inventorCompany"/>
 	<acme:input-textbox code="inventor.statement" path="inventorStatement"/>
