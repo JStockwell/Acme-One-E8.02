@@ -40,6 +40,8 @@ master.menu.inventor =Inventor
 master.menu.inventor.myitems =My items
 master.menu.inventor.item.create=Create item
 
+master.menu.lists.chimpum=My chimpums
+
 # master.menu.patron ##########################################################
 
 master.menu.patron = Patron

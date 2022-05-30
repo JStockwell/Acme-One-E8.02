@@ -49,7 +49,7 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 		assert model != null;
 
 		request.unbind(entity, model, "code", "creationMoment", "title", "description", "startDate", "finishDate", "budget", "link");
-		model.setAttribute("items", this.repository.findAllItemsByInventor(entity.getItem().getInventor().getId()));
+		model.setAttribute("items", this.repository.findAllItemsByInventor(request.getPrincipal().getActiveRoleId()));
 	}
 
 	@Override
