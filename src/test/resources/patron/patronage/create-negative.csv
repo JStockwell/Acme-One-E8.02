@@ -1,9 +1,20 @@
-recordIndex,name,description,code,technology,price,link,itemType
-0,,,,,,,COMPONENT
-1,aa,aa,ITM-961-A,aa,12 EUR,,TOOL
-2,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,aa,GOS-002,aa,12 EUR,,TOOL
-3,aa,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,GOS-002,aa,12 EUR,,TOOL
-4,aa,aa,GOS-002,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,12 EUR,,TOOL
-5,aa,aa,GOS-002,aa,-12 EUR,,TOOL
-6,aa,aa,GOS-002,aa,12 EUX,,TOOL
-7,aa,aa,GOS-002,aa,12 EUR,fsdf,TOOL
+recordIndex;status;code;legislation;budget;startDate;finishDate;link;inventorId
+0;;;;;;;;1
+
+1;Draft;mec-mec;aaaaaa;USD 602,265.73;2071/05/21 16:12;2093/06/17 04:27;https://www.sanchez.net/;3
+2;Draft;PTG-993;mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec mec-mec;USD 602,265.73;2071/05/21 16:12;2093/06/17 04:27;https://www.sanchez.net/;3
+3;Draft;PTG-993;aaaaaa;mec-mec;2071/05/21 16:12;2093/06/17 04:27;https://www.sanchez.net/;3
+4;Draft;PTG-993;aaaaaa;USD 602,265.73;mec-mec;2093/06/17 04:27;https://www.sanchez.net/;3
+5;Draft;PTG-993;aaaaaa;USD 602,265.73;2071/05/21 16:12;mec-mec;https://www.sanchez.net/;3
+
+6;Draft;PTG-999;aaaaaa;USD 602,265.73;2071/05/21 16:12;2093/06/17 04:27;https://www.sanchez.net/;3
+7;Draft;PTG-993;aaaaaa;XYZ 602,265.73;2071/05/21 16:12;2093/06/17 04:27;https://www.sanchez.net/;3
+8;Draft;PTG-993;aaaaaa;USD -1.00;2071/05/21 16:12;2093/06/17 04:27;https://www.sanchez.net/;3
+9;Draft;PTG-993;aaaaaa;USD 602,265.73;2022/05/21 16:12;2093/06/17 04:27;https://www.sanchez.net/;3
+10;Draft;PTG-993;aaaaaa;USD 602,265.73;2071/05/21 16:12;2021/06/17 04:27;https://www.sanchez.net/;3
+11;Draft;PTG-993;aaaaaa;USD 602,265.73;2022/06/29 16:12;2093/06/17 04:27;https://www.sanchez.net/;3
+12;Draft;PTG-993;aaaaaa;USD 602,265.73;2071/05/21 16:12;2071/06/17 04:27;https://www.sanchez.net/;3
+
+
+
+
