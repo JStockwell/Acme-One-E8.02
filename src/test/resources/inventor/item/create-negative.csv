@@ -1,9 +1,22 @@
 recordIndex,name,description,code,technology,price,link,itemType
-0,,,,,,,COMPONENT
-1,aa,aa,ITM-961-A,aa,12 EUR,,TOOL
-2,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,aa,GOS-002,aa,12 EUR,,TOOL
-3,aa,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,GOS-002,aa,12 EUR,,TOOL
-4,aa,aa,GOS-002,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,12 EUR,,TOOL
-5,aa,aa,GOS-002,aa,-12 EUR,,TOOL
-6,aa,aa,GOS-002,aa,12 EUX,,TOOL
-7,aa,aa,GOS-002,aa,12 EUR,fsdf,TOOL
+0,,,,,,,
+1,,aa,TST-012,aa,12 EUR,,TOOL
+2,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,aa,TST-012,aa,12 EUR,,TOOL
+3,aa,,TST-012,aa,12 EUR,,TOOL
+4,aa,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,TST-012,aa,12 EUR,,TOOL
+5,aa,aa,,aa,12 EUR,,TOOL
+6,aa,aa,NR-012,aa,12 EUR,,TOOL
+7,aa,aa,NOTR-000,aa,12 EUR,,TOOL
+8,aa,aa,TST-01,aa,12 EUR,,TOOL
+9,aa,aa,TST-0123,aa,12 EUR,,TOOL
+10,aa,aa,TST-012-,aa,12 EUR,,TOOL
+11,aa,aa,TST-012-0,aa,12 EUR,,TOOL
+12,aa,aa,TST-012-AA,aa,12 EUR,,TOOL
+13,aa,aa,ITM-961-A,aa,12 EUR,,TOOL
+14,aa,aa,TST-012,,12 EUR,,TOOL
+15,aa,aa,TST-012,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,12 EUR,,TOOL
+16,aa,aa,TST-012,aa,,,TOOL
+17,aa,aa,TST-012,aa,12 THB,,TOOL
+18,aa,aa,TST-012,aa,12 EUR,notalink,TOOL
+19,aa,aa,TST-012,aa,12 EUR,,
+20,aa,aa,TST-012,aa,12 EUR,,NOTATYPE

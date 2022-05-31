@@ -1,2 +1,15 @@
 recordIndex,name,description,code,technology,price,link,itemType
-0,zzzzzza,aaaaaa,GOS-001,cool,EUR 45.00,,COMPONENT
+0,zzzzzza,aaaaaa,TST-001,cool,EUR 45.00,http://www.google.com,COMPONENT
+1,a,aaaaaa,TST-002,cool,EUR 45.00,http://www.google.com,COMPONENT
+2,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,aaaaaa,TST-003,cool,EUR 45.00,http://www.google.com,COMPONENT
+3,zzzzzza,a,TST-004,cool,EUR 45.00,http://www.google.com,COMPONENT
+4,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,aaaaaa,GOS-001,cool,EUR 45.00,http://www.google.com,COMPONENT
+5,zzzzzza,aaaaaa,AAA-000,cool,EUR 45.00,http://www.google.com,COMPONENT
+6,zzzzzza,aaaaaa,ZZZ-999-Z,cool,EUR 45.00,http://www.google.com,COMPONENT
+7,zzzzzza,aaaaaa,TST-005,a,EUR 45.00,http://www.google.com,COMPONENT
+8,zzzzzza,aaaaaa,TST-006,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,EUR 45.00,http://www.google.com,COMPONENT
+9,zzzzzza,aaaaaa,TST-007,cool,EUR 1.00,http://www.google.com,COMPONENT
+10,zzzzzza,aaaaaa,TST-008,cool,USD 50.00,http://www.google.com,COMPONENT
+11,zzzzzza,aaaaaa,TST-009,cool,GBP 999999.99,http://www.google.com,COMPONENT
+12,zzzzzza,aaaaaa,TST-010,cool,EUR 45.00,,COMPONENT
+13,zzzzzza,aaaaaa,TST-011,cool,EUR 45.00,http://www.google.com,TOOL
