@@ -78,7 +78,7 @@ public class InventorChimpumUpdateService implements AbstractUpdateService<Inven
 		if (!errors.hasErrors("code")) {
 			Chimpum existing;
 			existing = this.repository.findChimpumByCode(entity.getCode());
-			errors.state(request, existing == null || existing.getCode().equals(entity.getCode()), "code", "patron.patronage.code.duplicated"); //TODO jsp el código a introducir
+			errors.state(request, existing == null || existing.getCode().equals(entity.getCode()), "code", "inventor.chimpum.code.duplicated");
 		}
 		
 		this.validator.validateChimpum(request, entity, errors);

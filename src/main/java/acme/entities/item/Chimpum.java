@@ -32,6 +32,10 @@ public class Chimpum extends AbstractEntity{
 	@NotBlank
 	@Column(unique = true)
 	@Pattern(regexp="^[A-Z]{3}-[0-9]{3}(-[A-Z])?$") //copied from item
+	// el patron es /^\w{3}-yy:\d{1,2}:mm:dd$
+	// XXX-22:00:05:31 sería un código válido hoy
+	// ABC-22:0:05:31 sería otro código válido hoy
+	// XXX-23:00:05:31 no sería un código válido hoy
 	// the regexp should contain /"^\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"   d{2} is any 2 digits to make the yy the second segment is for mm and third for dd
 	private String code;
 	
@@ -59,12 +63,13 @@ public class Chimpum extends AbstractEntity{
 	private Date finishDate;
 	
 	@NotNull
+	@Valid
 	private Money budget;
 	
 	@URL
 	private String link;
 	
-	@OneToOne(optional=true) //one to one optional true
+	@OneToOne(optional=false) //one to one optional false as the relation is convulsory
 	@Valid
 	protected Item item;
 
