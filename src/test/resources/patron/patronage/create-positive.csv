@@ -1,2 +1,2 @@
-recordIndex;code;legislation;budget;startDate;finishDate;link;inventorName
-0;PTG-999;aaaaaa;USD 602,265.73;2071/05/21 16:12;2093/06/17 04:27;https://www.sanchez.net/;Hawkins, Charlene
+recordIndex;status;code;legislation;budget;startDate;finishDate;link;inventorId
+0;Draft;PTG-999;aaaaaa;USD 602,265.73;2071/05/21 16:12;2093/06/17 04:27;https://www.sanchez.net/;3
