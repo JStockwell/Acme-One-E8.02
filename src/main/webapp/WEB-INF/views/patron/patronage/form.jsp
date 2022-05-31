@@ -48,7 +48,7 @@
 			<acme:submit code="patronage.button.publish" action="/patron/patronage/publish"/>
 		</jstl:when>
 		<jstl:when test="${acme:anyOf(command, 'create')}">
-			<acme:submit code="item.button.create" action="/patron/patronage/create"/>
+			<acme:submit code="patronage.button.create" action="/patron/patronage/create"/>
 		</jstl:when>	
 	</jstl:choose>
 </acme:form>
