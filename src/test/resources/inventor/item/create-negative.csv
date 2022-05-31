@@ -1,5 +1,5 @@
 recordIndex,name,description,code,technology,price,link,itemType
-0,,,,,,,
+0,,,,,,,TOOL
 1,,aa,TST-012,aa,12 EUR,,TOOL
 2,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,aa,TST-012,aa,12 EUR,,TOOL
 3,aa,,TST-012,aa,12 EUR,,TOOL
@@ -18,5 +18,3 @@ recordIndex,name,description,code,technology,price,link,itemType
 16,aa,aa,TST-012,aa,,,TOOL
 17,aa,aa,TST-012,aa,12 THB,,TOOL
 18,aa,aa,TST-012,aa,12 EUR,notalink,TOOL
-19,aa,aa,TST-012,aa,12 EUR,,
-20,aa,aa,TST-012,aa,12 EUR,,NOTATYPE
