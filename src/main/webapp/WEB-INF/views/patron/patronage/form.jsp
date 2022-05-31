@@ -18,7 +18,7 @@
 	<acme:input-moment code="patronage.startDate" path="startDate"/>
 	<acme:input-moment code="patronage.finishDate" path="finishDate"/>
 	<acme:input-url code="patronage.link" path="link" placeholder="patronage.link"/>
-	<acme:input-email code="inventor.name" path="inventorName"/>
+	<acme:input-textbox code="inventor.name" path="inventorName"/>
 	<acme:input-email code="inventor.email" path="inventorEmail"/>
 	<acme:input-textbox code="inventor.company" path="inventorCompany"/>
 	<acme:input-textbox code="inventor.statement" path="inventorStatement"/>
@@ -36,7 +36,7 @@
 	
 	<acme:input-select code="inventor.name" path="inventorId">
 		<jstl:forEach items="${inventors}" var = "inventor">
-			<acme:input-option code="${inventor.getUserAccount().getUsername()}" value="${inventor.getId()}" selected="${inventor.getId() == inventorId}"/>
+			<acme:input-option code="${inventor.getIdentity().getFullName()}" value="${inventor.getId()}" selected="${inventor.getId() == inventorId}"/>
 		</jstl:forEach>
 	</acme:input-select>
 </jstl:if>
@@ -48,7 +48,7 @@
 			<acme:submit code="patronage.button.publish" action="/patron/patronage/publish"/>
 		</jstl:when>
 		<jstl:when test="${acme:anyOf(command, 'create')}">
-			<acme:submit code="item.button.create" action="/patron/patronage/create"/>
+			<acme:submit code="patronage.button.create" action="/patron/patronage/create"/>
 		</jstl:when>	
 	</jstl:choose>
 </acme:form>
