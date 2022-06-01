@@ -12,7 +12,7 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface InventorChimpumRepository extends AbstractRepository {
 
-	@Query("SELECT pt FROM Chimpum pt WHERE pt.item.inventor.id = :id") //AND pt.item.itemType = TOOL/COMPONENT
+	@Query("SELECT ch FROM Chimpum ch WHERE ch.item.inventor.id = :id") //AND pt.item.itemType = TOOL/COMPONENT
 	Collection<Chimpum> findChimpumByInventorId(int id);
 
 	@Query("SELECT pt FROM Chimpum pt WHERE pt.id = :id")
