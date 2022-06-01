@@ -1,4 +1,4 @@
-package acme.entities.item;
+package acme.entities.chimpum;
 
 import java.util.Date;
 
@@ -16,6 +16,7 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.item.Item;
 import acme.framework.datatypes.Money;
 import acme.framework.entities.AbstractEntity;
 import lombok.Getter;
@@ -71,6 +72,7 @@ public class Chimpum extends AbstractEntity{
 	
 	@OneToOne(optional=false) //one to one optional false as the relation is convulsory
 	@Valid
-	protected Item item;
+	@NotNull
+	private Item item;
 
 }

@@ -17,5 +17,5 @@ inventor.name = Inventor's Name
 
 inventor.chimpum.form.error.negative-budget = You can not have a negative budget
 inventor.chimpum.form.error.startDate-too-close-to-creationDate = The start date has to be at least one month after the creation date  
-inventor.chimpum.form.error.finishDate-too-close-to-startDate = The finish date has to be at least one month after the start date
+inventor.chimpum.form.error.finishDate-too-close-to-startDate = The finish date has to be at least one week after the start date
 inventor.chimpum.form.error.wrongCurrency = The currency is not allowed
