@@ -70,7 +70,7 @@ public class Chimpum extends AbstractEntity{
 	@URL
 	private String link;
 	
-	@OneToOne(optional=true) //one to one optional false as the relation is convulsory
+	@OneToOne(optional=false) //one to one optional false as the relation is convulsory
 	@Valid
 	@NotNull
 	private Item item;

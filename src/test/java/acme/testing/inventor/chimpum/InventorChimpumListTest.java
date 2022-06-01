@@ -11,7 +11,7 @@ public class InventorChimpumListTest extends TestHarness{
 	@ParameterizedTest
 	@CsvFileSource(resources="/inventor/chimpum/list.csv",encoding="utf-8",numLinesToSkip=1,delimiterString=";")
 	@Order(10)
-	public void positiveTest(final int recordIndex, final String code, final String creationMoment, final String title, final String description, final String startDate, final String finishDate, final String budget, final String link, final String item, final String inventor) {
+	public void positiveTest(final int recordIndex, final String code, final String creationMoment, final String title, final String description, final String startDate, final String finishDate, final String budget, final String link, final String itemId, final String inventorId) {
 		
 		super.signIn("inventor1", "inventor1");
 
@@ -34,8 +34,8 @@ public class InventorChimpumListTest extends TestHarness{
 		super.checkInputBoxHasValue("finishDate", finishDate);
 		super.checkInputBoxHasValue("budget", budget);
 		super.checkInputBoxHasValue("link", link);
-		super.checkInputBoxHasValue("itemName", item);
-		super.checkInputBoxHasValue("inventorName", inventor);
+		super.checkInputBoxHasValue("itemName", itemId);
+		super.checkInputBoxHasValue("inventorName", inventorId);
 
 		super.signOut();
 	}
