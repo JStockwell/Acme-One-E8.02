@@ -74,7 +74,7 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 		if (!errors.hasErrors("code")) {
 			Chimpum existing;
 			existing = this.repository.findChimpumByCode(entity.getCode());
-			errors.state(request, existing == null, "code", "item.chimpum.code.duplicated"); //TODO replace for a jsp valid thingy
+			errors.state(request, existing == null, "code", "inventor.chimpum.code.duplicated"); //TODO replace for a jsp valid thingy
 		}
 		
 		this.validator.validateChimpum(request, entity, errors);
