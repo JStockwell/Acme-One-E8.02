@@ -50,5 +50,31 @@ public class PatronPatronageUpdateTest extends TestHarness {
 		
 		super.signOut();
 	}
+	
+	@ParameterizedTest
+	@CsvFileSource(resources = "/patron/patronage/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1,delimiterString=";")
+	@Order(20)
+	public void negativeTest(final int recordIndex, final String status, final String code, final String legislation, final String budget,final String startDate, final String finishDate, final String link) {
+
+		super.signIn("patron1", "patron1");
+		
+		super.clickOnMenu("Patron", "Patronage");		
+		super.sortListing(0, "desc");
+		super.clickOnListingRecord(0);
+
+		super.checkFormExists();
+
+		super.fillInputBoxIn("legislation", legislation);
+		super.fillInputBoxIn("budget", budget);
+		super.fillInputBoxIn("startDate", startDate);
+		super.fillInputBoxIn("finishDate", finishDate);
+		super.fillInputBoxIn("link", link);
+
+		super.clickOnSubmit("Update");
+
+		super.checkErrorsExist();
+
+		super.signOut();
+	}
 
 }
