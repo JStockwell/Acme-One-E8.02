@@ -39,7 +39,7 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 		assert errors != null;
 		
 		entity.setItem(this.repository.findOneItemById(request.getModel().getInteger("itemId")));
-		request.bind(entity, errors, "code", "creationMoment", "title", "description", "startDate", "finishDate", "budget", "link");
+		request.bind(entity, errors, "code", "title", "description", "startDate", "finishDate", "budget", "link");
 	}
 
 	@Override
