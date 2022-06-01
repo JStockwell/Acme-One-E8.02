@@ -21,7 +21,6 @@ public class PatronPatronageCreationTest extends TestHarness {
 		super.clickOnButton("Create");
 		super.checkFormExists();
 		
-		
 		super.fillInputBoxIn("code", code);
 		super.fillInputBoxIn("legislation", legislation);
 		super.fillInputBoxIn("budget", budget);
