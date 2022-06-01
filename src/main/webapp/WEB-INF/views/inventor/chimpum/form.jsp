@@ -24,7 +24,6 @@
 	<acme:input-textbox code="chimpum.code" path="code"/>
 	<acme:input-textbox code="chimpum.title" path="title"/>
 	<acme:input-textbox code="chimpum.description" path="description"/>
-	<acme:input-moment code="chimpum.creationMoment" path="creationMoment"/>
 	<acme:input-moment code="chimpum.startDate" path="startDate"/>
 	<acme:input-moment code="chimpum.finishDate" path="finishDate"/>
 	<acme:input-money code="chimpum.budget" path="budget"/>
