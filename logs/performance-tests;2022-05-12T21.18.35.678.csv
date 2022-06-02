@@ -1,4 +1,0 @@
-timestamp,test-class,test-method,time,description,result
-"2022-05-12 21:16:47.016","acme.testing.administrator.announcement.AdministratorAnnouncementCreateTest","positiveTest",6732,""[1] recordIndex=0, title=aaaaaaaa, body=aaaaaaa, critical=true, link=www.google.com"","Expected value 'aaaaaaaa' in attribute 0 of record 0, but found 'Affect might include continue free health check. Community away management gun.'"
-"2022-05-12 21:16:54.392","acme.testing.administrator.announcement.AdministratorAnnouncementCreateTest","negativeTest",7112,""[1] recordIndex=0, title=aaaaaaaa, body=aaaaaaa, critical=true, link=www.google"","OK"
-"2022-05-12 21:17:01.802","acme.testing.administrator.announcement.AdministratorAnnouncementCreateTest","negativeTest",7150,""[2] recordIndex=1, title=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, body=aaaaaaa, critical=true, link=www.google"","OK"

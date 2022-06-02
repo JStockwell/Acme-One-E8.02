@@ -1,7 +1,0 @@
-timestamp,test-class,test-method,time,description,result
-"2022-04-19 15:49:32.801","acme.testing.any.item.AnyItemListTest","positiveTest",5775,""[1] recordIndex=0, name=component-01, technology=Component 1, retailPrice=COM-001"","Expected value 'component-01' in attribute 0 of record 0, but found '????'"
-"2022-04-19 15:49:36.626","acme.testing.any.item.AnyItemListTest","positiveTest",3495,""[2] recordIndex=1, name=component-02, technology=Component 2, retailPrice=COM-002"","Expected value 'component-02' in attribute 0 of record 1, but found 'Componentes 12'"
-"2022-04-19 15:49:40.434","acme.testing.any.item.AnyItemListTest","positiveTest",3517,""[3] recordIndex=2, name=component-03, technology=Component 3, retailPrice=COM-003"","Expected value 'component-03' in attribute 0 of record 2, but found 'It3m'"
-"2022-04-19 15:49:44.2","acme.testing.any.item.AnyItemListTest","positiveTest",3437,""[4] recordIndex=3, name=component-04, technology=Component 4, retailPrice=COM-004"","Expected value 'component-04' in attribute 0 of record 3, but found 'Item 1'"
-"2022-04-19 15:49:47.94","acme.testing.any.item.AnyItemListTest","positiveTest",3428,""[5] recordIndex=4, name=component-05, technology=Component 5, retailPrice=COM-005"","Expected value 'component-05' in attribute 0 of record 4, but found 'Item 2'"
-"2022-04-19 15:49:51.587","acme.testing.any.item.AnyItemListTest","positiveTest",3361,""[6] recordIndex=5, name=component-06, technology=Component 6, retailPrice=COM-006"","Expected value 'component-06' in attribute 0 of record 5, but found 'áéáéáéáóíú'"
