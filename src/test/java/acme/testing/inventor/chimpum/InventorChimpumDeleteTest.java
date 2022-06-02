@@ -8,37 +8,38 @@ import org.openqa.selenium.By;
 import acme.framework.testing.BrowserDriver;
 import acme.testing.TestHarness;
 
-public class PatronPatronageDeleteTest extends TestHarness {
+public class InventorChimpumDeleteTest extends TestHarness {
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/patron/patronage/delete.csv", encoding = "utf-8", numLinesToSkip = 1,delimiterString=";")
+	@CsvFileSource(resources = "/inventor/chimpum/delete.csv", encoding = "utf-8", numLinesToSkip = 1,delimiterString=";")
 	@Order(10)
-	public void positiveTest(final int recordIndex, final String status, final String code, final String legislation, final String budget,final String startDate, final String finishDate, final String link, final String inventorId) {
+	public void positiveTest(final int recordIndex, final String code, final String title, final String description, final String startDate, final String finishDate, final String budget, final String link, final String itemId) {
 
-		super.signIn("patron1", "patron1");
-		
-		super.clickOnMenu("Patron", "Patronage");
+		super.signIn("inventor1", "inventor1");
+
+		super.clickOnMenu("Inventor", "My chimpums");
 		super.clickOnButton("Create");
 		super.checkFormExists();
 		
 		super.fillInputBoxIn("code", code);
-		super.fillInputBoxIn("legislation", legislation);
-		super.fillInputBoxIn("budget", budget);
+		super.fillInputBoxIn("title", title);
+		super.fillInputBoxIn("description", description);
 		super.fillInputBoxIn("startDate", startDate);
 		super.fillInputBoxIn("finishDate", finishDate);
+		super.fillInputBoxIn("budget", budget);
 		super.fillInputBoxIn("link", link);
 		final BrowserDriver driver = super.getDriver();
-		driver.locateOne(By.xpath("//*[@id=\"inventorId_proxy\"]/option[" + inventorId + "]")).click();
+		driver.locateOne(By.xpath("//*[@id=\"itemId_proxy\"]/option[" + itemId + "]")).click();
 
 		super.clickOnSubmit("Create");
 
-		super.clickOnMenu("Patron", "Patronage");
+		super.clickOnMenu("Inventor", "My chimpums");
 
 		super.checkListingExists();
 		super.sortListing(0, "desc");
 		super.checkColumnHasValue(recordIndex, 0, code);
-		super.checkColumnHasValue(recordIndex, 1, status);
-		super.checkColumnHasValue(recordIndex, 2, legislation);
+		super.checkColumnHasValue(recordIndex, 1, title);
+		super.checkColumnHasValue(recordIndex, 2, description);
 		super.checkColumnHasValue(recordIndex, 3, budget);
 		
 		super.clickOnListingRecord(0);
