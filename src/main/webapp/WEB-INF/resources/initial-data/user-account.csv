@@ -7,7 +7,7 @@ user-account-inventor-3,True,"UserIdentity{name: 'Jeffrey', surname: 'Hall', ema
 user-account-inventor-4,True,"UserIdentity{name: 'Nicholas', surname: 'Lynch', email: 'millerjesse@example.net'}",inventor4,inventor4
 user-account-inventor-5,True,"UserIdentity{name: 'Juan', surname: 'Ramirez', email: 'heathpatricia@example.org'}",inventor5,inventor5
 user-account-inventor-6,False,"UserIdentity{name: 'Craig', surname: 'Berg', email: 'danadeleon@example.net'}",inventor6,inventor6
-user-account-inventor-7,False,"UserIdentity{name: 'Melissa', surname: 'Paul', email: 'josephbarnes@example.net'}",inventor7,inventor7
+user-account-inventor-7,True,"UserIdentity{name: 'Melissa', surname: 'Paul', email: 'josephbarnes@example.net'}",inventor7,inventor7
 user-account-inventor-8,False,"UserIdentity{name: 'Timothy', surname: 'Martinez', email: 'qcooper@example.com'}",inventor8,inventor8
 user-account-inventor-9,True,"UserIdentity{name: 'Ryan', surname: 'Hayden', email: 'maryjohnson@example.net'}",inventor9,inventor9
 user-account-inventor-10,True,"UserIdentity{name: 'Lee', surname: 'Bond', email: 'jonessteve@example.org'}",inventor10,inventor10
