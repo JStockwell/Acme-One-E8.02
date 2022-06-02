@@ -3,7 +3,6 @@ package acme.entities.quantity;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import acme.entities.item.Item;
@@ -32,7 +31,7 @@ public class Quantity extends AbstractEntity{
 	@ManyToOne(optional = false)
 	protected Item item;
 	
-	@Min(1)
+	// TODO Añadir quantity > 0
 	protected int itemQuantity;
 	
 

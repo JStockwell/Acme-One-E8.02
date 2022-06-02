@@ -1,0 +1,23 @@
+chimpum.code=Code
+chimpum.title=Title
+chimpum.budget=Budget
+chimpum.description=Description
+chimpum.creationMoment=Creation Moment
+chimpum.startDate=Start Date
+chimpum.finishDate=Finish Date
+chimpum.link=Link
+
+chimpum.button.create = Create
+chimpum.button.update = Update
+chimpum.button.delete = Delete
+
+inventor.chimpum.item.name = Item Name
+
+inventor.name = Inventor's Name
+
+inventor.chimpum.form.error.negative-budget = You can not have a negative budget
+inventor.chimpum.form.error.startDate-too-close-to-creationDate = The start date has to be at least one month after the creation date  
+inventor.chimpum.form.error.finishDate-too-close-to-startDate = The finish date has to be at least one week after the start date
+inventor.chimpum.form.error.wrongCurrency = The currency is not allowed
+
+inventor.chimpum.code.duplicated=This code is already in use
