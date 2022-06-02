@@ -1,3 +1,0 @@
-2022-04-06 12:04:20.155 INFO  [acme.Launcher@main] Starting Launcher using Java 1.8.0_281 on DESKTOP-VF7K1NA with PID 2968 (C:\Users\Grego\Desktop\Workspace-22.0\Frameworks\Acme-Framework-22.3\target\classes started by Grego in C:\Users\Grego\Desktop\Workspace-22.0\Projects\Acme-One-E8.02) 
-2022-04-06 12:04:20.156 DEBUG [acme.Launcher@main] Running with Spring Boot v2.4.2, Spring v5.3.3 
-2022-04-06 12:04:20.157 INFO  [acme.Launcher@main] The following profiles are active: development,populator 

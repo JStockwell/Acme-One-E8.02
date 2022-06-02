@@ -1,6 +1,0 @@
-timestamp,test-class,test-method,time,description,result
-"2022-05-18 00:59:31.946","acme.testing.any.chirp.AnyChirpCreationTest","positiveTest",5462,""[1] recordIndex=0, title=aaaaaaaab, author=aaaaaaa, body=aaaaaaa, mail=hola@gmail.com"","null"
-"2022-05-18 00:59:37.06","acme.testing.any.chirp.AnyChirpCreationTest","positiveTest",4911,""[2] recordIndex=1, title=aaaaaaaaa, author=aaaaaaa, body=aaaaaaa, mail=null"","null"
-"2022-05-18 00:59:43.979","acme.testing.any.chirp.AnyChirpCreationTest","negativeTest",6634,""[1] recordIndex=0, title=null, author=null, body=null, mail=null"","OK"
-"2022-05-18 00:59:51.106","acme.testing.any.chirp.AnyChirpCreationTest","negativeTest",6917,""[2] recordIndex=1, title=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, author=aaaaaaa, body=true, mail=null"","OK"
-"2022-05-18 00:59:58.239","acme.testing.any.chirp.AnyChirpCreationTest","negativeTest",6865,""[3] recordIndex=2, title=aa, author=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA, body=aa, mail=null"","OK"

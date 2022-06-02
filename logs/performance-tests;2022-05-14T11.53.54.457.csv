@@ -1,4 +1,0 @@
-timestamp,test-class,test-method,time,description,result
-"2022-05-14 11:53:20.273","acme.testing.inventor.item.InventorItemCreationTest","positiveTest",7505,""[1] recordIndex=0, name=aaaaaa, description=aaaaaa, code=GOS-001, technology=cool, price=45 EUR, link=null, itemType=COMPONENT"","Expected value '45 EUR' in attribute 2 of record 0, but found 'EUR 45.00'"
-"2022-05-14 11:53:26.162","acme.testing.inventor.item.InventorItemCreationTest","negativeTest",5591,""[1] recordIndex=0, name=null, description=null, code=null, technology=null, price=null, link=null, itemType=null"","Cannot find option with requested value in select"
-"2022-05-14 11:53:33.774","acme.testing.inventor.item.InventorItemCreationTest","negativeTest",7360,""[2] recordIndex=1, name=aa, description=aa, code=GOS-001, technology=aa, price=12 EUR, link=null, itemType=TOOL"","OK"
