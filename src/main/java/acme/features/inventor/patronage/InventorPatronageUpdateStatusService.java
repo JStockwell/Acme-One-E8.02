@@ -42,8 +42,8 @@ public class InventorPatronageUpdateStatusService implements AbstractUpdateServi
 		assert entity != null;
 		assert errors != null;
 		
-		request.bind(entity, errors, "status", "code", "legalStuff", "budget",
-			"startDate", "finishDate", "link");
+		request.bind(entity, errors, "code", "legislation", "budget", "status","creationDate", "startDate", "finishDate", "link");
+
 	}
 
 	@Override
@@ -56,8 +56,8 @@ public class InventorPatronageUpdateStatusService implements AbstractUpdateServi
 		final UserAccount patronAccount = patron.getUserAccount();
 		final String patronLink = patron.getLink();
 		
-		request.unbind(patronage, model, "status", "code", "legalStuff", "budget",
-			"startDate", "finishDate", "link");
+		request.unbind(patronage, model, "code", "legislation", "budget", "status","creationDate", "startDate", "finishDate", "link");
+
 		
 		model.setAttribute("company", patron.getCompany());
 		model.setAttribute("statement", patron.getStatement());
