@@ -1,6 +1,7 @@
 package acme.testing.inventor.chimpum;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
@@ -15,7 +16,7 @@ public class InventorChimpumCreationTest extends TestHarness {
 	@Order(10)
 	public void positiveTest(final int recordIndex, final String code, final String title, final String description, final String startDate, final String finishDate, final String budget, final String link, final String itemId) {
 
-		super.signIn("inventor1", "inventor1");
+		super.signIn("inventor7", "inventor7");
 
 		super.clickOnMenu("Inventor", "My chimpums");
 		super.clickOnButton("Create");
@@ -61,7 +62,7 @@ public class InventorChimpumCreationTest extends TestHarness {
 	@Order(20)
 	public void negativeTest(final int recordIndex, final String code, final String title, final String description, final String startDate, final String finishDate, final String budget, final String link, final String itemId) {
 
-		super.signIn("inventor1", "inventor1");
+		super.signIn("inventor7", "inventor7");
 
 		super.clickOnMenu("Inventor", "My chimpums");
 		super.clickOnButton("Create");
@@ -81,6 +82,19 @@ public class InventorChimpumCreationTest extends TestHarness {
 
 		super.checkErrorsExist();
 
+		super.signOut();
+	}
+	
+	@Test
+	@Order(30)
+	public void hackingTest() {
+		super.checkNotLinkExists("Account");
+		super.navigate("/inventor/chimpum/create");
+		super.checkPanicExists();
+
+		super.signIn("patron1", "patron1");
+		super.navigate("/inventor/chimpum/create");
+		super.checkPanicExists();
 		super.signOut();
 	}
 
