@@ -11,7 +11,7 @@ chimpum.button.create = Crear
 chimpum.button.update = Actualizar
 chimpum.button.delete = Eliminar
 
-item.name = Nombre del objeto
+inventor.chimpum.item.name = Nombre del objeto
 
 inventor.name = Nombre del Inventor
 
@@ -19,3 +19,5 @@ inventor.chimpum.form.error.negative-budget = No puede haber un presupuesto nega
 inventor.chimpum.form.error.startDate-too-close-to-creationDate = La fecha de inicio tiene que ser al menos un mes posterior a la de creación
 inventor.chimpum.form.error.finishDate-too-close-to-startDate = La fecha final tiene que ser al menos una semana posterior a la de inicio
 inventor.chimpum.form.error.wrongCurrency = Divisa no permitida
+
+inventor.chimpum.code.duplicated=Este código ya está en uso
