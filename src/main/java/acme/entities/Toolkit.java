@@ -56,5 +56,7 @@ public class Toolkit extends AbstractEntity{
 	@Valid
 	@NotNull
 	protected Inventor inventor;
+	
+	private boolean draftMode;
 
 }

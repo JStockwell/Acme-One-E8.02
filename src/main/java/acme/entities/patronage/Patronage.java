@@ -39,7 +39,7 @@ public class Patronage extends AbstractEntity{
 	
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp="^[A-Z]{3}-[0-9]{3}(-[A-Z])?$")
+	@Pattern(regexp="^[A-Z]{3}-[0-9]{3}(-[A-Z])?$", message = "Por favor, inserte un código que siga el patrón: 3 letras - 3 números")
 	private String code;
 	
 	@NotBlank
@@ -47,7 +47,6 @@ public class Patronage extends AbstractEntity{
 	private String legislation;
 	
 	@NotNull
-	//TODO positive is not enough for this and since a complex constraint is needed we will wait until unit 4 for its implementation
 	private Money budget;
 	
 	@NotNull
@@ -55,21 +54,16 @@ public class Patronage extends AbstractEntity{
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date creationDate;
 	
-	//TODO at least one month after its creation
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date startDate;
 	
-	//TODO at least one month after its start
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date finishDate;
 	
 	@URL
-	private String link;
-	
-	private boolean draft;
-	
+	private String link;	
 	
 	// Relationships --------------------------------------------------------------------
 	
