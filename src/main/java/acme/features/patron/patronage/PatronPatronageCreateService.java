@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.patronage.Patronage;
 import acme.entities.patronage.Status;
+import acme.features.inventor.item.InventorItemRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -21,6 +22,9 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 	
 	@Autowired
 	protected PatronPatronageValidation validator;
+	
+	@Autowired
+	protected InventorItemRepository inventorRepository;
 
 	@Override
 	public boolean authorise(final Request<Patronage> request) {

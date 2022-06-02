@@ -21,20 +21,15 @@ public class InventorItemValidation {
 	@Autowired
 	protected TextValidator validator;
 	
-	public void validateItem(final Request<Item> request, final Item entity, final Errors errors,final Integer op) {
+	public void validateItem(final Request<Item> request, final Item entity, final Errors errors) {
 		Item existing;
 		
-		// op=1 means update or publish
+		// TODO Sacar dependiendo de la operación
 		if (!errors.hasErrors("code")) {
-			if(op==0) {
-				existing = this.repository.findItemByCode(entity.getCode());
-				errors.state(request, existing == null, "code", "inventor.item.code.duplicated");
-			}else {
-				existing = this.repository.findItemByCode(entity.getCode());
-				errors.state(request, existing == null || existing.getId() == entity.getId(), "code", "inventor.item.code.duplicated");
-			}
+			existing = this.repository.findItemByCode(entity.getCode());
+			errors.state(request, existing == null, "code", "inventor.item.code.duplicated");
 		}
-		
+
 		if (!errors.hasErrors("technology")) {
 			final String technology = entity.getTechnology();
 			errors.state(request, !this.validator.checkSpam(technology), "technology", "validator.spam");
@@ -56,9 +51,9 @@ public class InventorItemValidation {
 			final String acceptedCurrencies=this.sysConfRepository.findSystemConfiguration().getAcceptedCurrencies();
 
 			errors.state(request, amount>=0, "price", "inventor.item.money.negative");
-			errors.state(request, acceptedCurrencies.contains(currency), "price", "inventor.item.money.wrongCurrency");
+			// TODO Quitar currency.length()==3
+			errors.state(request, acceptedCurrencies.contains(currency) && currency.length()==3, "price", "inventor.item.money.wrongCurrency");
 		}
 	}
 
 }
-
