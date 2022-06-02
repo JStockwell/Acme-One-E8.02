@@ -5,10 +5,10 @@
 
 <acme:form readonly="${readonly}">
 
-	<acme:input-textbox code="administrator.systemconfiguration.form.label.currency" path="currency"/>
-	<acme:input-textbox code="administrator.systemconfiguration.form.label.strongSpamThreshold" path="strongSpamThreshold"/>
+	<acme:input-textbox code="administrator.systemconfiguration.form.label.currency" path="defaultCurrency"/>
+	<acme:input-textbox code="administrator.systemconfiguration.form.label.strongSpamThreshold" path="strongThreshold"/>
 	<acme:input-textbox code="administrator.systemconfiguration.form.label.weakSpamTerms" path="weakSpamTerms"/>
-	<acme:input-textbox code="administrator.systemconfiguration.form.label.weakSpamThreshold" path="weakSpamThreshold"/>
+	<acme:input-textbox code="administrator.systemconfiguration.form.label.weakSpamThreshold" path="weakThreshold"/>
 	<acme:input-textbox code="administrator.systemconfiguration.form.label.acceptedcurrencies" path="acceptedCurrencies"/>
 	<acme:input-textbox code="administrator.systemconfiguration.form.label.strongSpamTerms" path="strongSpamTerms"/>
 	
