@@ -9,3 +9,4 @@ patronage.status=Status
 patronage.patronCompany=Patron Company
 patronage.patronStatement=Patron Statement
 patronage.patronLink=Patron Link
+patronageReport.button.create=Create_Patronage_Report

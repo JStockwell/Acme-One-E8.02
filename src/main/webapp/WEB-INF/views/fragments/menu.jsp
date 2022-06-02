@@ -41,6 +41,8 @@
 			<acme:menu-suboption code="master.menu.create.toolkit" action="/inventor/toolkit/create"/>
 			<acme:menu-suboption code="master.menu.inventor.item.create" action="/inventor/item/create"/>
 			<acme:menu-suboption code="master.menu.inventor.quantity.create" action="/inventor/quantity/create"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.lists.chimpum" action="/inventor/chimpum/list"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">

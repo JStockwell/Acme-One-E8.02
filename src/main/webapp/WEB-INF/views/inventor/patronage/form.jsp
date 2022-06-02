@@ -16,3 +16,5 @@
 	<acme:input-textbox code="patronage.patronStatement" path="patronStatement"/>
 	<acme:input-textbox code="patronage.patronLink" path="patronLink"/>
 </acme:form>
+
+<acme:button code="patronageReport.button.create" action="/inventor/patronage-report/create"/>
