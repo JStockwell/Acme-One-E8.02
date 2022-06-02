@@ -22,14 +22,6 @@ public class InventorItemValidation {
 	protected TextValidator validator;
 	
 	public void validateItem(final Request<Item> request, final Item entity, final Errors errors) {
-		Item existing;
-		
-		// TODO Sacar dependiendo de la operación
-		if (!errors.hasErrors("code")) {
-			existing = this.repository.findItemByCode(entity.getCode());
-			errors.state(request, existing == null, "code", "inventor.item.code.duplicated");
-		}
-
 		if (!errors.hasErrors("technology")) {
 			final String technology = entity.getTechnology();
 			errors.state(request, !this.validator.checkSpam(technology), "technology", "validator.spam");

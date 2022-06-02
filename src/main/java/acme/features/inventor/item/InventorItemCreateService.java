@@ -33,6 +33,13 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		
+		Item existing;
+		
+		if (!errors.hasErrors("code")) {
+			existing = this.repository.findItemByCode(entity.getCode());
+			errors.state(request, existing == null, "code", "inventor.item.code.duplicated");
+		}
 
 		this.validator.validateItem(request, entity, errors);
 	}

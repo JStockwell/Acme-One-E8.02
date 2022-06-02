@@ -2,6 +2,7 @@ package acme.entities.patronage;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -10,6 +11,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -44,19 +46,10 @@ public class PatronageReport extends AbstractEntity{
 	@Valid
 	@NotNull
 	protected Patronage patronage;
-	
-	// TODO Añadir codigo
-	
-	// TODO Generación incorrecta. Guardar el codigo cuando se crea el patronage report
-	public String getCode() {
-		String code = this.patronage.getCode();
-		final String id = String.valueOf(this.getId());
-		code = code + ":";
-		for(int i=0;i<(4-id.length());i++) {
-			code = code + "0";
-		}
-		code = code + id;
-		return code;
-	}
+
+	@NotBlank
+	@Column(unique = true)
+	@Pattern(regexp="^[A-Z]{3}-[0-9]{3}(-[A-Z])?:[0-9]{4}$")
+	private String code;
 
 }
