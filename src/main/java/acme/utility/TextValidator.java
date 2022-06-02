@@ -3,7 +3,7 @@ package acme.utility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.SystemConfiguration;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import main.SpamManagement;
 
 @Service
