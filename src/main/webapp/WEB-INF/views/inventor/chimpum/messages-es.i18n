@@ -1,8 +1,8 @@
 chimpum.code=Código
 chimpum.title=Título
-chimpum.legislation=Descripción
+chimpum.description=Descripción
 chimpum.budget=Presupuesto
-chimpum.creationDate=Momento de creación
+chimpum.creationMoment=Momento de creación
 chimpum.startDate=Fecha de Inicio
 chimpum.finishDate=Fecha de finalización
 chimpum.link=Link

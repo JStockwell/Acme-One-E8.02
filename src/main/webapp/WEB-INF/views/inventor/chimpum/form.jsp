@@ -27,7 +27,7 @@
 	<acme:input-money code="chimpum.budget" path="budget"/>
 	<acme:input-url code="chimpum.link" path="link" placeholder="chimpum.link"/>
 	
-	<acme:input-select code="item.title" path="itemId">
+	<acme:input-select code="item.name" path="itemId">
 		<jstl:forEach items="${items}" var = "item">
 			<acme:input-option code="${item.getName()}" value="${item.getId()}" selected="${item.getId() == itemId}"/>
 		</jstl:forEach>
