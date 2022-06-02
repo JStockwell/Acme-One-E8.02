@@ -41,7 +41,7 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 			errors.state(request, existing == null, "code", "inventor.item.code.duplicated");
 		}
 
-		this.validator.validateItem(request, entity, errors);
+		this.validator.validateItem(request, entity, errors,0);
 	}
 
 	@Override
