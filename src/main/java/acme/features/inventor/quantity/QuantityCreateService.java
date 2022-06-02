@@ -95,7 +95,7 @@ public class QuantityCreateService implements AbstractCreateService<Inventor, Qu
 			
 			errors.state(request, !(item.getItemType().equals(ItemType.TOOL)&&itemQuantity>1), 
 				"itemQuantity", "quantity.tool.quantity");
-			errors.state(request, !(itemQuantity<1), "itemQuantity", "quantity.wrongQuantity");
+			errors.state(request, itemQuantity>=1, "itemQuantity", "quantity.wrongQuantity");
 		}
 		final List<Quantity> quantities = this.repository.getAllQuantities();
 		for(final Quantity q: quantities) {
