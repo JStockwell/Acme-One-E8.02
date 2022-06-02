@@ -1,0 +1,9 @@
+item.name = Name
+item.description = Description
+item.code = Code
+item.technology = Technology
+item.retailPrice = Retail price
+item.link = Link
+item.itemtype = Item type
+item.itemtype.tool = TOOL
+item.itemtype.component = COMPONENT

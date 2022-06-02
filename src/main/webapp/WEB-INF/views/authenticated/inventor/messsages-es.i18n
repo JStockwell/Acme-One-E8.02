@@ -1,0 +1,9 @@
+authenticated.inventor.form.title.create = Convertirse en inventor
+authenticated.inventor.form.title.update = Actualizar inventor
+
+authenticated.inventor.form.label.company=Empresa
+authenticated.inventor.form.label.statement=Estado
+authenticated.inventor.form.label.link= Enlace
+
+authenticated.inventor.form.button.create=Registrar
+authenticated.inventor.form.button.update=Actualizar 

@@ -1,0 +1,16 @@
+item.name = Nombre
+item.description = Descripción
+item.code = Código
+item.technology = Tecnología
+item.retailPrice = Precio
+item.link = Link
+item.itemtype = Tipo de item
+item.itemtype.tool = Herramienta
+item.itemtype.component = Componente
+item.button.update=Actualizar
+item.button.delete=Borrar
+item.button.publish=Publicar
+item.button.create=Crear
+inventor.item.code.duplicated=El codigo ya esta en uso
+inventor.item.money.negative = Cantidad de dinero no puede ser negativo
+inventor.item.money.wrongCurrency = Divisa no permitida

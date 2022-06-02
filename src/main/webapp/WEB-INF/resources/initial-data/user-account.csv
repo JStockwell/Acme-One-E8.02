@@ -1,9 +1,43 @@
 key,enabled,identity,password,username
-user-account-anonymous-01,false,"UserIdentity{name: 'John', surname: 'Doe', email: 'john.doe@acme.com'}",HIDDEN-PASSWORD,anonymous
-user-account-administrator-01,true,"UserIdentity{name: 'Administrator', surname: 'Acme', email: 'administrator@acme.com'}",administrator,administrator
-user-account-inventor-01,true,"UserIdentity{name:'inventor',surname:'1',email:'inventor1@acme.com'}",inventor1,inventor1
-user-account-inventor-02,true,"UserIdentity{name:'inventor',surname:'2',email:'inventor2@acme.com'}",inventor2,inventor2
-user-account-inventor-03,true,"UserIdentity{name:'inventor',surname:'3',email:'inventor3@acme.com'}",inventor3,inventor3
-user-account-patron-03,true,"UserIdentity{name:'patron',surname:'3',email:'patron3@acme.com'}",patron3,patron3
-user-account-patron-02,true,"UserIdentity{name:'patron',surname:'2',email:'patron2@acme.com'}",patron2,patron2
-user-account-patron-01,true,"UserIdentity{name:'patron',surname:'1',email:'patron1@acme.com'}",patron1,patron1
+user-account-anonymous-1,True,"UserIdentity{name: 'John', surname: 'Jordan', email: 'wayne32@example.org'}",HIDDEN-PASSWORD,anonymous
+user-account-administrator-1,True,"UserIdentity{name: 'Cheryl', surname: 'Glass', email: 'raymondgreen@example.net'}",administrator,administrator
+user-account-inventor-1,True,"UserIdentity{name: 'Kimberly', surname: 'Johnson', email: 'lrosales@example.com'}",inventor1,inventor1
+user-account-inventor-2,True,"UserIdentity{name: 'Charlene', surname: 'Hawkins', email: 'georgelyons@example.net'}",inventor2,inventor2
+user-account-inventor-3,True,"UserIdentity{name: 'Jeffrey', surname: 'Hall', email: 'rachelharris@example.com'}",inventor3,inventor3
+user-account-inventor-4,True,"UserIdentity{name: 'Nicholas', surname: 'Lynch', email: 'millerjesse@example.net'}",inventor4,inventor4
+user-account-inventor-5,True,"UserIdentity{name: 'Juan', surname: 'Ramirez', email: 'heathpatricia@example.org'}",inventor5,inventor5
+user-account-inventor-6,False,"UserIdentity{name: 'Craig', surname: 'Berg', email: 'danadeleon@example.net'}",inventor6,inventor6
+user-account-inventor-7,False,"UserIdentity{name: 'Melissa', surname: 'Paul', email: 'josephbarnes@example.net'}",inventor7,inventor7
+user-account-inventor-8,False,"UserIdentity{name: 'Timothy', surname: 'Martinez', email: 'qcooper@example.com'}",inventor8,inventor8
+user-account-inventor-9,True,"UserIdentity{name: 'Ryan', surname: 'Hayden', email: 'maryjohnson@example.net'}",inventor9,inventor9
+user-account-inventor-10,True,"UserIdentity{name: 'Lee', surname: 'Bond', email: 'jonessteve@example.org'}",inventor10,inventor10
+user-account-patron-1,True,"UserIdentity{name: 'Deborah', surname: 'Jackson', email: 'ericwatson@example.net'}",patron1,patron1
+user-account-patron-2,True,"UserIdentity{name: 'Shelley', surname: 'Ortiz', email: 'jessebrown@example.com'}",patron2,patron2
+user-account-patron-3,True,"UserIdentity{name: 'Mary', surname: 'Webb', email: 'gonzalesdana@example.net'}",patron3,patron3
+user-account-patron-4,True,"UserIdentity{name: 'Luis', surname: 'Lloyd', email: 'amyward@example.net'}",patron4,patron4
+user-account-patron-5,True,"UserIdentity{name: 'Holly', surname: 'Howard', email: 'jamesstafford@example.net'}",patron5,patron5
+user-account-patron-6,False,"UserIdentity{name: 'Heather', surname: 'Adams', email: 'wmann@example.net'}",patron6,patron6
+user-account-patron-7,True,"UserIdentity{name: 'Jennifer', surname: 'Kaiser', email: 'michele41@example.org'}",patron7,patron7
+user-account-patron-8,False,"UserIdentity{name: 'Kelly', surname: 'Diaz', email: 'thomasray@example.net'}",patron8,patron8
+user-account-patron-9,False,"UserIdentity{name: 'Benjamin', surname: 'Lloyd', email: 'stephaniegibson@example.net'}",patron9,patron9
+user-account-patron-10,True,"UserIdentity{name: 'Jonathan', surname: 'Conner', email: 'santosjohnny@example.org'}",patron10,patron10
+user-account-consumer-1,True,"UserIdentity{name: 'Vanessa', surname: 'Fisher', email: 'henrysean@example.net'}",consumer1,consumer1
+user-account-consumer-2,True,"UserIdentity{name: 'Taylor', surname: 'Perry', email: 'mary56@example.org'}",consumer2,consumer2
+user-account-consumer-3,True,"UserIdentity{name: 'Scott', surname: 'Robinson', email: 'larsenadrian@example.org'}",consumer3,consumer3
+user-account-consumer-4,True,"UserIdentity{name: 'Lisa', surname: 'Obrien', email: 'leah95@example.com'}",consumer4,consumer4
+user-account-consumer-5,True,"UserIdentity{name: 'Angela', surname: 'Atkinson', email: 'davilachristina@example.net'}",consumer5,consumer5
+user-account-consumer-6,False,"UserIdentity{name: 'David', surname: 'Holder', email: 'tthomas@example.com'}",consumer6,consumer6
+user-account-consumer-7,True,"UserIdentity{name: 'Keith', surname: 'Mcclure', email: 'joshua64@example.com'}",consumer7,consumer7
+user-account-consumer-8,False,"UserIdentity{name: 'Terrance', surname: 'Robertson', email: 'kirkjeremy@example.com'}",consumer8,consumer8
+user-account-consumer-9,True,"UserIdentity{name: 'Steven', surname: 'Smith', email: 'randallanderson@example.com'}",consumer9,consumer9
+user-account-consumer-10,True,"UserIdentity{name: 'Kathleen', surname: 'Johnson', email: 'christopherburke@example.net'}",consumer10,consumer10
+user-account-provider-1,True,"UserIdentity{name: 'Christopher', surname: 'Hartman', email: 'chambersdennis@example.net'}",provider1,provider1
+user-account-provider-2,True,"UserIdentity{name: 'Lauren', surname: 'Oliver', email: 'catherine61@example.com'}",provider2,provider2
+user-account-provider-3,True,"UserIdentity{name: 'David', surname: 'Casey', email: 'andrew38@example.org'}",provider3,provider3
+user-account-provider-4,True,"UserIdentity{name: 'Julia', surname: 'Hopkins', email: 'veronica56@example.com'}",provider4,provider4
+user-account-provider-5,True,"UserIdentity{name: 'Amber', surname: 'Anderson', email: 'karen62@example.org'}",provider5,provider5
+user-account-provider-6,False,"UserIdentity{name: 'Roberta', surname: 'Roman', email: 'perrycheryl@example.org'}",provider6,provider6
+user-account-provider-7,True,"UserIdentity{name: 'Justin', surname: 'Wilson', email: 'kelli61@example.net'}",provider7,provider7
+user-account-provider-8,False,"UserIdentity{name: 'Lisa', surname: 'Walker', email: 'nelsonjames@example.net'}",provider8,provider8
+user-account-provider-9,False,"UserIdentity{name: 'Cheryl', surname: 'Walker', email: 'devin54@example.com'}",provider9,provider9
+user-account-provider-10,False,"UserIdentity{name: 'Kelli', surname: 'Sandoval', email: 'melissahogan@example.net'}",provider10,provider10

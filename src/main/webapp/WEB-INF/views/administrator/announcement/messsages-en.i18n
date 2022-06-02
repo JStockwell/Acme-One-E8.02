@@ -1,0 +1,6 @@
+announcement.title=Title
+announcement.critical=Critical
+announcement.body=Body
+announcement.link=Link
+announcement.button.create=Create
+administrator.announcement.form.label.confirmation=Confirmation

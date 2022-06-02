@@ -1,0 +1,15 @@
+item.name = Name
+item.description = Description
+item.code = Code
+item.technology = Technology
+item.retailPrice = Retail price
+item.link = Link
+item.itemtype = Item type
+item.itemtype.tool = TOOL
+item.itemtype.component = COMPONENT
+item.button.update=Update
+item.button.delete=Delete
+item.button.publish=Publish
+item.button.create=Create
+inventor.item.code.duplicated=Code is already in use
+inventor.item.money.negative = Money amount cannot be negative

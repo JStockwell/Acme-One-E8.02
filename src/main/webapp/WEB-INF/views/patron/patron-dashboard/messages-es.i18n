@@ -1,0 +1,9 @@
+patron.patron-dasboard.form.title = Estadísticas de sus patrocionios
+patron.patron-dashobard.form.total = Total de patrocinios
+patron.patron-dashobard.form.average = Media de patrocinios por estado
+patron.patron-dashobard.form.deviation = Desviación estándar de los patrocinios por estado
+patron.patron-dashboard.max = Presupuesto máximo
+patron.patron-dashboard.min = Presupuesto mínimo
+patron.patron-dashobard.form.accepted = Aceptado
+patron.patron-dashobard.form.proposed = Propuesto
+patron.patron-dashobard.form.denied = Denegado

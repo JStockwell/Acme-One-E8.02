@@ -2,9 +2,11 @@ package acme.entities.patronage;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -18,6 +20,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
+@Entity
 public class PatronageReport extends AbstractEntity{
 
 	/**
@@ -37,9 +40,14 @@ public class PatronageReport extends AbstractEntity{
 	@URL
 	protected String link;
 	
-	@ManyToOne
+	@ManyToOne(optional=false)
+	@Valid
+	@NotNull
 	protected Patronage patronage;
 	
+	// TODO Añadir codigo
+	
+	// TODO Generación incorrecta. Guardar el codigo cuando se crea el patronage report
 	public String getCode() {
 		String code = this.patronage.getCode();
 		final String id = String.valueOf(this.getId());

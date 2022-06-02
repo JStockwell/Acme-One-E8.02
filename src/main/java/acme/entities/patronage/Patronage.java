@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -18,6 +19,7 @@ import org.hibernate.validator.constraints.URL;
 import acme.framework.datatypes.Money;
 import acme.framework.entities.AbstractEntity;
 import acme.roles.Inventor;
+import acme.roles.Patron;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,10 +34,12 @@ public class Patronage extends AbstractEntity{
 	
 	// Attributes
 	
+	@NotNull
 	protected Status status;
 	
+	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp="^[A-Z]{3}-[0-9]{3}(-[A-Z])?$")
+	@Pattern(regexp="^[A-Z]{3}-[0-9]{3}(-[A-Z])?$", message = "Por favor, inserte un código que siga el patrón: 3 letras - 3 números")
 	private String code;
 	
 	@NotBlank
@@ -43,33 +47,33 @@ public class Patronage extends AbstractEntity{
 	private String legislation;
 	
 	@NotNull
-	//TODO positive is not enough for this and since a complex constraint is needed we will wait until unit 4 for its implementation
 	private Money budget;
 	
+	@NotNull
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date creationDate;
 	
-	//TODO at least one month after its creation
+	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date startDate;
 	
-	//TODO at least one month after its start
+	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date finishDate;
 	
 	@URL
-	private String link;
-	
+	private String link;	
 	
 	// Relationships --------------------------------------------------------------------
 	
-	/*
-	@OneToMany (dont use this)
-	private Report report;
-	 */
+	@ManyToOne(optional=false)
+	@Valid
+	@NotNull
+	private Patron patron;
 	
-	@ManyToOne
+	@ManyToOne(optional=false)
+	@Valid
 	@NotNull
 	private Inventor inventor;
 }

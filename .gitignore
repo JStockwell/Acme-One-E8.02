@@ -30,3 +30,16 @@ mvnw
 
 mvnw\.cmd
 /bin/
+
+./logs
+*.log
+logs/populator.log
+logs/application.log
+*.log
+/.apt_generated_tests/
+*.log
+logs/application.log
+logs/performance-requests.csv
+logs/performance-tests.csv
+logs/populator.log
+logs/testing.log

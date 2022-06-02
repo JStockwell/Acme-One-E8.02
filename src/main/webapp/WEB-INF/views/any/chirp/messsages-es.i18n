@@ -1,5 +1,7 @@
-chirp.moment=moment
-chirp.title=title
-chirp.autor=autor
-chirp.body=body
-chirp.mail=mail
+chirp.moment=Momento
+chirp.title=Título
+chirp.author=Autor
+chirp.body=Cuerpo
+chirp.mail=Mail
+chirp.button.create=Crear
+chirp.announcement.form.label.confirmation=Confirmar

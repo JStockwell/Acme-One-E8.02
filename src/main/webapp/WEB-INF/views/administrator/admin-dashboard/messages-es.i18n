@@ -1,0 +1,26 @@
+administrator.admin-darshboard.form.title = Tablero de Administrador
+
+administrator.admin-dashboard.form.total-components = Número total de componentes
+administrator.admin-dashboard.form.price-components-tech = Precio medio de los componentes por tecnología
+administrator.admin-dashboard.form.price-components = Precio medio de los componentes
+administrator.admin-dashboard.form.deviation-components-tech = Desviación del precio de los componentes por tecnología
+administrator.admin-dashboard.form.deviation-components = Desviación del precio de los componentes
+administrator.admin-dashboard.form.minimum-components-tech = Precio mínimo de los componentes por tecnología
+administrator.admin-dashboard.form.minimum-components = Precio mínimo de los componentes
+administrator.admin-dashboard.form.maximum-components-tech = Precio máximo de los componentes por tecnología
+administrator.admin-dashboard.form.maximum-components = Precio máximo de los componentes
+
+administrator.admin-dashboard.form.tools-total = Número total de herramientas
+administrator.admin-dashboard.form.average-tools = Media del precio de las herramientas
+administrator.admin-dashboard.form.deviation-tools = Desviación del precio de las herramientas
+administrator.admin-dashboard.form.minimum-tools = Mínima del precio de las herramientas
+administrator.admin-dashboard.form.maximum-tools = Máxima del precio de las herramientas
+
+administrator.admin-dashboard.form.patronages-total = Número total de patrocinios por estado
+administrator.admin-dashboard.form.proposed = Propuesto
+administrator.admin-dashboard.form.accepted = Aceptado
+administrator.admin-dashboard.form.denied = Denegado
+administrator.admin-dashboard.form.average-patronages = Presupuesto medio por estado de los patrocinios
+administrator.admin-dashboard.form.deviation-patronages = Desviación de presupuesto por estado de los patrocinios
+administrator.admin-dashboard.form.minimum-patronages = Presupuesto mínimo por estado de los patrocinios
+administrator.admin-dashboard.form.maximum-patronages = Presupuesto máximo por estado de los patrocinios
