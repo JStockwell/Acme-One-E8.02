@@ -33,23 +33,20 @@ public class SystemConfiguration extends AbstractEntity {
 	@Pattern(regexp = "\\p{L}{3}")
 	protected String defaultCurrency;
 	
-	// TODO Quitar el primer +
 	@NotBlank
-	@Pattern(regexp = "([\\p{L}]{3}+)(, ?[\\p{L}]{3}+)*")
+	@Pattern(regexp = "([\\p{L}]{3})(, ?[\\p{L}]{3}+)*")
 	protected String acceptedCurrencies;
 	
-	// TODO Añadir los numeros
 	@NotBlank
-	@Pattern(regexp = "([\\p{L} ’-]+)(, ?[\\p{L} ’-]+)*")
+	@Pattern(regexp = "([\\p{L}\\p{N} ’-]+)(, ?[\\p{L}\\p{N} ’-]+)*")
 	protected String strongSpamTerms;
 	
 	@NotNull
 	@Range(min = 0, max = 1)
 	protected double strongThreshold;
 	
-	// TODO Añadir los numeros
 	@NotBlank
-	@Pattern(regexp = "([\\p{L} ’-]+)(, ?[\\p{L} ’-]+)*")
+	@Pattern(regexp = "([\\p{L}\\p{N} ’-]+)(, ?[\\p{L}\\p{N} ’-]+)*")
 	protected String weakSpamTerms;
 	
 	@NotNull
