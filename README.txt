@@ -13,6 +13,8 @@ who have enroled the Design and Testing subject of the Software Engineering curr
 University of Sevilla.  This project helps them start working on their new information system 
 projects.
 
+Due to incompatibility issues, the main project has not been able to be merged into Master and thus the main branch is release-v1.
+
 
 Some of the patrons and inventors (users) inventor 6, inventor 8, inventor 9, patron 6, patron 8 and patron 9, have the attribute enabled as false as it was one of the issues in the project backlog
 
