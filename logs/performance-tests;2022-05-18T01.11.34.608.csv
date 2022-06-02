@@ -1,4 +1,0 @@
-timestamp,test-class,test-method,time,description,result
-"2022-05-18 01:10:57.741","acme.testing.inventor.item.InventorItemCreationTest","positiveTest",6532,""[1] recordIndex=0, name=zzzzzza, description=aaaaaa, code=GOS-001, technology=cool, price=EUR 45.00, link=null, itemType=COMPONENT"","Expected value 'zzzzzza' in attribute 0 of record 0, but found 'Design care night anyone stand. Main road great clearly.'"
-"2022-05-18 01:11:05.139","acme.testing.inventor.item.InventorItemCreationTest","negativeTest",7122,""[1] recordIndex=0, name=null, description=null, code=null, technology=null, price=null, link=null, itemType=COMPONENT"","OK"
-"2022-05-18 01:11:12.046","acme.testing.inventor.item.InventorItemCreationTest","negativeTest",6703,""[2] recordIndex=1, name=aa, description=aa, code=GOS-001, technology=aa, price=12 EUR, link=null, itemType=TOOL"","OK"

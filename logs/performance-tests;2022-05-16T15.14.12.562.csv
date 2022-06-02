@@ -1,2 +1,0 @@
-timestamp,test-class,test-method,time,description,result
-"2022-05-14 12:36:41.706","acme.testing.inventor.item.InventorItemDeleteTest","positiveTest",11463,""[1] recordIndex=0, name=aaaaaa, description=aaaaaa, code=GOS-001, technology=cool, price=EUR 45.00, link=null, itemType=COMPONENT"","OK"
