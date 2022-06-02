@@ -32,7 +32,7 @@ public class Chimpum extends AbstractEntity{
 
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp="^[A-Z]{3}-[0-9]{3}(-[A-Z])?$") //copied from item
+	@Pattern(regexp="^\\d{2}-\\d{2}-\\d{2}$") //copied from item
 	// el patron es /^\w{3}-yy:\d{1,2}:mm:dd$
 	// XXX-22:00:05:31 sería un código válido hoy
 	// ABC-22:0:05:31 sería otro código válido hoy
@@ -70,7 +70,7 @@ public class Chimpum extends AbstractEntity{
 	@URL
 	private String link;
 	
-	@OneToOne(optional=true) //one to one optional false as the relation is convulsory
+	@OneToOne(optional=false) //one to one optional false as the relation is convulsory
 	@Valid
 	@NotNull
 	private Item item;

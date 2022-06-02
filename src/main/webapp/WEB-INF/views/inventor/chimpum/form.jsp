@@ -13,10 +13,8 @@
 	<acme:input-moment code="chimpum.finishDate" path="finishDate"/>
 	<acme:input-money code="chimpum.budget" path="budget"/>
 	<acme:input-url code="chimpum.link" path="link" placeholder="chimpum.link"/>
-	
-<!--  	<acme:input-textbox code="item.name" path="itemName"/> 
-	
-	<acme:input-textbox code="inventor.name" path="inventorName"/> -->
+  	<acme:input-textbox code="item.name" path="itemName"/> 
+	<acme:input-textbox code="inventor.name" path="inventorName"/>
 	
 </jstl:if>
 
