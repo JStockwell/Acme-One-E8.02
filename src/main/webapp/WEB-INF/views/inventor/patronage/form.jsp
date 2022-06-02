@@ -14,8 +14,11 @@
 	<acme:input-textbox code="patronage.patronCompany" path="patronCompany"/>
 	<acme:input-textbox code="patronage.patronStatement" path="patronStatement"/>
 	<acme:input-textbox code="patronage.patronLink" path="patronLink"/>
+<<<<<<< Updated upstream
 
 <acme:button code="patronageReport.button.create" action="/inventor/patronage-report/create"/>
+=======
+>>>>>>> Stashed changes
 	
 	<jstl:if test="${status != 'Proposed'}">
 		<acme:input-textbox code="patronage.status" path="status" readonly="true"/>
