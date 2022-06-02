@@ -17,6 +17,6 @@ projects.
 Some of the patrons and inventors (users) inventor 6, inventor 8, inventor 9, patron 6, patron 8 and patron 9, have the attribute enabled as false as it was one of the issues in the project backlog
 
 
-inventors used for tests inventor 1, inventor 7 and inventor 8
+Inventors used for tests inventor 1, inventor 7 and inventor 8
 
-patrons used for tests patron 1
+Patrons used for tests patron 1
