@@ -25,8 +25,7 @@ public class InventorItemShowService implements AbstractShowService<Inventor,Ite
 		
 		itemId = request.getModel().getInteger("id");
 		item = this.repository.findOneItemById(itemId);
-		// TODO Quitar el item.isDraft()
-		res = item != null && (!item.isDraft() || (item.isDraft() && request.isPrincipal(item.getInventor())));
+		res = item != null && (!item.isDraft() || request.isPrincipal(item.getInventor()));
 		
 		return res;
 	}
