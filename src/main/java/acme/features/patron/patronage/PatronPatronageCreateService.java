@@ -59,7 +59,7 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		patron = this.repository.findOnePatronById(request.getPrincipal().getActiveRoleId());
 
 		res = new Patronage();
-		res.setStatus(Status.Draft);
+		res.setStatus(Status.DRAFT);
 		res.setCreationDate(creationDate);
 		res.setPatron(patron);
 		

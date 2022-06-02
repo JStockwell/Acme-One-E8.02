@@ -32,7 +32,7 @@ public class PatronPatronagePublishService implements AbstractUpdateService<Patr
 		id = request.getModel().getInteger("id");
 		patronage = this.repository.findOnePatronageById(id);
 		patron = patronage.getPatron();
-		res = patronage.getStatus().equals(Status.Draft) && request.isPrincipal(patron);
+		res = patronage.getStatus().equals(Status.DRAFT) && request.isPrincipal(patron);
 		
 		return res;
 	}
@@ -88,7 +88,7 @@ public class PatronPatronagePublishService implements AbstractUpdateService<Patr
 		assert request != null;
 		assert entity != null;
 
-		entity.setStatus(Status.Proposed);
+		entity.setStatus(Status.PROPOSED);
 		this.repository.save(entity);
 	}
 
