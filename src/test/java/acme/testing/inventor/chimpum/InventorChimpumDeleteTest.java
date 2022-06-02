@@ -15,7 +15,7 @@ public class InventorChimpumDeleteTest extends TestHarness {
 	@Order(10)
 	public void positiveTest(final int recordIndex, final String code, final String title, final String description, final String startDate, final String finishDate, final String budget, final String link, final String itemId) {
 
-		super.signIn("inventor1", "inventor1");
+		super.signIn("inventor3", "inventor3");
 
 		super.clickOnMenu("Inventor", "My chimpums");
 		super.clickOnButton("Create");
