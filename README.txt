@@ -12,3 +12,5 @@ This is a starter project.  It is intended to be a core learning asset for the s
 who have enroled the Design and Testing subject of the Software Engineering curriculum of the 
 University of Sevilla.  This project helps them start working on their new information system 
 projects.
+
+Due to incompatibility issues, the main project has not been able to be merged into Master and thus the main branch is release-v1.
