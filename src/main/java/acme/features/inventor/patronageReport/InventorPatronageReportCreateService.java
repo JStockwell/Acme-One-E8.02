@@ -1,6 +1,7 @@
 package acme.features.inventor.patronageReport;
 
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,9 +82,12 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
 		Calendar calendar;
 		Patronage patronage;
 		Integer masterId;
+		Collection<PatronageReport> patronageReports;
+		String patronageCode;
 		
 		masterId = request.getModel().getInteger("patronageId");
 		patronage = this.patronageRepository.findPatronageById(masterId);
+		patronageReports = this.repository.findAllPatronageReportByPatronage(patronage.getId());
 		
 		moment = new Date();
 		calendar = Calendar.getInstance();
@@ -91,11 +95,20 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
 		calendar.add(Calendar.SECOND, -1);
 		moment = calendar.getTime();
 
+		final StringBuilder bld = new StringBuilder();
+		bld.append(String.valueOf(patronageReports.size()));
+		while(bld.length() < 4) {
+			bld.insert(0, 0);
+		}
+		patronageCode = patronage.getCode() + ":" + bld.toString();
+
+
 		result = new PatronageReport();
 		result.setMemorandum("");
 		result.setLink("");
 		result.setPatronage(patronage);
 		result.setCreation(moment);
+		result.setCode(patronageCode);
 
 		return result;
 	}
