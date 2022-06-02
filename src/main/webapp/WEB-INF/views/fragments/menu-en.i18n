@@ -29,6 +29,7 @@ master.menu.administrator.announcement.create=Create announcement
 # master.menu.any ####################################################
 
 master.menu.any=Any
+master.menu.chimpumDashboard = Chimpum Dashboard
 
 # master.menu.authenticated ###################################################
 

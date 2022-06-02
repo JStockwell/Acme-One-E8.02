@@ -27,6 +27,7 @@
 			<acme:menu-suboption code="master.menu.user-account.list" action="/any/user-account/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.lists.chirp.create" action="/any/chirp/create"/>
+			<acme:menu-suboption code="master.menu.chimpumDashboard" action="/any/chimpum-dashboard/show"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">

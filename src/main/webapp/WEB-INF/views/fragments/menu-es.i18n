@@ -29,6 +29,7 @@ master.menu.administrator.announcement.create=Crear anuncio
 # master.menu.any ####################################################
 
 master.menu.any=Todos
+master.menu.chimpumDashboard = Tablero de Chimpums
 
 # master.menu.authenticated ###################################################
 
