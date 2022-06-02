@@ -41,8 +41,6 @@
 			<acme:menu-suboption code="master.menu.create.toolkit" action="/inventor/toolkit/create"/>
 			<acme:menu-suboption code="master.menu.inventor.item.create" action="/inventor/item/create"/>
 			<acme:menu-suboption code="master.menu.inventor.quantity.create" action="/inventor/quantity/create"/>
-			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.lists.chimpum" action="/inventor/chimpum/list"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">
@@ -52,7 +50,7 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
-			<acme:menu-suboption code="master.menu.anonymous.ferclavar-favourite-link" action="http://www.example.com/"/>
+			<acme:menu-suboption code="master.menu.anonymous.ferclavar-favourite-link" action="https://www.youtube.com/shorts/GLY3-81TxDA"/>
 			<acme:menu-suboption code="master.menu.anonymous.greortsol-favourite-link" action="https://www.yamaha-motor.eu/es/es/products/motocicletas/hyper-naked/mt-07-2022/techspecs//"/>
 			<acme:menu-suboption code="master.menu.anonymous.pabsanval1-favourite-link" action="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
 			<acme:menu-suboption code="master.menu.anonymous.mancabmor1-favourite-link" action="https://www.youtube.com/watch?v=-3JbbFL-aks"/>

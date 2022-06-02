@@ -30,6 +30,11 @@ public class PatronageReport extends AbstractEntity{
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@NotBlank
+	@Column(unique = true)
+	@Pattern(regexp="^[A-Z]{3}-[0-9]{3}(-[A-Z])?:[0-9]{4}$")
+	private String code;
+	
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
@@ -46,10 +51,5 @@ public class PatronageReport extends AbstractEntity{
 	@Valid
 	@NotNull
 	protected Patronage patronage;
-
-	@NotBlank
-	@Column(unique = true)
-	@Pattern(regexp="^[A-Z]{3}-[0-9]{3}(-[A-Z])?:[0-9]{4}$")
-	private String code;
 
 }
