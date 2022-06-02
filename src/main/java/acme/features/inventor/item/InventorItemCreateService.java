@@ -34,7 +34,7 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 		assert entity != null;
 		assert errors != null;
 
-		this.validator.validateItem(request, entity, errors);
+		this.validator.validateItem(request, entity, errors,0);
 	}
 
 	@Override

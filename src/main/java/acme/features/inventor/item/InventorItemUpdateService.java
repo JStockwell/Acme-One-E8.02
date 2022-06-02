@@ -42,7 +42,7 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 		assert entity != null;
 		assert errors != null;
 
-		this.validator.validateItem(request, entity, errors);
+		this.validator.validateItem(request, entity, errors,1);
 	}
 
 	@Override
@@ -85,3 +85,4 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 	}
 
 }
+
