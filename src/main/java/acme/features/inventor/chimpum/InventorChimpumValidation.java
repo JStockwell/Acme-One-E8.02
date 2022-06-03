@@ -31,9 +31,9 @@ public class InventorChimpumValidation {
 		if(!errors.hasErrors("code")) {
 			final String code = entity.getCode();
 			final String[] splitter = code.split("-");
-			final Integer yy = Integer.valueOf(splitter[0]);
-			final Integer mm = Integer.valueOf(splitter[1]);
-			final Integer dd = Integer.valueOf(splitter[2]);
+			final Integer yy = Integer.valueOf(splitter[1]);
+			final Integer mm = Integer.valueOf(splitter[3]);
+			final Integer dd = Integer.valueOf(splitter[4]);
 			
 			final Calendar calendar = new GregorianCalendar();
 
