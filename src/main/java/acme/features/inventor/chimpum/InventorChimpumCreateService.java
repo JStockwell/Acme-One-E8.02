@@ -1,6 +1,8 @@
 package acme.features.inventor.chimpum;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -74,9 +76,24 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 		if (!errors.hasErrors("code")) {
 			Chimpum existing;
 			existing = this.repository.findChimpumByCode(entity.getCode());
+			
+			final String code = entity.getCode();
+			final String[] splitter = code.split("-");
+			final Integer yy = Integer.valueOf(splitter[1]);
+			final Integer mm = Integer.valueOf(splitter[3]);
+			final Integer dd = Integer.valueOf(splitter[4]);
+			
+			final Calendar calendar = new GregorianCalendar();
+
+			calendar.setTime(entity.getCreationMoment());
+			final Integer yyCreation = Calendar.getInstance().get(Calendar.YEAR)-2000;
+			final Integer mmCreation = Calendar.getInstance().get(Calendar.MONTH) + 1;
+			final Integer ddCreation = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+			
 			errors.state(request, existing == null, "code", "inventor.chimpum.code.duplicated"); //TODO replace for a jsp valid thingy
+			errors.state(request, yy.equals(yyCreation) && mm.equals(mmCreation) && dd.equals(ddCreation), "code", "inventor.chimpum.form.error.code-not-pattern");
 		}
-		
+			
 		this.validator.validateChimpum(request, entity, errors);
 	}
 

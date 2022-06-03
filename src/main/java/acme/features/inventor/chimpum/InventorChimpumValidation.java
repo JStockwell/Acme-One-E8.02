@@ -1,8 +1,6 @@
 package acme.features.inventor.chimpum;
 
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,23 +25,6 @@ public class InventorChimpumValidation {
 	protected TextValidator validator;
 	
 	public void validateChimpum(final Request<Chimpum> request, final Chimpum entity, final Errors errors) {
-		
-		if(!errors.hasErrors("code")) {
-			final String code = entity.getCode();
-			final String[] splitter = code.split("-");
-			final Integer yy = Integer.valueOf(splitter[1]);
-			final Integer mm = Integer.valueOf(splitter[3]);
-			final Integer dd = Integer.valueOf(splitter[4]);
-			
-			final Calendar calendar = new GregorianCalendar();
-
-			calendar.setTime(entity.getCreationMoment());
-			final Integer yyCreation = Calendar.getInstance().get(Calendar.YEAR)-2000;
-			final Integer mmCreation = Calendar.getInstance().get(Calendar.MONTH) + 1;
-			final Integer ddCreation = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-			
-			errors.state(request, yy.equals(yyCreation) && mm.equals(mmCreation) && dd.equals(ddCreation), "code", "inventor.chimpum.form.error.code-not-pattern");
-		}
 		
 		if(!errors.hasErrors("startDate")) {
 			final Date minimumStartDate = DateUtils.addMonths(entity.getCreationMoment(), 1);
