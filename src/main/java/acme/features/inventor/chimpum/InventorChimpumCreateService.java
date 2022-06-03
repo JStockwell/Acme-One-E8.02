@@ -3,11 +3,14 @@ package acme.features.inventor.chimpum;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.chimpum.Chimpum;
+import acme.entities.item.Item;
 import acme.features.inventor.item.InventorItemRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
@@ -49,9 +52,13 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-
+		
+		final Set<Item> all=new HashSet<>(this.repository.findAllItemsByInventor(request.getPrincipal().getActiveRoleId()));
+		final Set<Item> used=new HashSet<>(this.repository.findAllItemsByInventorIfUsed(request.getPrincipal().getActiveRoleId()));
+		all.removeAll(used);
+		
 		request.unbind(entity, model, "code", "creationMoment", "title", "description", "startDate", "finishDate", "budget", "link");
-		model.setAttribute("items", this.repository.findAllItemsByInventor(request.getPrincipal().getActiveRoleId()));
+		model.setAttribute("items", all);
 	}
 
 	@Override

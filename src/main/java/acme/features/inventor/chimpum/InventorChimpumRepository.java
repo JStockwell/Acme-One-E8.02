@@ -24,6 +24,9 @@ public interface InventorChimpumRepository extends AbstractRepository {
 	@Query("SELECT i FROM Item i WHERE i.id = :id")
 	Item findOneItemById(int id);
 	
-	@Query("SELECT i FROM Item i WHERE i.inventor.id = :id")
+	@Query("SELECT i FROM Item i WHERE i.inventor.id = :id and i.itemType = 0")
 	Collection<Item> findAllItemsByInventor(int id);
+	
+	@Query("SELECT c.item FROM Chimpum c WHERE c.item.inventor.id = :id")
+	Collection<Item> findAllItemsByInventorIfUsed(int id);
 }
