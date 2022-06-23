@@ -1,4 +1,4 @@
-package acme.features.inventor.chimpum;
+package acme.features.inventor.troque;
 
 import java.util.Date;
 
@@ -6,17 +6,17 @@ import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.chimpum.Chimpum;
+import acme.entities.troque.Troque;
 import acme.features.authenticated.systemConfiguration.AuthenticatedSystemConfigurationRepository;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
 import acme.utility.TextValidator;
 
 @Service
-public class InventorChimpumValidation {
+public class InventorTroqueValidation {
 	
 	@Autowired
-	protected InventorChimpumRepository repository;
+	protected InventorTroqueRepository repository;
 	
 	@Autowired
 	protected AuthenticatedSystemConfigurationRepository sysConfRepository;
@@ -24,7 +24,7 @@ public class InventorChimpumValidation {
 	@Autowired
 	protected TextValidator validator;
 	
-	public void validateChimpum(final Request<Chimpum> request, final Chimpum entity, final Errors errors) {
+	public void validateTroque(final Request<Troque> request, final Troque entity, final Errors errors) {
 		
 		if(!errors.hasErrors("startDate")) {
 			final Date minimumStartDate = DateUtils.addMonths(entity.getCreationMoment(), 1);
@@ -38,13 +38,13 @@ public class InventorChimpumValidation {
 			errors.state(request, entity.getFinishDate().after(minimumFinishDate), "finishDate", "inventor.chimpum.form.error.finishDate-too-close-to-startDate"); 
 		}
 		
-		if (!errors.hasErrors("budget")) {
-			final Double amount=entity.getBudget().getAmount();
-			final String currency=entity.getBudget().getCurrency();
+		if (!errors.hasErrors("quantity")) {
+			final Double amount=entity.getQuantity().getAmount();
+			final String currency=entity.getQuantity().getCurrency();
 			final String acceptedCurrencies=this.sysConfRepository.findSystemConfiguration().getAcceptedCurrencies();
 
-			errors.state(request, amount>0., "budget", "inventor.chimpum.form.error.negative-budget");
-			errors.state(request, acceptedCurrencies.contains(currency), "budget", "inventor.chimpum.form.error.wrongCurrency");
+			errors.state(request, amount>0., "quantity", "inventor.chimpum.form.error.negative-quantity");
+			errors.state(request, acceptedCurrencies.contains(currency), "quantity", "inventor.chimpum.form.error.wrongCurrency");
 		}
 	}
 

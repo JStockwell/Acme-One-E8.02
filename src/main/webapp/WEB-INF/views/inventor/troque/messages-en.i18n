@@ -1,0 +1,23 @@
+troque.code=Code
+troque.theme=theme
+troque.quantity=quantity
+troque.explanation=explanation
+troque.creationMoment=Creation Moment
+troque.startDate=Start Date
+troque.finishDate=Finish Date
+troque.moreInfo=moreInfo
+
+troque.button.create = Create
+troque.button.update = Update
+troque.button.delete = Delete
+
+inventor.troque.item.name = Item Name
+
+inventor.name = Inventor's Name
+
+inventor.troque.form.error.negative-quantity = You can not have a negative budget
+inventor.troque.form.error.startDate-too-close-to-creationDate = The start date has to be at least one month after the creation date  
+inventor.troque.form.error.finishDate-too-close-to-startDate = The finish date has to be at least one week after the start date
+inventor.troque.form.error.wrongCurrency = The currency is not allowed
+
+inventor.troque.code.duplicated=This code is already in use

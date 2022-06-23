@@ -1,0 +1,23 @@
+troque.code=Código
+troque.theme=tema
+troque.explanation=explicacion
+troque.quantity=cantidad
+troque.creationMoment=Momento de creación
+troque.startDate=Fecha de Inicio
+troque.finishDate=Fecha de finalización
+troque.moreInfo=mas info
+
+troque.button.create = Crear
+troque.button.update = Actualizar
+troque.button.delete = Eliminar
+
+inventor.troque.item.name = Nombre del objeto
+
+inventor.name = Nombre del Inventor
+
+inventor.troque.form.error.negative-quantity = No puede haber un cantidad negativo
+inventor.troque.form.error.startDate-too-close-to-creationDate = La fecha de inicio tiene que ser al menos un mes posterior a la de creación
+inventor.troque.form.error.finishDate-too-close-to-startDate = La fecha final tiene que ser al menos una semana posterior a la de inicio
+inventor.troque.form.error.wrongCurrency = Divisa no permitida
+
+inventor.troque.code.duplicated=Este código ya está en uso

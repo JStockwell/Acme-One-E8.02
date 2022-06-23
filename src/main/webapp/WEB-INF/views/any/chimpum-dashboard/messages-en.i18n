@@ -1,5 +1,5 @@
-any.chinpum-dashobard.ratio = Ratio chimpums per artefact
-any.chinpum-dashobard.average = Average budget of chimpums
-any.chinpum-dashobard.deviation = Budget deviation of chimpums
-any.chinpum-dashobard.minimum = Minimum budget of chimpums
-any.chinpum-dashobard.maximum = Maximum budget of chimpums
+any.troque-dashobard.ratio = Ratio troque per component
+any.troque-dashobard.average = Average quantity of troque
+any.troque-dashobard.deviation = quantity deviation of troque
+any.troque-dashobard.minimum = Minimum quantity of troque
+any.troque-dashobard.maximum = Maximum quantity of troque

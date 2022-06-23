@@ -1,4 +1,4 @@
-package acme.entities.chimpum;
+package acme.entities.troque;
 
 import java.util.Date;
 
@@ -26,13 +26,15 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Chimpum extends AbstractEntity{
+public class Troque extends AbstractEntity{
 	
 	private static final long serialVersionUID = 1L;
 
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp="^[A-Z]{3}-\\d{2}(-\\d{1,2}){3}$") //copied from item
+	@Pattern(regexp="^\\w{6}:\\d{2}\\d{2}:\\d{2}$")
+//	objetivo -> ^\\w{6}:mmyy:dd$
+//	^[A-Z]{3}-\\d{2}(-\\d{1,2}){3}$
 	// el patron es /^\w{3}-yy:\d{1,2}:mm:dd$
 	// XXX-22:00:05:31 sería un código válido hoy
 	// ABC-22:0:05:31 sería otro código válido hoy
@@ -48,11 +50,11 @@ public class Chimpum extends AbstractEntity{
 	
 	@NotBlank
 	@Length(max=100)
-	private String title;
+	private String theme;
 	
 	@NotBlank
 	@Length(max=255)
-	private String description;
+	private String explanation;
 	
 	//period is these 2 dates
 	
@@ -66,10 +68,10 @@ public class Chimpum extends AbstractEntity{
 	
 	@NotNull
 	@Valid
-	private Money budget;
+	private Money quantity;
 	
 	@URL
-	private String link;
+	private String moreInfo;
 	
 	@OneToOne(optional=false) //one to one optional false as the relation is convulsory
 	@Valid

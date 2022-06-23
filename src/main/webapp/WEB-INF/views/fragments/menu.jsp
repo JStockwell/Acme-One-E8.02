@@ -27,7 +27,7 @@
 			<acme:menu-suboption code="master.menu.user-account.list" action="/any/user-account/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.lists.chirp.create" action="/any/chirp/create"/>
-			<acme:menu-suboption code="master.menu.chimpumDashboard" action="/any/chimpum-dashboard/show"/>
+			<acme:menu-suboption code="master.menu.troqueDashboard" action="/any/troque-dashboard/show"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
@@ -43,7 +43,7 @@
 			<acme:menu-suboption code="master.menu.inventor.item.create" action="/inventor/item/create"/>
 			<acme:menu-suboption code="master.menu.inventor.quantity.create" action="/inventor/quantity/create"/>
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.lists.chimpum" action="/inventor/chimpum/list"/>
+			<acme:menu-suboption code="master.menu.lists.troque" action="/inventor/troque/list"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">

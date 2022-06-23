@@ -1,4 +1,4 @@
-package acme.features.inventor.chimpum;
+package acme.features.inventor.troque;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -9,8 +9,8 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.chimpum.Chimpum;
 import acme.entities.item.Item;
+import acme.entities.troque.Troque;
 import acme.features.inventor.item.InventorItemRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
@@ -19,36 +19,36 @@ import acme.framework.services.AbstractCreateService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorChimpumCreateService implements AbstractCreateService<Inventor, Chimpum>{
+public class InventorTroqueCreateService implements AbstractCreateService<Inventor, Troque>{
 	
 	@Autowired
-	protected InventorChimpumRepository repository;
+	protected InventorTroqueRepository repository;
 	
 	@Autowired
-	protected InventorChimpumValidation validator;
+	protected InventorTroqueValidation validator;
 	
 	@Autowired
 	protected InventorItemRepository inventorRepository;
 
 	@Override
-	public boolean authorise(final Request<Chimpum> request) {
+	public boolean authorise(final Request<Troque> request) {
 		assert request != null;
 		
 		return true;
 	}
 
 	@Override
-	public void bind(final Request<Chimpum> request, final Chimpum entity, final Errors errors) {
+	public void bind(final Request<Troque> request, final Troque entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
 		
 		entity.setItem(this.repository.findOneItemById(request.getModel().getInteger("itemId")));
-		request.bind(entity, errors, "code", "title", "description", "startDate", "finishDate", "budget", "link");
+		request.bind(entity, errors, "code", "creationMoment","theme", "explanation", "startDate", "finishDate", "quantity", "moreInfo");
 	}
 
 	@Override
-	public void unbind(final Request<Chimpum> request, final Chimpum entity, final Model model) {
+	public void unbind(final Request<Troque> request, final Troque entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
@@ -57,38 +57,37 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 		final Set<Item> used=new HashSet<>(this.repository.findAllItemsByInventorIfUsed(request.getPrincipal().getActiveRoleId()));
 		all.removeAll(used);
 		
-		request.unbind(entity, model, "code", "creationMoment", "title", "description", "startDate", "finishDate", "budget", "link");
+		request.unbind(entity, model, "code", "creationMoment","theme", "explanation", "startDate", "finishDate", "quantity", "moreInfo");
 		model.setAttribute("items", all);
 	}
 
 	@Override
-	public Chimpum instantiate(final Request<Chimpum> request) {
+	public Troque instantiate(final Request<Troque> request) {
 		assert request != null;
 		
-		Chimpum res;
+		Troque res;
 		final Date creationDate = new Date(System.currentTimeMillis()-1);
 		
-		res = new Chimpum();
+		res = new Troque();
 		res.setCreationMoment(creationDate);
 		
 		return res;
 	}
 
 	@Override
-	public void validate(final Request<Chimpum> request, final Chimpum entity, final Errors errors) {
+	public void validate(final Request<Troque> request, final Troque entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
 		
 		if (!errors.hasErrors("code")) {
-			Chimpum existing;
-			existing = this.repository.findChimpumByCode(entity.getCode());
+			Troque existing;
+			existing = this.repository.findTroqueByCode(entity.getCode());
 			
 			final String code = entity.getCode();
-			final String[] splitter = code.split("-");
-			final Integer yy = Integer.valueOf(splitter[1]);
-			final Integer mm = Integer.valueOf(splitter[3]);
-			final Integer dd = Integer.valueOf(splitter[4]);
+			final String[] splitter = code.split(":");
+			final String mmyy = splitter[1];
+			final String dd = splitter[2];
 			
 			final Calendar calendar = new GregorianCalendar();
 
@@ -97,15 +96,18 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 			final Integer mmCreation = Calendar.getInstance().get(Calendar.MONTH) + 1;
 			final Integer ddCreation = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
 			
-			errors.state(request, existing == null, "code", "inventor.chimpum.code.duplicated"); //TODO replace for a jsp valid thingy
-			errors.state(request, yy.equals(yyCreation) && mm.equals(mmCreation) && dd.equals(ddCreation), "code", "inventor.chimpum.form.error.code-not-pattern");
+			final String mmyyCreationString = mmCreation.toString().concat(yyCreation.toString());
+			final String ddCreationString = ddCreation.toString();
+			
+			errors.state(request, existing == null, "code", "inventor.troque.code.duplicated"); //TODO replace for a jsp valid thingy
+			errors.state(request, mmyy.equals(mmyyCreationString) && dd.equals(ddCreationString), "code", "inventor.troque.form.error.code-not-pattern");
 		}
 			
-		this.validator.validateChimpum(request, entity, errors);
+		this.validator.validateTroque(request, entity, errors);
 	}
 
 	@Override
-	public void create(final Request<Chimpum> request, final Chimpum entity) {
+	public void create(final Request<Troque> request, final Troque entity) {
 		assert request != null;
 		assert entity != null;
 

@@ -1,31 +1,31 @@
-package acme.features.inventor.chimpum;
+package acme.features.inventor.troque;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import acme.entities.chimpum.Chimpum;
+import acme.entities.troque.Troque;
 import acme.framework.controllers.AbstractController;
 import acme.roles.Inventor;
 
 @Controller
-public class InventorChimpumController extends AbstractController<Inventor, Chimpum> {
+public class InventorTroqueController extends AbstractController<Inventor, Troque> {
 	
 	@Autowired
-	protected InventorChimpumShowService showService;
+	protected InventorTroqueShowService showService;
 	
 	@Autowired
-	protected InventorChimpumListService listService;
+	protected InventorTroqueListService listService;
 	
 	@Autowired
-	protected InventorChimpumCreateService createService;
+	protected InventorTroqueCreateService createService;
 	
 	@Autowired
-	protected InventorChimpumUpdateService updateService;
+	protected InventorTroqueUpdateService updateService;
 	
 	@Autowired
-	protected InventorChimpumDeleteService deleteService;
+	protected InventorTroqueDeleteService deleteService;
 
 	@PostConstruct
 	protected void initialise() {

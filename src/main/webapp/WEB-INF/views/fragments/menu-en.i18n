@@ -29,7 +29,7 @@ master.menu.administrator.announcement.create=Create announcement
 # master.menu.any ####################################################
 
 master.menu.any=Any
-master.menu.chimpumDashboard = Chimpum Dashboard
+master.menu.troqueDashboard = troque Dashboard
 
 # master.menu.authenticated ###################################################
 
@@ -41,7 +41,7 @@ master.menu.inventor =Inventor
 master.menu.inventor.myitems =My items
 master.menu.inventor.item.create=Create item
 
-master.menu.lists.chimpum=My chimpums
+master.menu.lists.troque=My troques
 
 # master.menu.patron ##########################################################
 
